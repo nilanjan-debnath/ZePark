@@ -1,20 +1,44 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSlice';
 
 export default function SignIn() {
 
   const [formData, setFormData] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const {loading, error} = useSelector((state) => state.user);
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.id]: e.target.value});
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+      dispatch(signInStart());
+      const res = await fetch("/api/auth/signin", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
+      const data = await res.json();
+      if(data.success === false){
+        dispatch(signInFailure(data.message));
+        return;
+      }
+      dispatch(signInSuccess(data));
+      navigate("/");
+    }catch(error){
+      dispatch(signInFailure(error.message));
+    }
   }
+
   return (
     <div className='flex justify-center items-center h-screen bg-[#C5FFF8]'>
       <div className="w-[28rem] p-4 rounded-3xl shadow-2xl bg-white">
@@ -34,7 +58,7 @@ export default function SignIn() {
           <p>Don't have an account?</p>
           <Link to='/sign-up' className='text-blue-500 font-semibold'>Sign Up</Link>
         </div>
-      {!error && (
+      {error && (
         <p className="text-red-600 text-sm font-semibold px-4 text-center">{error}</p>
       )}
       </div>
