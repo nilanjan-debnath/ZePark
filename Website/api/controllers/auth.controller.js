@@ -1,9 +1,12 @@
 import bcryptjs from "bcryptjs";
 import userModel from "../models/user.model.js";
+import { errorHandeler } from "../utils/error.js";
 
 export const signUp = async (req, res, next) => {
     const {username, email, password, contact} = req.body;
-    console.log(username, email, password, contact)
+    if(!username || !email || !password || !contact){
+        return next(errorHandeler(404, "Missing Credentials"));
+    }
     const hashedPassword = bcryptjs.hashSync(password, 10);
     const newUser = new userModel({username, email, password: hashedPassword, contact});
     try{
