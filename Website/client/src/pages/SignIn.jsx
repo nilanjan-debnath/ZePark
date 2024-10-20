@@ -17,6 +17,7 @@ export default function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try{
       dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
@@ -33,7 +34,7 @@ export default function SignIn() {
         return;
       }
       dispatch(signInSuccess(data));
-      navigate("/");
+      navigate("/home-map");
     }catch(error){
       dispatch(signInFailure(error.message));
     }

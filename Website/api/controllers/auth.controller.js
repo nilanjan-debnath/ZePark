@@ -30,7 +30,7 @@ export const signIn = async (req, res, next) => {
         if(!validPassword) return next(errorHandeler(401, "Wrong Credentials"));
         const token = jwt.sign({_id: validUser._id, email: validUser.email, username: validUser.username, contact: validUser.contact, avatar: validUser.avatar}, process.env.JWT_SECRECT);
         const {password: pass, ...rest} = validUser._doc;
-        res.cookie('access_token', token, {httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000}).status(200).json(rest);
+        res.cookie('zepark_token', token, {httpOnly: true, maxAge: 7 * 24 * 60 * 60 * 1000}).status(200).json(rest);
     }catch(error){
         next(error);
     }
