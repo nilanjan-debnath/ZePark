@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+/* define leaflet container size */
+.leaflet-container{
+    height: 100vh;
+    width: 100%;
+}
