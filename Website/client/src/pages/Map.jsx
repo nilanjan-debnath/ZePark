@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, CircleMarker, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import L from "leaflet";
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-routing-machine';
 
 import ChangeView from '../components/ChangeView';
+import Routing from '../components/Routing';
 
 export default function Map() {
 
@@ -74,6 +74,11 @@ export default function Map() {
             </Popup>
           </Marker>
         )
+      )}
+
+      {destinationData && (
+        // <Routing lat={lat} lon={lon} destinationData={destinationData} />
+        <Routing lat={22.5744} lon={88.3629} destinationData={destinationData} />
       )}
     </MapContainer>
   )
