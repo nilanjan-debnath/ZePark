@@ -20,7 +20,7 @@ export default function Routing({ lat, lon, destinationData}) {
                 ],
                 routeWhileDragging: true,
                 lineOptions: {
-                    styles: [{ color: 'blue', weight: 4 }]
+                    styles: [{ color: '#6495ED', weight: 4 }]
                 },
                 createMarker: () => null,
                 addWaypoints: false,
