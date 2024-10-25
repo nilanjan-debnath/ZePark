@@ -11,6 +11,7 @@ import markerImage from "/images/marker logo.png";
 import startImage from "/images/start logo.png";
 import { RiPinDistanceFill } from "react-icons/ri";
 import { CgMathEqual } from "react-icons/cg";
+import MapHeading from '../components/MapHeading';
 
 export default function Map() {
 
@@ -55,7 +56,9 @@ export default function Map() {
   }, []);
 
   if (!lat || !lon) {
-    return <h1>Loading...</h1>;
+    return <div className="w-full h-screen flex justify-center items-center bg-[#D0B8A8]">
+      <div className="border-8 border-t-8 border-t-white border-gray-300 rounded-full w-20 h-20 animate-spin"></div>
+    </div>;
   }
 
   const setDestination = (name, lat, lon) => {
@@ -65,7 +68,8 @@ export default function Map() {
 
   return (
     <div className='w-full h-screen relative overflow-hidden'>
-      <MapContainer center={[22.5744, 88.3629]} zoom={14} scrollWheelZoom={false} className='z-0'>
+      <MapHeading />
+      <MapContainer center={[22.5744, 88.3629]} zoom={14} scrollWheelZoom={true} zoomControl={false} className='z-0'>
         <TileLayer attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
           url="https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=xpL7wNLWmyhEZZoEtLXq" />
 

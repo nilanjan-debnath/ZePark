@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div>
-      this is home page
+    <div className='w-full h-screen relative'>
+      this is the home page
     </div>
   )
 }
