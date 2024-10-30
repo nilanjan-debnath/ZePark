@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
+import parkingRouter from "./routes/parkingListing.route.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.listen(3000, () => {
 // created routers
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/parking", parkingRouter);
 
 
 app.use((err, req, res, next) => {
