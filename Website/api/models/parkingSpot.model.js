@@ -12,7 +12,6 @@ const parkingSpotSchema = new mongoose.Schema({
     },
     contact: {
         type: String,
-        unique: true,
         required: true
     },
     rating: [{

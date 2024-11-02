@@ -57,8 +57,8 @@ export default function Map() {
 
   if (!lat || !lon) {
     return <div className="w-full h-screen flex justify-center items-center bg-[#D0B8A8]">
-      <div className="border-8 border-t-8 border-t-white border-gray-300 rounded-full w-20 h-20 animate-spin"></div>
-    </div>;
+      <div className="border-8 border-t-8 border-t-white border-gray-300 rounded-full w-16 h-16 animate-spin"></div>
+    </div>
   }
 
   const setDestination = (name, lat, lon) => {
