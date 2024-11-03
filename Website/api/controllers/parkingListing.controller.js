@@ -51,4 +51,14 @@ export const spotDetails = async (req, res, next) => {
     }catch(error){
         next(error);
     }
+};
+
+export const allSpotData = async (req, res, next) => {
+    try{
+        const allParkingSpot = await ParkingSpotModel.find().populate("pricing");
+        if(!allParkingSpot) return next(errorHandeler(404, "No Parking Spot available"));
+        return res.status(200).json(allParkingSpot);
+    }catch(error){
+        next(error);
+    }
 }
