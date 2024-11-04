@@ -8,6 +8,7 @@ import Map from './pages/Map';
 import PrivateRoute from './components/PrivateRoute';
 import AddSpot from './pages/AddSpot';
 import AddPricing from './pages/AddPricing';
+import Profile from './pages/Profile';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path='/home-map' element={<Map />}/>
           <Route path='/add-spot' element={<AddSpot />}/>
           <Route path='/add-pricing/:spotId' element={<AddPricing />}/>
+          <Route path='/profile' element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
