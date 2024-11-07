@@ -9,6 +9,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AddSpot from './pages/AddSpot';
 import AddPricing from './pages/AddPricing';
 import Profile from './pages/Profile';
+import BookingHistory from './pages/BookingHistory';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path='/add-spot' element={<AddSpot />}/>
           <Route path='/add-pricing/:spotId' element={<AddPricing />}/>
           <Route path='/profile' element={<Profile />} />
+          <Route path='/booking-history' element={<BookingHistory />} />
         </Route>
       </Routes>
     </BrowserRouter>
