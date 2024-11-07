@@ -5,10 +5,31 @@ import { FaPencilAlt, FaHistory, FaUserShield, FaQuestionCircle,FaPowerOff } fro
 import { IoWalletSharp, IoCarSport } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signOutFailure, signOutStart, signOutSuccess } from '../redux/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
 
     const { currentUser } = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try{
+            dispatch(signOutStart());
+            const res = await fetch("/api/auth/logout");
+            const data = await res.json();
+            if(data.success === false){
+                dispatch(signOutFailure(data.message));
+                return;
+            }
+            dispatch(signOutSuccess());
+            navigate("/sign-in");
+        }catch(error){
+            dispatch(signOutFailure(error.message));
+        }
+    };
 
     return (
         <>
@@ -61,13 +82,13 @@ export default function Profile() {
                                 </div>
                                 <IoIosArrowForward className='text-3xl'/>
                             </div>
-                            <div className="w-full pl-8 pr-4 py-3 flex items-center justify-between rounded-full bg-[#DFD3C3]">
+                            <button onClick={handleLogout} className="w-full pl-8 pr-4 py-3 flex items-center justify-between rounded-full bg-[#DFD3C3]">
                                 <div className="flex gap-8 items-center text-lg">
                                 <FaPowerOff className='text-2xl'/>
                                 Logout
                                 </div>
                                 <IoIosArrowForward className='text-3xl'/>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
