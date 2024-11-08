@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function BookingHistory() {
     return (
         <div className='w-full min-h-screen bg-[#F8EDE3]'>
-            <div className="nav p-4 h-20 flex items-center sm:h-24 relative">
+            <div className="nav p-4 h-20 flex items-center sm:h-24 relative sm:px-8">
                 <Link to='/profile'><FaArrowLeftLong className='text-3xl' />
                 </Link>
                 <h1 className='text-2xl font-semibold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>Booking History</h1>
@@ -13,7 +13,7 @@ export default function BookingHistory() {
 
             <div className="flex flex-col items-center gap-4 p-2">
                 <div className="bg-[#D0B8A8] px-8 py-4 rounded-xl flex flex-col gap-2">
-                    <h2 className='text-xl border-b-2 border-black pb-2 w-full'>Current Booking</h2>
+                    <h2 className='text-xl border-b-2 border-black pb-2 w-full font-semibold'>Current Booking</h2>
                     <div className="flex items-center justify-between text-2xl font-semibold">
                         <h2>V-Mart Mall parking</h2>
                         <FaLocationArrow className='text-3xl text-[#C5705D]' />

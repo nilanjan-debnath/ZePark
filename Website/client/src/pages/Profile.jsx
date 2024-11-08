@@ -36,7 +36,7 @@ export default function Profile() {
         <>
             {currentUser &&
                 <div className='w-full bg-[#F8EDE3]'>
-                    <div className="nav px-4 h-12 flex items-center sm:h-16">
+                    <div className="nav px-4 h-12 flex items-center sm:h-16 sm:px-8">
                         <Link to='/home-map'><FaArrowLeftLong className='text-3xl' />
                         </Link>
                     </div>
