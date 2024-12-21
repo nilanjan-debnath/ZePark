@@ -1,4 +1,5 @@
 import cv2
+import time
 import queue
 import cvzone
 import datetime
@@ -27,6 +28,7 @@ ui_update_queue = queue.Queue()
 update_data_queue = queue.Queue()
 fetch_firebase_queue = queue.Queue()
 firebase_update_queue = queue.Queue()
+count_update_queue = queue.Queue()
 
 # Fetch data from Firebase
 grid = firebase_data.get_grid_details()
@@ -79,6 +81,7 @@ def update_data(n: int, i: int, data: dict = None):
     ui_update_queue.put(n)
     if i != 1:
         firebase_update_queue.put((n, parkings[n]))
+        count_update_queue.put(slot_counts[0])
 
 def fetch_firebase():
     update = firebase_data.get_parking_details()
@@ -99,6 +102,12 @@ def ui_update_worker():
         ui_update(item)
         ui_update_queue.task_done()
 
+def count_update_worker():
+    while True:
+        item = count_update_queue.get()
+        firebase_data.update_spot_count(item)
+        count_update_queue.task_done()
+
 def firebase_update_worker():
     while True:
         item = firebase_update_queue.get()
@@ -110,6 +119,7 @@ def update_data_worker():
         item = update_data_queue.get()
         update_data(*item)
         update_data_queue.task_done()
+
 
 def fetch_firebase_worker():
     while True:
@@ -238,6 +248,8 @@ class ParkDetails(ctk.CTkScrollableFrame):
         editbt.grid(row=i["slot_no"], column=7, padx=10, sticky="W")
         edit_buttons.append(editbt)
 
+t = time.time()
+
 class MyTabView(ctk.CTkTabview):
     def __init__(self, master, **kwargs):
         super().__init__(master, height=700, width=1260, **kwargs)
@@ -275,20 +287,20 @@ class MyTabView(ctk.CTkTabview):
         self.canvas_cctv = ctk.CTkCanvas(master=self.tab("CCTV"), width=1530, height=790)
         self.canvas_cctv.grid(row=0, column=0, padx=10, pady=10)
 
-        self.cap = cv2.VideoCapture("video6.mp4")  # Video
-        # self.cap = cv2.VideoCapture("video69.mp4")  # Video
+        # self.cap = cv2.VideoCapture("video6.mp4")  # Video
+        self.cap = cv2.VideoCapture("video69.mp4")  # Video
         ret, frame = self.cap.read()
         if not ret:
             print("Error: Unable to capture initial frame from the camera.")
             self.cap.release()
 
     def checking_parking_space(self, imgPro):
-        # slot 6
-        width = 200
-        height = 50
+        # # slot 6
+        # width = 200
+        # height = 50
         # slot 69
-        # width = 106
-        # height = 48
+        width = 106
+        height = 48
         for i, pos in enumerate(posList):
             x, y = pos
             slot_number = i
@@ -315,6 +327,7 @@ class MyTabView(ctk.CTkTabview):
         fetch_firebase_queue.put((True))
 
     def update(self):
+        global t
         if self.cap.get(cv2.CAP_PROP_POS_FRAMES) == self.cap.get(cv2.CAP_PROP_FRAME_COUNT):
             self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
         ret, frame = self.cap.read()
@@ -323,12 +336,12 @@ class MyTabView(ctk.CTkTabview):
         self.frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         original_height, original_width, _ = frame.shape
         ratio = (original_width / original_height)
-        # slot 6
-        new_height = 1280
-        new_width = 720
-        # slot 69
-        # new_height = 1100
+        # # slot 6
+        # new_height = 1280
         # new_width = 720
+        # # slot 69
+        new_height = 1100
+        new_width = 720
         self.frame = cv2.resize(self.frame, (new_height, new_width))
         imgGray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
         imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
@@ -337,6 +350,9 @@ class MyTabView(ctk.CTkTabview):
         kernel = np.ones((3, 3), np.uint8)
         imgDilate = cv2.dilate(imgMedian, kernel, iterations=1)
         self.checking_parking_space(imgDilate)
+        # if time.time()-t > 2:
+        #     self.checking_parking_space(imgDilate)
+        #     t = time.time()
         img = Image.fromarray(self.frame)
         self.photo = ImageTk.PhotoImage(image=img)
         self.canvas_cctv.create_image(5, 5, image=self.photo, anchor="nw")
@@ -357,6 +373,7 @@ app = App()
 threading.Thread(target=ui_update_worker, daemon=True).start()
 threading.Thread(target=update_data_worker, daemon=True).start()
 threading.Thread(target=fetch_firebase_worker, daemon=True).start()
+threading.Thread(target=count_update_worker, daemon=True).start()
 threading.Thread(target=firebase_update_worker, daemon=True).start()
 
 app.mainloop()
