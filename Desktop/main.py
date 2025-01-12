@@ -328,6 +328,7 @@ class MyTabView(ctk.CTkTabview):
 
     def update(self):
         global t
+        # by checking the current frame count with total frames count, repeating the video
         if self.cap.get(cv2.CAP_PROP_POS_FRAMES) == self.cap.get(cv2.CAP_PROP_FRAME_COUNT):
             self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
         ret, frame = self.cap.read()
