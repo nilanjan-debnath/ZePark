@@ -360,7 +360,7 @@ class MyTabView(ctk.CTkTabview):
             thickness=5,
             offset=20,
         )
-        fetch_firebase_queue.put((True))
+        fetch_firebase_queue.put(True)
 
     def update(self):
         global t
