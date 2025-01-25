@@ -11,4 +11,10 @@ dependencies = [
     "numpy>=2.2.1",
     "opencv-python>=4.10.0.84",
     "pillow>=11.1.0",
+    "pyside6>=6.8.1.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.3",
 ]
