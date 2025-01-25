@@ -1,5 +1,13 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QVBoxLayout, QLabel
-from PySide6.QtCore import QFile, QTextStream, Qt
+from PySide6.QtWidgets import (
+    QApplication,
+    QMainWindow,
+    QTabWidget,
+    QWidget,
+    QVBoxLayout,
+    QLabel,
+)
+from PySide6.QtCore import Qt
+from tab3.main import Tab3Content
 
 
 class MainWindow(QMainWindow):
@@ -18,7 +26,7 @@ class MainWindow(QMainWindow):
         # Create tabs
         self.tab1 = QWidget()
         self.tab2 = QWidget()
-        self.tab3 = QWidget()
+        self.tab3 = Tab3Content()
 
         # Set up tab1 content
         tab1_layout = QVBoxLayout()
@@ -34,17 +42,13 @@ class MainWindow(QMainWindow):
         tab2_layout.addWidget(tab2_label)
         self.tab2.setLayout(tab2_layout)
 
-        # Set up tab3 content
-        tab3_layout = QVBoxLayout()
-        tab3_label = QLabel("This is Tab 3")
-        tab3_label.setAlignment(Qt.AlignCenter)
-        tab3_layout.addWidget(tab3_label)
-        self.tab3.setLayout(tab3_layout)
-
         # Add tabs to the QTabWidget
-        self.tab_widget.addTab(self.tab1, "Tab 1")
-        self.tab_widget.addTab(self.tab2, "Tab 2")
-        self.tab_widget.addTab(self.tab3, "Tab 3")
+        self.tab_widget.addTab(self.tab1, "Dashboard")
+        self.tab_widget.addTab(self.tab2, "CCTV")
+        self.tab_widget.addTab(self.tab3, "Area Selector")
+
+        # Set Tab 3 as the default tab
+        self.tab_widget.setCurrentIndex(2)
 
         # Set the central widget
         self.setCentralWidget(self.tab_widget)

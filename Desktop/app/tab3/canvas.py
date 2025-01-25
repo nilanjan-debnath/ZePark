@@ -1,6 +1,6 @@
-from point import MousePointerItem
-from rectangle import RectangleItem
-from background import Background
+from tab3.point import MousePointerItem
+from tab3.rectangle import RectangleItem
+from tab3.background import Background
 import json
 from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QInputDialog
 from PySide6.QtGui import QPainter, QPen, QColor, QPixmap
