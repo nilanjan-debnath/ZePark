@@ -1,10 +1,12 @@
 from tab3.point import MousePointerItem
 from tab3.rectangle import RectangleItem
-from tab3.background import Background
+from tab3 import Background
 import json
 from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QInputDialog
 from PySide6.QtGui import QPainter, QPen, QColor, QPixmap
 from PySide6.QtCore import Qt, QRectF, QPointF
+
+local_data = "data/rectangles.json"
 
 
 class Canvas(QGraphicsView):
@@ -17,7 +19,6 @@ class Canvas(QGraphicsView):
         self.setRenderHint(QPainter.Antialiasing)
         self.setMouseTracking(True)
 
-        self.image_path = Background.image(0)
         self.pointer_item = None
         self.start_point = None
         self.temp_rect_item = None
@@ -25,6 +26,7 @@ class Canvas(QGraphicsView):
         self.rectangles = []
         self.undo_stack = []
         self.selected_rectangle = None
+        self.image_path = Background.image(0) if Background.count() > 0 else ""
         self.scale_factor = 1.0  # Zoom variable
         self.is_panning = False
         self.pan_start_position = QPointF()
@@ -97,6 +99,9 @@ class Canvas(QGraphicsView):
 
             if rect.width() > 0 and rect.height() > 0:
                 self.add_rectangle(rect)
+                self.undo_stack.clear()
+                self.update_button_states()
+
             if self.temp_rect_item:
                 self.scene.removeItem(self.temp_rect_item)
                 self.temp_rect_item = None
@@ -173,7 +178,7 @@ class Canvas(QGraphicsView):
 
     def save(self):
         rectangle_data = self.rect_to_json()
-        with open("rectangles.json", "w") as file:
+        with open(local_data, "w") as file:
             json.dump(rectangle_data, file, indent=4)
 
     def json_to_rect(self, rectangle_data):
@@ -190,10 +195,12 @@ class Canvas(QGraphicsView):
 
     def load(self):
         try:
-            with open("rectangles.json", "r") as file:
+            with open(local_data, "r") as file:
                 rectangle_data = json.load(file)
             self.clear()
             self.json_to_rect(rectangle_data)
+            self.undo_stack.clear()
+            self.update_button_states()
         except FileNotFoundError:
             print("No saved rectangles found.")
 

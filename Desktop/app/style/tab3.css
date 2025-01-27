@@ -1,0 +1,83 @@
+/* General styles */
+QWidget {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Background buttons */
+#backgroundButton {
+    background-color: #87ceeb;
+    border: 1px solid #6ca0dc;
+    border-radius: 7.5px;
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#backgroundButton:hover {
+    background-color: #6495ed;
+}
+
+#backgroundButton[active="true"] {
+    background-color: #ffffff; /* Highlighted color */
+    border: 2px solid #6495ed; /* Highlight border */
+    color: #6495ed;           /* Change text color */
+    font-weight: bold;
+}
+
+/* Function buttons */
+#undo_button,
+#redo_button,
+#remove_button,
+#save_button,
+#load_button,
+#clear_button,
+#reset_button,
+#reset_view_button {
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#save_button, #load_button {
+    background-color: #007bff;
+}
+
+#save_button:hover, #load_button:hover {
+    background-color: #0056b3;
+}
+
+#clear_button, #reset_button {
+    background-color: #ff5722;
+}
+
+#clear_button:hover, #reset_button:hover {
+    background-color: #e64a19;
+}
+
+#undo_button, #redo_button, #remove_button, #reset_view_button {
+    background-color: #4caf50;
+}
+
+#undo_button:hover, #redo_button:hover, #remove_button:hover, #reset_view_button:hover {
+    background-color: #30d635;
+}
+
+#undo_button:disabled,
+#redo_button:disabled,
+#remove_button:disabled {
+    background-color: #d3d3d3;
+    color: #808080;
+    border: 1px solid #c0c0c0;
+}
+
+/* Canvas styling */
+QGraphicsView {
+    background-color: #ffffff; /* White background */
+    border: 2px solid #6ca0dc; /* Light blue border */
+    border-radius: 10px;       /* Rounded corners */
+}

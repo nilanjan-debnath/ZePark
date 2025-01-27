@@ -7,15 +7,13 @@ images = [
 ]
 
 
-class Background:
-    @staticmethod
-    def image(index):
-        if index < len(images):
-            return images[index]
-        else:
-            print("Image isn't available")
-            return ""
+def image(index):
+    if index < len(images):
+        return images[index]
+    else:
+        print("Image isn't available")
+        return ""
 
-    @staticmethod
-    def count():
-        return len(images)
+
+def count():
+    return len(images)

@@ -7,7 +7,7 @@ from PySide6.QtWidgets import (
     QLabel,
 )
 from PySide6.QtCore import Qt
-from tab3.main import Tab3Content
+from tab3.tab3 import Tab3Content
 
 
 class MainWindow(QMainWindow):
@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
     def apply_stylesheet(self):
         """Load and apply the stylesheet from an external QSS file."""
         try:
-            with open("app/main.css", "r") as file:
+            with open("app/style/main.css", "r") as file:
                 stylesheet = file.read()
                 self.setStyleSheet(stylesheet)
         except FileNotFoundError:
@@ -74,7 +74,7 @@ class MainWindow(QMainWindow):
         # Dynamically adjust tab width in the stylesheet
         self.tab_widget.setStyleSheet(f"""
             QTabBar::tab {{
-                width: {tab_width - 52}px; /* Dynamically adjust tab width */
+                width: {tab_width - 55}px; /* Dynamically adjust tab width */
             }}
         """)
 

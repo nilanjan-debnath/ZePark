@@ -1,5 +1,5 @@
 from tab3.canvas import Canvas
-from tab3.background import Background
+from tab3 import Background
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -13,6 +13,7 @@ class Tab3Content(QWidget):
     def __init__(self):
         super().__init__()
         self.canvas = Canvas()
+        self.current_background_button = None
 
         self.load_stylesheet()
 
@@ -28,16 +29,40 @@ class Tab3Content(QWidget):
 
     def create_background_buttons(self):
         layout = QHBoxLayout()
-        for i in range(Background.count()):
-            button = QPushButton(f"Background {i + 1}")
-            button.setObjectName("backgroundButton")  # For styling in CSS
-            button.clicked.connect(
-                lambda _, index=i: self.canvas.update_background(
-                    Background.image(index)
+        background_count = Background.count()
+        if background_count > 0:
+            for i in range(background_count):
+                button = QPushButton(f"Background {i + 1}")
+                button.setObjectName("backgroundButton")  # For styling in CSS
+                button.clicked.connect(
+                    lambda _, index=i, btn=button: self.select_background(index, btn)
                 )
-            )
-            layout.addWidget(button)
+                layout.addWidget(button)
+                if i == 0:
+                    self.update_current_background_button(button)
         return layout
+
+    def select_background(self, index, button):
+        """Handle background selection and highlight the active button."""
+        self.canvas.update_background(Background.image(index))
+        self.update_current_background_button(button)
+
+    def update_current_background_button(self, button):
+        # Remove the 'current' class from the previously selected button
+        if self.current_background_button:
+            self.current_background_button.setProperty("active", False)
+            self.current_background_button.style().unpolish(
+                self.current_background_button
+            )
+            self.current_background_button.style().polish(
+                self.current_background_button
+            )
+
+        # Add the 'current' class to the newly selected button
+        self.current_background_button = button
+        self.current_background_button.setProperty("active", True)
+        self.current_background_button.style().unpolish(self.current_background_button)
+        self.current_background_button.style().polish(self.current_background_button)
 
     def create_function_buttons(self):
         layout = QHBoxLayout()
@@ -88,8 +113,8 @@ class Tab3Content(QWidget):
 
     def resize_canvas(self):
         """Resize the canvas based on the main window size."""
-        available_width = self.width() - 20  # Subtract some padding
-        available_height = self.height() - 88  # Subtract space for buttons and padding
+        available_width = self.width() - 10  # Subtract some padding
+        available_height = self.height() - 92  # Subtract space for buttons and padding
         self.canvas.resize_canvas(available_width, available_height)
 
     def resizeEvent(self, event):
@@ -100,7 +125,7 @@ class Tab3Content(QWidget):
     def load_stylesheet(self):
         """Load and apply a stylesheet from an external file."""
         try:
-            with open("app/tab3/main.css", "r") as file:
+            with open("app/style/tab3.css", "r") as file:
                 stylesheet = file.read()
                 self.setStyleSheet(stylesheet)
         except FileNotFoundError:
