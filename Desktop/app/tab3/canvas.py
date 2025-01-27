@@ -1,6 +1,6 @@
 from tab3.point import MousePointerItem
 from tab3.rectangle import RectangleItem
-from tab3 import Background
+
 import json
 from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QInputDialog
 from PySide6.QtGui import QPainter, QPen, QColor, QPixmap
@@ -12,7 +12,7 @@ local_data = "data/rectangles.json"
 class Canvas(QGraphicsView):
     """Main canvas for drawing and interacting with items."""
 
-    def __init__(self):
+    def __init__(self, tab2_instance):
         super().__init__()
         self.scene = QGraphicsScene(self)
         self.setScene(self.scene)
@@ -26,7 +26,7 @@ class Canvas(QGraphicsView):
         self.rectangles = []
         self.undo_stack = []
         self.selected_rectangle = None
-        self.image_path = Background.image(0) if Background.count() > 0 else ""
+        self.image = tab2_instance.current_window_image(0)
         self.scale_factor = 1.0  # Zoom variable
         self.is_panning = False
         self.pan_start_position = QPointF()
@@ -279,7 +279,7 @@ class Canvas(QGraphicsView):
         self.set_background_image()
 
     def set_background_image(self):
-        pixmap = QPixmap(self.image_path)
+        pixmap = QPixmap(self.image)
         if not pixmap.isNull():
             scaled_pixmap = pixmap.scaled(
                 self.width,
@@ -295,6 +295,6 @@ class Canvas(QGraphicsView):
         else:
             print(f"Failed to load image: {self.image_path}")
 
-    def update_background(self, image_path):
-        self.image_path = image_path
+    def update_background(self, image):
+        self.image = image
         self.set_background_image()

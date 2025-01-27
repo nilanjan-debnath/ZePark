@@ -14,17 +14,18 @@ QTabBar::tab {
     text-align: center;
 }
 
-QTabBar::tab:selected {
-    background: #212d5f;
-    color: #ffffff;
-    font-weight: bold;
-}
-
 QTabBar::tab:hover {
     background: #d0d0d0;
     color: #000000;
 }
 
+QTabBar::tab:selected {
+    background: #1a3fa5;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 QTabBar::tab:selected:hover {
-    background: #ffffff;
+    background: #1a5daa;
+    color: #ffffff;
 }

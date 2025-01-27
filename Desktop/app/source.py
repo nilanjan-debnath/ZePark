@@ -5,6 +5,12 @@ images = [
     "img/Screenshot (304).png",
     "img/Screenshot (312).png",
 ]
+videos = [
+    "video/video69crop-1.mp4",
+    "video/video69crop-2.mp4",
+    "video/video69crop-3.mp4",
+    "video/video6.mp4",
+]
 
 
 def image(index):
@@ -15,5 +21,13 @@ def image(index):
         return ""
 
 
+def video(index):
+    if index < count():
+        return videos[index]
+    else:
+        print("Video isn't available")
+        return ""
+
+
 def count():
-    return len(images)
+    return len(videos)

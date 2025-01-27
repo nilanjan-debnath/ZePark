@@ -7,8 +7,8 @@ from PySide6.QtWidgets import (
     QLabel,
 )
 from PySide6.QtCore import Qt
-from tab3.tab3 import Tab3Content
 from tab2.tab2 import Tab2Content
+from tab3.tab3 import Tab3Content
 
 
 class MainWindow(QMainWindow):
@@ -26,8 +26,9 @@ class MainWindow(QMainWindow):
 
         # Create tabs
         self.tab1 = QWidget()
+        # self.tab3 = QWidget()
         self.tab2 = Tab2Content()
-        self.tab3 = Tab3Content()
+        self.tab3 = Tab3Content(self.tab2)
 
         # Set up tab1 content
         tab1_layout = QVBoxLayout()

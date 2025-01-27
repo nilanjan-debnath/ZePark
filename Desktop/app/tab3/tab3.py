@@ -1,5 +1,6 @@
 from tab3.canvas import Canvas
-from tab3 import Background
+import source
+
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -10,9 +11,10 @@ from PySide6.QtGui import QShortcut, QKeySequence
 
 
 class Tab3Content(QWidget):
-    def __init__(self):
+    def __init__(self, tab2):
         super().__init__()
-        self.canvas = Canvas()
+        self.tab2_instance = tab2
+        self.canvas = Canvas(self.tab2_instance)
         self.current_background_button = None
 
         self.load_stylesheet()
@@ -29,7 +31,7 @@ class Tab3Content(QWidget):
 
     def create_background_buttons(self):
         layout = QHBoxLayout()
-        background_count = Background.count()
+        background_count = source.count()
         if background_count > 0:
             for i in range(background_count):
                 button = QPushButton(f"Background {i + 1}")
@@ -44,8 +46,12 @@ class Tab3Content(QWidget):
 
     def select_background(self, index, button):
         """Handle background selection and highlight the active button."""
-        self.canvas.update_background(Background.image(index))
-        self.update_current_background_button(button)
+        pixmap = self.tab2_instance.current_window_image(index)
+        if pixmap:
+            self.canvas.update_background(pixmap)
+            self.update_current_background_button(button)
+        else:
+            print(f"Failed to retrieve image for index {index}.")
 
     def update_current_background_button(self, button):
         # Remove the 'current' class from the previously selected button
