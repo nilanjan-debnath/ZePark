@@ -15,10 +15,9 @@ QTabBar::tab {
 }
 
 QTabBar::tab:selected {
-    background: #ffffff;
-    color: #000000;
+    background: #212d5f;
+    color: #ffffff;
     font-weight: bold;
-    border: 2px solid #4caf50;
 }
 
 QTabBar::tab:hover {

@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from tab3.tab3 import Tab3Content
+from tab2.tab2 import Tab2Content
 
 
 class MainWindow(QMainWindow):
@@ -25,7 +26,7 @@ class MainWindow(QMainWindow):
 
         # Create tabs
         self.tab1 = QWidget()
-        self.tab2 = QWidget()
+        self.tab2 = Tab2Content()
         self.tab3 = Tab3Content()
 
         # Set up tab1 content
@@ -48,7 +49,7 @@ class MainWindow(QMainWindow):
         self.tab_widget.addTab(self.tab3, "Area Selector")
 
         # Set Tab 3 as the default tab
-        self.tab_widget.setCurrentIndex(2)
+        self.tab_widget.setCurrentIndex(1)
 
         # Set the central widget
         self.setCentralWidget(self.tab_widget)
