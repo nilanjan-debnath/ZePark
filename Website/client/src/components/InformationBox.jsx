@@ -18,7 +18,7 @@ export default function InformationBox({ showInfoBox, setShowInfoBox }) {
                         <button onClick={handleClose} className="float-end"><IoClose className='w-10 h-10 text-[#C5705D]' /></button>
                     </div>
                     <div className="w-full p-4 pt-0 h-[92%]">
-                        <div className=" w-full h-full border border-[#C5705D] bg-[#D0B8A8] rounded-3xl flex flex-col items-center p-2 gap-4 ">
+                        <div className=" w-full h-full border border-[#C5705D] bg-[#D0B8A8] rounded-3xl flex flex-col items-center p-2 gap-4 shadow-2xl">
                             <h1 className='text-2xl line-clamp-2 text-center font-semibold w-full px-4'>{showInfoBox.name}</h1>
                             <div className="flex px-3 gap-2 text-sm">
                                 <p>{showInfoBox.address}</p>
