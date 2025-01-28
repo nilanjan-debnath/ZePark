@@ -1,0 +1,56 @@
+/* General Styles */
+QWidget {
+    background-color: #f0f0f5;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+
+QPushButton:pressed {
+    background-color: #003f7f;
+}
+
+/* Specific Buttons */
+#switch_view_button {
+    background-color: #28a745;
+}
+
+#switch_view_button:hover {
+    background-color: #218838;
+}
+
+#switch_view_button:pressed {
+    background-color: #1e7e34;
+}
+
+#cctv_button {
+    background-color: #6c757d;
+}
+
+#cctv_button:hover {
+    background-color: #5a6268;
+}
+
+#cctv_button:pressed {
+    background-color: #4e555b;
+}
+
+/* Layout */
+QVBoxLayout, QHBoxLayout {
+    margin: 0px;
+}

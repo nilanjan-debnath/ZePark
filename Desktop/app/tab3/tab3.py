@@ -1,5 +1,5 @@
 from tab3.canvas import Canvas
-import source
+from tab2 import source
 
 from PySide6.QtWidgets import (
     QWidget,
@@ -46,12 +46,8 @@ class Tab3Content(QWidget):
 
     def select_background(self, index, button):
         """Handle background selection and highlight the active button."""
-        pixmap = self.tab2_instance.current_window_image(index)
-        if pixmap:
-            self.canvas.update_background(pixmap)
-            self.update_current_background_button(button)
-        else:
-            print(f"Failed to retrieve image for index {index}.")
+        self.canvas.update_background(index)
+        self.update_current_background_button(button)
 
     def update_current_background_button(self, button):
         # Remove the 'current' class from the previously selected button

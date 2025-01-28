@@ -14,6 +14,7 @@ class Canvas(QGraphicsView):
 
     def __init__(self, tab2_instance):
         super().__init__()
+        self.tab2_instance = tab2_instance
         self.scene = QGraphicsScene(self)
         self.setScene(self.scene)
         self.setRenderHint(QPainter.Antialiasing)
@@ -26,7 +27,7 @@ class Canvas(QGraphicsView):
         self.rectangles = []
         self.undo_stack = []
         self.selected_rectangle = None
-        self.image = tab2_instance.current_window_image(0)
+        self.index = 0
         self.scale_factor = 1.0  # Zoom variable
         self.is_panning = False
         self.pan_start_position = QPointF()
@@ -279,7 +280,16 @@ class Canvas(QGraphicsView):
         self.set_background_image()
 
     def set_background_image(self):
-        pixmap = QPixmap(self.image)
+        image = self.tab2_instance.current_window_image(self.index)
+        if not image:
+            self.clear()
+            self.scene.clear()
+            self.add_pointer()
+            self.json_to_rect(self.pre_save)
+            # adding error label on canvas
+            self.scene.addText("Failed to retrieve image")
+            return
+        pixmap = QPixmap(image)
         if not pixmap.isNull():
             scaled_pixmap = pixmap.scaled(
                 self.width,
@@ -293,8 +303,8 @@ class Canvas(QGraphicsView):
             self.add_pointer()
             self.json_to_rect(self.pre_save)
         else:
-            print(f"Failed to load image: {self.image_path}")
+            print("Failed to load image ")
 
-    def update_background(self, image):
-        self.image = image
+    def update_background(self, index):
+        self.index = index
         self.set_background_image()

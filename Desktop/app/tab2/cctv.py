@@ -5,44 +5,40 @@ import cv2
 
 
 class CCVTPlayer(QWidget):
-    def __init__(self, video_path):
+    def __init__(self, index, video_path):
         super().__init__()
-
+        self.index = index
         self.video_path = video_path
-        self.cap = cv2.VideoCapture(self.video_path)  # Open the video file
+        self.init_ui()
 
-        # Check if the video was opened successfully
-        if not self.cap.isOpened():
-            print(f"Error: Could not open video: {video_path}")
-            return
+        self.cap = cv2.VideoCapture(self.video_path)
+        if self.cap.isOpened():
+            self.timer = QTimer(self)
+            self.timer.timeout.connect(self.update_frame)
+            self.timer.start(33)  # Approx. 30 FPS
+        else:
+            self.video_label.setText(f"Error: Could not open {self.video_path}")
 
-        self.timer = QTimer(self)  # Timer for video playback
-
-        # Create a QLabel to display the video
-        self.video_label = QLabel("Loading video...")
+    def init_ui(self):
+        """Initialize the UI for the video player."""
+        self.video_label = QLabel("Loading...")
         self.video_label.setAlignment(Qt.AlignCenter)
         self.video_label.setScaledContents(True)
 
-        # Layout for the video player
         layout = QVBoxLayout()
         layout.addWidget(self.video_label)
         self.setLayout(layout)
 
-        # Connect the timer to the update_frame function
-        self.timer.timeout.connect(self.update_frame)
-        self.timer.start(33)  # Update frames every ~33 ms (30 FPS)
-
     def update_frame(self):
+        """Update the video frame."""
         ret, frame = self.cap.read()
         if ret:
-            pixmap = self.convert_frame_to_pixmap(frame)
-            self.video_label.setPixmap(pixmap)
+            self.video_label.setPixmap(self.convert_frame_to_pixmap(frame))
         else:
-            # Restart the video when it reaches the end
-            self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+            self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Loop the video
 
     def convert_frame_to_pixmap(self, frame):
-        """Convert a BGR frame from OpenCV to QPixmap."""
+        """Convert OpenCV frame to QPixmap."""
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         h, w, ch = rgb_frame.shape
         bytes_per_line = ch * w
@@ -58,10 +54,15 @@ class CCVTPlayer(QWidget):
         return None
 
     def set_video_size(self, width, height):
-        """Resize the video display area while maintaining the aspect ratio."""
-        self.video_label.setMaximumSize(width, height)
+        """Resize the video display area while maintaining a 16:9 aspect ratio."""
+        aspect_height = width * 9 // 16
+        if aspect_height > height:  # Adjust if height exceeds the allowed limit
+            aspect_height = height
+            width = aspect_height * 16 // 9
+        self.video_label.setFixedSize(width, aspect_height)
 
     def closeEvent(self, event):
+        """Release resources on close."""
         if self.cap.isOpened():
-            self.cap.release()  # Release the video capture on close
+            self.cap.release()
         super().closeEvent(event)

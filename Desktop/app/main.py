@@ -17,6 +17,7 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("Stylish Tabs with External Stylesheet")
         self.setGeometry(100, 100, 1024, 640)
+        self.setMinimumSize(1024, 640)
 
         # Create a QTabWidget
         self.tab_widget = QTabWidget()
