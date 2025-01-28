@@ -1,3 +1,14 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Untrack files and folders
 par-king-car-firebase-adminsdk.json
-pip_list.txt
-env
+test.ipynb
