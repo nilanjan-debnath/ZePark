@@ -4,5 +4,7 @@
   "total_slots": "",
   "phone": "",
   "location": "",
-  "name": "Demo parking area of 69 slots"
+  "name": "Demo parking area of 69 slots",
+  "total slots": 69,
+  "available slots":16
 }
