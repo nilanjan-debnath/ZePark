@@ -2,7 +2,13 @@ from tab2.cctv import CCVTPlayer
 from tab2 import source
 import math
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton
+from PySide6.QtWidgets import (
+    QWidget,
+    QVBoxLayout,
+    QHBoxLayout,
+    QPushButton,
+    QScrollArea,
+)
 
 
 class Tab2Content(QWidget):
@@ -19,6 +25,8 @@ class Tab2Content(QWidget):
 
         # Main layout
         main_layout = QVBoxLayout()
+        # main_layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
+        main_layout.setSpacing(0)  # Remove spacing
         main_layout.addLayout(self.create_control_buttons())
 
         self.cctv_layout = QVBoxLayout()
@@ -97,6 +105,8 @@ class Tab2Content(QWidget):
         """Update the CCTV display based on the current mode."""
         self.clear_layout(self.cctv_layout)
 
+        # self.create_cctv_windows() # no need for now
+
         if self.grid_view:
             self.cctv_layout.addLayout(self.create_grid_layout())
         else:
@@ -107,11 +117,15 @@ class Tab2Content(QWidget):
     def create_grid_layout(self):
         """Generate a grid layout for CCTV windows."""
         layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
+        layout.setSpacing(0)  # Remove spacing
         self.row_size = math.ceil(math.sqrt(len(self.cctv_windows)))
         index = 0
 
         for _ in range(self.row_size):
             row = QHBoxLayout()
+            row.setContentsMargins(0, 0, 0, 0)  # Remove margins
+            row.setSpacing(0)  # Remove spacing
             for _ in range(self.row_size):
                 if index >= len(self.cctv_windows):
                     break
@@ -125,34 +139,58 @@ class Tab2Content(QWidget):
     def create_single_view_layout(self):
         """Generate a layout for single-view mode."""
         layout = QHBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(0)
+        layout.addWidget(
+            self.cctv_windows[self.selected_window], stretch=7
+        )  # Add the selected window (takes 75% of the width)
 
-        # Add the selected window (takes 75% of the width)
-        layout.addWidget(self.cctv_windows[self.selected_window], stretch=4)
+        scroll_area = QScrollArea()  # Scrollable side layout for smaller previews
+        scroll_area.setWidgetResizable(True)  # Allow resizing
+        scroll_area.setVerticalScrollBarPolicy(
+            Qt.ScrollBarAlwaysOff
+        )  # Hide vertical scrollbar
+        scroll_area.setHorizontalScrollBarPolicy(
+            Qt.ScrollBarAlwaysOff
+        )  # Hide horizontal scrollbar
+        scroll_area.setContentsMargins(0, 0, 0, 0)  # Remove scroll area margins
 
-        # Add the smaller previews (stacked vertically, takes 25% of the width)
-        side_layout = QVBoxLayout()
+        side_widget = QWidget()
+        side_layout = QVBoxLayout(side_widget)
+        side_layout.setContentsMargins(0, 0, 0, 0)  # Remove side widget margins
+        side_layout.setSpacing(0)
         for i, cctv_window in enumerate(self.cctv_windows):
             if i != self.selected_window:
                 side_layout.addWidget(cctv_window)
+
         side_layout.setAlignment(Qt.AlignTop)
-        layout.addLayout(side_layout, stretch=1)
+        scroll_area.setWidget(side_widget)  # Set widget inside scroll area
+        layout.addWidget(scroll_area, stretch=3)  # Add scroll area to main layout
 
         return layout
 
     def create_cctv_windows(self):
         """Initialize CCTV windows from the source."""
+        # Clear previous windows to avoid stale references
+        self.cctv_windows.clear()
         self.cctv_windows = [
             CCVTPlayer(index=i, video_path=source.video(i))
             for i in range(source.count())
         ]
 
     def clear_layout(self, layout):
-        """Clear all widgets from a layout."""
+        """Clear all widgets from a layout, but avoid deleting CCTV players directly."""
         while layout.count():
             item = layout.takeAt(0)
             widget = item.widget()
             if widget:
-                widget.deleteLater()
+                if (
+                    widget not in self.cctv_windows
+                ):  # Avoid deleting CCTV player instances
+                    widget.deleteLater()
+            elif item.layout():
+                self.clear_layout(item.layout())  # Recursively clear nested layouts
+                item.layout().deleteLater()
 
     def load_stylesheet(self):
         """Load and apply the stylesheet."""
@@ -184,7 +222,7 @@ class Tab2Content(QWidget):
                 cctv.set_video_size(cell_width, cell_height)
         else:
             # Single window view
-            main_width = int(width * 0.80)  # Selected window takes 75% width
+            main_width = int(width * 0.70)  # Selected window takes 75% width
             main_height = min(main_width * 9 // 16, height)  # Maintain 16:9 ratio
 
             self.cctv_windows[self.selected_window].set_video_size(
@@ -192,7 +230,7 @@ class Tab2Content(QWidget):
             )
 
             # Set sizes for the other windows
-            side_width = width - main_width  # Remaining 25% width
+            side_width = width - main_width - 20  # Remaining 25% width
             side_height = side_width * 9 // 16
             for i, cctv in enumerate(self.cctv_windows):
                 if i != self.selected_window:

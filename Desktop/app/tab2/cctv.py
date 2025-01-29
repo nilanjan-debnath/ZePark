@@ -26,6 +26,8 @@ class CCVTPlayer(QWidget):
         self.video_label.setScaledContents(True)
 
         layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
+        layout.setSpacing(0)  # Remove spacing
         layout.addWidget(self.video_label)
         self.setLayout(layout)
 
