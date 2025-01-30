@@ -1,7 +1,4 @@
-from PySide6.QtWidgets import (
-    QGraphicsItem,
-    QGraphicsTextItem,
-)
+from PySide6.QtWidgets import QGraphicsItem, QGraphicsTextItem
 from PySide6.QtGui import QPen, QBrush, QColor, QFont
 
 
@@ -18,7 +15,7 @@ class RectangleItem(QGraphicsItem):
         self.update_text_position()
 
         self.pen = QPen(QColor(0, 255, 0), 2)
-        self.brush = QBrush(QColor(0, 0, 255, 100))
+        self.brush = QBrush(QColor(0, 0, 255, 50))
         self.is_selected = False
 
         self.setTransformationOrigin()

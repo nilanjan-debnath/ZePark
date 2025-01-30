@@ -1,6 +1,9 @@
+from tab2 import source
+
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt
 from PySide6.QtGui import QPixmap, QImage
+import json
 import cv2
 
 
@@ -38,6 +41,15 @@ class CCVTPlayer(QWidget):
             self.video_label.setPixmap(self.convert_frame_to_pixmap(frame))
         else:
             self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Loop the video
+
+    def get_local_data(self):
+        try:
+            with open(source.local_data, "r") as file:
+                all_rectangle_data = json.load(file)
+                rectangle_data = all_rectangle_data.get(str(self.index))
+            return rectangle_data if rectangle_data else []
+        except FileNotFoundError:
+            return []
 
     def convert_frame_to_pixmap(self, frame):
         """Convert OpenCV frame to QPixmap."""

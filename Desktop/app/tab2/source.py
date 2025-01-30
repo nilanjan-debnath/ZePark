@@ -9,6 +9,8 @@ videos = [
     " ",
 ]
 
+local_data = "data/rectangles.json"
+
 
 def video(index):
     if index < count():

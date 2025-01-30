@@ -1,12 +1,16 @@
 from tab3.point import MousePointerItem
 from tab3.rectangle import RectangleItem
+from tab2 import source
 
 import json
-from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QInputDialog
+from PySide6.QtWidgets import (
+    QGraphicsView,
+    QGraphicsScene,
+    QInputDialog,
+    QGraphicsTextItem,
+)
 from PySide6.QtGui import QPainter, QPen, QColor, QPixmap
 from PySide6.QtCore import Qt, QRectF, QPointF
-
-local_data = "data/rectangles.json"
 
 
 class Canvas(QGraphicsView):
@@ -15,11 +19,20 @@ class Canvas(QGraphicsView):
     def __init__(self, tab2_instance):
         super().__init__()
         self.tab2_instance = tab2_instance
+        self.initialize_scene()
+        self.initialize_state()
+        self.initialize_ui()
+
+    def initialize_scene(self):
+        """Set up the graphics scene"""
         self.scene = QGraphicsScene(self)
         self.setScene(self.scene)
         self.setRenderHint(QPainter.Antialiasing)
         self.setMouseTracking(True)
 
+    def initialize_state(self):
+        """Initialize core state variables"""
+        self.index = 0
         self.pointer_item = None
         self.start_point = None
         self.temp_rect_item = None
@@ -27,15 +40,17 @@ class Canvas(QGraphicsView):
         self.rectangles = []
         self.undo_stack = []
         self.selected_rectangle = None
-        self.index = 0
         self.scale_factor = 1.0  # Zoom variable
         self.is_panning = False
         self.pan_start_position = QPointF()
 
-        self.setFocusPolicy(Qt.StrongFocus)  # Enable Keyboard focus
+    def initialize_ui(self):
+        """Set up UI-specific properties"""
+        self.setFocusPolicy(Qt.StrongFocus)
         self.add_pointer()
 
     def add_pointer(self):
+        """Add pointer item to the scene"""
         self.pointer_item = MousePointerItem()
         self.scene.addItem(self.pointer_item)
 
@@ -177,10 +192,21 @@ class Canvas(QGraphicsView):
         ]
         return rectangle_data
 
+    def get_local_data(self):
+        try:
+            with open(source.local_data, "r") as file:
+                all_rectangle_data = json.load(file)
+                # print(all_rectangle_data)
+            return all_rectangle_data
+        except FileNotFoundError:
+            return {}
+
     def save(self):
+        all_rectangle_data = self.get_local_data()
         rectangle_data = self.rect_to_json()
-        with open(local_data, "w") as file:
-            json.dump(rectangle_data, file, indent=4)
+        all_rectangle_data.update({str(self.index): rectangle_data})
+        with open(source.local_data, "w") as file:
+            json.dump(all_rectangle_data, file, indent=4)
 
     def json_to_rect(self, rectangle_data):
         for rect in rectangle_data:
@@ -196,9 +222,10 @@ class Canvas(QGraphicsView):
 
     def load(self):
         try:
-            with open(local_data, "r") as file:
-                rectangle_data = json.load(file)
+            all_rectangle_data = self.get_local_data()
             self.clear()
+            data = all_rectangle_data.get(str(self.index))
+            rectangle_data = data if data else []
             self.json_to_rect(rectangle_data)
             self.undo_stack.clear()
             self.update_button_states()
@@ -286,8 +313,15 @@ class Canvas(QGraphicsView):
             self.scene.clear()
             self.add_pointer()
             self.json_to_rect(self.pre_save)
-            # adding error label on canvas
-            self.scene.addText("Failed to retrieve image")
+            text_item = QGraphicsTextItem(
+                "Failed to retrieve image"
+            )  # Adding error label on canvas
+            text_rect = text_item.boundingRect()  # Center the text in the scene
+            text_item.setPos(
+                (self.scene.width() - text_rect.width()) / 2,
+                (self.scene.height() - text_rect.height()) / 2,
+            )
+            self.scene.addItem(text_item)
             return
         pixmap = QPixmap(image)
         if not pixmap.isNull():
