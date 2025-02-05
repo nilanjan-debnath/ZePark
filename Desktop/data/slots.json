@@ -1,0 +1,98 @@
+[
+    {
+        "slot_no": 0,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 1,
+        "status": 1,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 2,
+        "status": 2,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 3,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 4,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 5,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 6,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 7,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 8,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 9,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 10,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "slot_no": 11,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    }
+]

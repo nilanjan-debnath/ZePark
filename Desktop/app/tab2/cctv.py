@@ -1,9 +1,8 @@
-from tab2 import source
+from tab2.source import get_rect_data
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt
 from PySide6.QtGui import QPixmap, QImage
-import json
 import cv2
 import numpy as np
 
@@ -45,13 +44,9 @@ class CCVTPlayer(QWidget):
             self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Loop the video
 
     def get_local_data(self):
-        try:
-            with open(source.local_data, "r") as file:
-                all_rectangle_data = json.load(file)
-                rectangle_data = all_rectangle_data.get(str(self.index))
-            return rectangle_data if rectangle_data else []
-        except FileNotFoundError:
-            return []
+        all_rectangle_data = get_rect_data()
+        rectangle_data = all_rectangle_data.get(str(self.index))
+        return rectangle_data if rectangle_data else []
 
     def process_image(self, frame):
         h, w, ch = frame.shape
@@ -109,8 +104,23 @@ class CCVTPlayer(QWidget):
                 frame, [box_pts], isClosed=True, color=color, thickness=2
             )  # Draw rotated rectangle
             cv2.putText(
-                frame, f"{count}", (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2
+                frame,
+                f"{count}",
+                (x + 5, y + height - 5),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                color,
+                2,
             )  # added pixel count
+            cv2.putText(
+                frame,
+                f"{rect['index']}",
+                (x + width // 2, y + height // 2),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                color,
+                2,
+            )  # added index
 
         return frame
 
@@ -123,8 +133,8 @@ class CCVTPlayer(QWidget):
         # Convert to QPixmap
         h, w, ch = frame.shape
         bytes_per_line = ch * w
-        qimage = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
-        return QPixmap.fromImage(qimage)
+        image = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
+        return QPixmap.fromImage(image)
 
     def get_current_frame(self):
         """Capture the current frame from the video and return it as a QPixmap."""

@@ -1,8 +1,7 @@
 from tab3.point import MousePointerItem
 from tab3.rectangle import RectangleItem
-from tab2 import source
+from tab2.source import get_rect_data, save_rect_data
 
-import json
 from PySide6.QtWidgets import (
     QGraphicsView,
     QGraphicsScene,
@@ -123,13 +122,27 @@ class Canvas(QGraphicsView):
                 self.temp_rect_item = None
             self.start_point = None
 
-    def add_rectangle(self, rect, rotation=0):
-        rect_item = RectangleItem(rect, len(self.rectangles))
+    def prev_rect_sum(self):
+        if self.index == 0:
+            return 0
+        all_rectangle_data = get_rect_data()
+        sum = 0
+        for key in all_rectangle_data.keys():
+            if key == str(self.index):
+                return sum
+            sum += len(all_rectangle_data[key])
+        return sum
+
+    def add_rectangle(self, rect, rotation=0, index=None):
+        if not index:
+            index = len(self.rectangles) + 1 + self.last_count
+        rect_item = RectangleItem(rect, index)
         self.scene.addItem(rect_item)
         self.scene.addItem(rect_item.text_item)
         self.rectangles.append(rect_item)
         rect_item.setRotation(rotation)
         self.update_button_states()
+        # print(f"{self.index=}, {rect_item.index=}")
 
     def keyPressEvent(self, event):
         if self.selected_rectangle:
@@ -192,21 +205,11 @@ class Canvas(QGraphicsView):
         ]
         return rectangle_data
 
-    def get_local_data(self):
-        try:
-            with open(source.local_data, "r") as file:
-                all_rectangle_data = json.load(file)
-                # print(all_rectangle_data)
-            return all_rectangle_data
-        except FileNotFoundError:
-            return {}
-
     def save(self):
-        all_rectangle_data = self.get_local_data()
+        all_rectangle_data = get_rect_data()
         rectangle_data = self.rect_to_json()
         all_rectangle_data.update({str(self.index): rectangle_data})
-        with open(source.local_data, "w") as file:
-            json.dump(all_rectangle_data, file, indent=4)
+        save_rect_data(data=all_rectangle_data)
 
     def json_to_rect(self, rectangle_data):
         for rect in rectangle_data:
@@ -217,15 +220,17 @@ class Canvas(QGraphicsView):
                     rect["width"] * self.width,
                     rect["height"] * self.height,
                 ),
-                rect["rotation"],
+                rotation=rect["rotation"],
+                index=rect["index"],
             )
 
     def load(self):
         try:
-            all_rectangle_data = self.get_local_data()
+            all_rectangle_data = get_rect_data()
             self.clear()
             data = all_rectangle_data.get(str(self.index))
             rectangle_data = data if data else []
+            self.last_count = self.prev_rect_sum()
             self.json_to_rect(rectangle_data)
             self.undo_stack.clear()
             self.update_button_states()
@@ -282,7 +287,7 @@ class Canvas(QGraphicsView):
 
     def reset_indexes(self):
         for index, rect_item in enumerate(self.rectangles):
-            rect_item.set_index(index)
+            rect_item.set_index(index + 1 + self.last_count)
 
     def reset_view(self):
         self.resetTransform()
