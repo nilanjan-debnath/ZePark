@@ -1,10 +1,11 @@
-from tab2.source import get_rect_data
+from tab2.source import get_rect_data, get_slot_data, save_slot_data
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt
 from PySide6.QtGui import QPixmap, QImage
 import cv2
 import numpy as np
+import datetime
 
 
 class CCVTPlayer(QWidget):
@@ -48,6 +49,25 @@ class CCVTPlayer(QWidget):
         all_rectangle_data = get_rect_data()
         rectangle_data = all_rectangle_data.get(str(self.index))
         return rectangle_data if rectangle_data else []
+
+    def update_parking(self, index):
+        slots = get_slot_data()
+        if slots[index - 1]["status"] == 0:
+            parking_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self.tab1_instance.slots[index - 1].add_parking_details(
+                parking_time=parking_time
+            )
+            slots[index - 1]["status"] = 2
+            slots[index - 1]["parking_time"] = parking_time
+            save_slot_data(data=slots)
+
+    def clear_parking(self, index):
+        slots = get_slot_data()
+        if slots[index - 1]["status"] != 0:
+            self.tab1_instance.slots[index - 1].clear_parking_details()
+            slots[index - 1]["status"] = 0
+            slots[index - 1]["parking_time"] = ""
+            save_slot_data(data=slots)
 
     def process_image(self, frame):
         h, w, ch = frame.shape
@@ -97,9 +117,15 @@ class CCVTPlayer(QWidget):
             count = cv2.countNonZero(
                 cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
             )  # Count non-zero pixels
-            color = (
-                (255, 0, 0) if count > 900 else (0, 255, 0)
-            )  # Determine parking status, Blue for occupied, Green for free
+
+            if (
+                count > 900
+            ):  # Determine parking status, Blue for occupied, Green for free
+                color = (255, 0, 0)
+                self.update_parking(rect["index"])
+            else:
+                color = (0, 255, 0)
+                self.clear_parking(rect["index"])
 
             cv2.polylines(
                 frame, [box_pts], isClosed=True, color=color, thickness=2
