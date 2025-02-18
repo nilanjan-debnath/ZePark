@@ -12,8 +12,9 @@ from PySide6.QtWidgets import (
 
 
 class Tab2Content(QWidget):
-    def __init__(self):
+    def __init__(self, tab1):
         super().__init__()
+        self.tab1_instance = tab1
         self.grid_view = True
         self.selected_window = 0  # Default to the first CCTV window
         self.cctv_windows = []
@@ -174,7 +175,9 @@ class Tab2Content(QWidget):
         # Clear previous windows to avoid stale references
         self.cctv_windows.clear()
         self.cctv_windows = [
-            CCVTPlayer(index=i, video_path=source.video(i))
+            CCVTPlayer(
+                index=i, video_path=source.video(i), tab1_instance=self.tab1_instance
+            )
             for i in range(source.count())
         ]
 

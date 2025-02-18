@@ -5,9 +5,9 @@ videos = [
     "video/video69crop-1.mp4",
     "video/video69crop-2.mp4",
     "video/video69crop-3.mp4",
-    # "video/video69crop-4.mp4",
+    "video/video69crop-4.mp4",
     # "video/video69.mp4",
-    "video/video6.mp4",
+    # "video/video6.mp4",
     # " ",
 ]
 rect_data = "data/rectangles.json"
@@ -37,13 +37,14 @@ def get_rect_data():
 
 
 def save_rect_data(data):
+    data = arrange_data(data=data)
     with open(rect_data, "w") as file:
         json.dump(data, file, indent=4)
+    create_slot_data(data)
 
 
-def arrange_data():
-    print("data arrange")
-    data = get_rect_data()
+def arrange_data(data: dict):
+    # print("data arrange")
     keys = list(data.keys())
     keys.sort()
     data = {i: data[i] for i in keys}
@@ -52,8 +53,7 @@ def arrange_data():
         for value in data[key]:
             value["index"] = count
             count += 1
-    # create_slot_data(count=count - 1)
-    save_rect_data(data=data)
+    return data
 
 
 def save_slot_data(data):
@@ -71,19 +71,19 @@ def get_slot_data():
         return {}
 
 
-def create_slot_data(count):
-    data = [
-        {
-            "slot_no": x,
-            "status": 0,
-            "user_name": " ",
-            "car_no": " ",
-            "booking_time": " ",
-            "parking_time": " ",
-        }
-        for x in range(count)
-    ]
-    save_slot_data(data=data)
-
-
-arrange_data()
+def create_slot_data(data: dict):
+    slot_data = []
+    keys = list(data.keys())
+    for key in keys:
+        for slot in data.get(key):
+            tmp = {
+                "cctv_cam": key,
+                "slot_no": slot["index"],
+                "status": 0,
+                "user_name": " ",
+                "car_no": " ",
+                "booking_time": " ",
+                "parking_time": " ",
+            }
+            slot_data.append(tmp)
+    save_slot_data(data=slot_data)

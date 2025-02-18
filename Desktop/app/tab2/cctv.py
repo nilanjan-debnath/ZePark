@@ -8,8 +8,9 @@ import numpy as np
 
 
 class CCVTPlayer(QWidget):
-    def __init__(self, index, video_path):
+    def __init__(self, index, video_path, tab1_instance):
         super().__init__()
+        self.tab1_instance = tab1_instance
         self.index = index
         self.debugging = False
         self.video_path = video_path

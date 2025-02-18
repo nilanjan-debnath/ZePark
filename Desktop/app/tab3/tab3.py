@@ -6,10 +6,11 @@ from PySide6.QtGui import QShortcut, QKeySequence
 
 
 class Tab3Content(QWidget):
-    def __init__(self, tab2):
+    def __init__(self, tab1, tab2):
         super().__init__()
+        self.tab1_instance = tab1
         self.tab2_instance = tab2
-        self.canvas = Canvas(self.tab2_instance)
+        self.canvas = Canvas(self.tab1_instance, self.tab2_instance)
         self.current_background_button = None
 
         self.load_stylesheet()

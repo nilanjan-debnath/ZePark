@@ -15,8 +15,9 @@ from PySide6.QtCore import Qt, QRectF, QPointF
 class Canvas(QGraphicsView):
     """Main canvas for drawing and interacting with items."""
 
-    def __init__(self, tab2_instance):
+    def __init__(self, tab1_instance, tab2_instance):
         super().__init__()
+        self.tab1_instance = tab1_instance
         self.tab2_instance = tab2_instance
         self.initialize_scene()
         self.initialize_state()
@@ -210,6 +211,7 @@ class Canvas(QGraphicsView):
         rectangle_data = self.rect_to_json()
         all_rectangle_data.update({str(self.index): rectangle_data})
         save_rect_data(data=all_rectangle_data)
+        self.tab1_instance.refresh_details()
 
     def json_to_rect(self, rectangle_data):
         for rect in rectangle_data:

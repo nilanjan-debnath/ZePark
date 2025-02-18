@@ -1,6 +1,7 @@
 [
     {
-        "slot_no": 0,
+        "cctv_cam": "0",
+        "slot_no": 1,
         "status": 0,
         "user_name": " ",
         "car_no": " ",
@@ -8,22 +9,16 @@
         "parking_time": " "
     },
     {
-        "slot_no": 1,
-        "status": 1,
-        "user_name": " ",
-        "car_no": " ",
-        "booking_time": " ",
-        "parking_time": " "
-    },
-    {
+        "cctv_cam": "0",
         "slot_no": 2,
-        "status": 2,
+        "status": 0,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
         "parking_time": " "
     },
     {
+        "cctv_cam": "0",
         "slot_no": 3,
         "status": 0,
         "user_name": " ",
@@ -32,6 +27,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "0",
         "slot_no": 4,
         "status": 0,
         "user_name": " ",
@@ -40,6 +36,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "0",
         "slot_no": 5,
         "status": 0,
         "user_name": " ",
@@ -48,6 +45,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "0",
         "slot_no": 6,
         "status": 0,
         "user_name": " ",
@@ -56,6 +54,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "0",
         "slot_no": 7,
         "status": 0,
         "user_name": " ",
@@ -64,6 +63,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "1",
         "slot_no": 8,
         "status": 0,
         "user_name": " ",
@@ -72,6 +72,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "1",
         "slot_no": 9,
         "status": 0,
         "user_name": " ",
@@ -80,6 +81,7 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "1",
         "slot_no": 10,
         "status": 0,
         "user_name": " ",
@@ -88,7 +90,80 @@
         "parking_time": " "
     },
     {
+        "cctv_cam": "1",
         "slot_no": 11,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "1",
+        "slot_no": 12,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "1",
+        "slot_no": 13,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "1",
+        "slot_no": 14,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "2",
+        "slot_no": 15,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "2",
+        "slot_no": 16,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "2",
+        "slot_no": 17,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "2",
+        "slot_no": 18,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "2",
+        "slot_no": 19,
         "status": 0,
         "user_name": " ",
         "car_no": " ",

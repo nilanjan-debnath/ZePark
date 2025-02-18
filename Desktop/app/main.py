@@ -27,8 +27,8 @@ class MainWindow(QMainWindow):
 
         # Create tabs
         self.tab1 = Tab1Content()
-        self.tab2 = Tab2Content()
-        self.tab3 = Tab3Content(self.tab2)
+        self.tab2 = Tab2Content(self.tab1)
+        self.tab3 = Tab3Content(self.tab1, self.tab2)
 
         # Set up tab1 content
         tab1_layout = QVBoxLayout()

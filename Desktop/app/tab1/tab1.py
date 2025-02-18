@@ -28,7 +28,6 @@ class Tab1Content(QWidget):
         main_layout.addWidget(self.scroll_area)
         self.setLayout(main_layout)
 
-        self.create_slot_layout()
         self.create_dashboard_layout()
 
     def create_provider_details(self):
@@ -50,11 +49,29 @@ class Tab1Content(QWidget):
             for slot in slot_data
         ]
 
-    def create_dashboard_layout(self):
-        details_layout = QVBoxLayout()
+    def add_slot_widget(self):
         for slot in self.slots:
-            details_layout.addWidget(slot)
-        self.dashboard_layout.addLayout(details_layout)
+            self.details_layout.addWidget(slot)
+
+    def clear_layout(self, layout):
+        """Clear all widgets from a layout, but avoid deleting CCTV players directly."""
+        while layout.count():
+            item = layout.takeAt(0)
+            widget = item.widget()
+            if widget:
+                widget.deleteLater()
+
+    def refresh_details(self):
+        self.slots.clear()
+        self.clear_layout(self.details_layout)
+        self.create_slot_layout()
+        self.add_slot_widget()
+
+    def create_dashboard_layout(self):
+        self.details_layout = QVBoxLayout()
+        self.create_slot_layout()
+        self.add_slot_widget()
+        self.dashboard_layout.addLayout(self.details_layout)
 
     def load_stylesheet(self):
         """Load and apply the stylesheet."""
