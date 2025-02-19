@@ -5,10 +5,11 @@ from PySide6.QtGui import QPen, QBrush, QColor, QFont
 class RectangleItem(QGraphicsItem):
     """Custom item representing a rectangle with an index."""
 
-    def __init__(self, rect, index):
+    def __init__(self, rect, index, id):
         super().__init__()
         self.rect = rect
         self.index = index
+        self.id = id
         self.text_item = QGraphicsTextItem(str(index))
         self.text_item.setDefaultTextColor(QColor(255, 255, 255))
         self.text_item.setFont(QFont("Arial", 10))

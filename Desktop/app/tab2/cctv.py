@@ -112,14 +112,24 @@ class CCVTPlayer(QWidget):
             # Crop the rotated area
             x_min, y_min = np.min(box_pts, axis=0)
             x_max, y_max = np.max(box_pts, axis=0)
+
+            # Ensure cropping remains within image boundaries
+            x_min = max(0, x_min)
+            y_min = max(0, y_min)
+            x_max = min(w, x_max)
+            y_max = min(h, y_max)
+
             img_crop = img_rotated[y_min:y_max, x_min:x_max]
+
+            if img_crop.size == 0:
+                continue  # Skip if the cropped region is invalid
 
             count = cv2.countNonZero(
                 cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
             )  # Count non-zero pixels
 
             if (
-                count > 900
+                count > 1500
             ):  # Determine parking status, Blue for occupied, Green for free
                 color = (255, 0, 0)
                 self.update_parking(rect["index"])

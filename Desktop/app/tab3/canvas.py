@@ -10,6 +10,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QPainter, QPen, QColor, QPixmap
 from PySide6.QtCore import Qt, QRectF, QPointF
+import random
+import string
 
 
 class Canvas(QGraphicsView):
@@ -134,10 +136,24 @@ class Canvas(QGraphicsView):
             sum += len(all_rectangle_data[key])
         return sum
 
-    def add_rectangle(self, rect, rotation=0, index=None):
+    def generate_random_id(self, length=7):
+        characters = string.ascii_letters + string.digits  # Combine letters and digits
+        random_id = "".join(random.choice(characters) for _ in range(length))
+        pre = (
+            ("c0" + str(self.index + 1))
+            if self.index < 9
+            else ("c" + str(self.index + 1))
+        )
+        random_id = pre + random_id
+        return random_id
+
+    def add_rectangle(self, rect, rotation=0, index=None, id=None):
         if not index:
             index = len(self.rectangles) + 1 + self.last_count
-        rect_item = RectangleItem(rect, index)
+        if not id:
+            id = self.generate_random_id()
+
+        rect_item = RectangleItem(rect, index, id)
         self.scene.addItem(rect_item)
         self.scene.addItem(rect_item.text_item)
         self.rectangles.append(rect_item)
@@ -195,6 +211,7 @@ class Canvas(QGraphicsView):
 
         rectangle_data = [
             {
+                "id": rect.id,
                 "index": rect.index,
                 "x": rect.rect.x() / self.width,
                 "y": rect.rect.y() / self.height,
@@ -223,6 +240,7 @@ class Canvas(QGraphicsView):
                     rect["height"] * self.height,
                 ),
                 rotation=rect["rotation"],
+                id=rect["id"],
                 index=rect["index"],
             )
 
