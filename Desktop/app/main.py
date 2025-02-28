@@ -5,6 +5,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QLabel,
 )
+from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
 from tab1.tab1 import Tab1Content
 from tab2.tab2 import Tab2Content
@@ -14,7 +15,9 @@ from tab3.tab3 import Tab3Content
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
+        my_icon = QIcon()
+        my_icon.addFile("img/zepark_logo.png")
+        self.setWindowIcon(my_icon)
         self.setWindowTitle("ZePark")
         self.setGeometry(100, 100, 1024, 640)
         self.setMinimumSize(1024, 640)

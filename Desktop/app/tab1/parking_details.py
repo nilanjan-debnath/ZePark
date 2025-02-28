@@ -9,7 +9,7 @@ class ParkingDetails(QGroupBox):
     }
 
     def __init__(self, slot_no, status, user_name, car_no, booking_time, parking_time):
-        super().__init__(f"Parking Slot {slot_no}")
+        super().__init__()
 
         self.slot_no = slot_no
         self.status = status
@@ -22,11 +22,13 @@ class ParkingDetails(QGroupBox):
         layout = QHBoxLayout()
 
         self.status_label = QLabel()
+        self.slot_no_label = QLabel(f"Slot No: {self.slot_no}")
         self.user_label = QLabel(f"User: {self.user_name}")
         self.car_label = QLabel(f"Car No: {self.car_no}")
         self.booking_label = QLabel(f"Booking Time: {self.booking_time}")
         self.parking_label = QLabel(f"Parking Time: {self.parking_time}")
 
+        layout.addWidget(self.slot_no_label)
         layout.addWidget(self.status_label)
         layout.addWidget(self.user_label)
         layout.addWidget(self.car_label)

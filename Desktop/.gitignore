@@ -12,3 +12,4 @@ wheels/
 # Untrack files and folders
 par-king-car-firebase-adminsdk.json
 test.ipynb
+app/tab1/provider_details.py
