@@ -1,6 +1,6 @@
 from tab3.point import MousePointerItem
 from tab3.rectangle import RectangleItem
-from tab2.source import get_rect_data, save_rect_data
+from data.source import get_rect_data, save_rect_data
 
 from PySide6.QtWidgets import (
     QGraphicsView,

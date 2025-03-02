@@ -15,6 +15,16 @@ provider_data = "app/data/json/provider.json"
 slot_data = "app/data/json/slots.json"
 
 
+def get_provider_details():
+    try:
+        with open(provider_data, "r") as file:
+            provider_details = json.load(file)
+            # print(all_rectangle_data)
+        return provider_details
+    except FileNotFoundError:
+        return {}
+
+
 def get_video(index):
     if index < source_count():
         return videos[index]

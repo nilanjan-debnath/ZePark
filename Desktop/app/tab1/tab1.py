@@ -1,5 +1,6 @@
-from tab2.source import get_slot_data
+from data.source import get_slot_data
 from tab1.parking_details import ParkingDetails
+from tab1.provider_details import ProviderDetails
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea
 
 
@@ -32,7 +33,7 @@ class Tab1Content(QWidget):
 
     def create_provider_details(self):
         """Create a layout for showing provider details."""
-        layout = QVBoxLayout()
+        layout = ProviderDetails()
         return layout
 
     def create_slot_layout(self):
