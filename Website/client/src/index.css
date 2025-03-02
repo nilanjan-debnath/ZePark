@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+/* define leaflet container size */
+.leaflet-container{
+    height: 100vh;
+    width: 100%;
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+    display: none;
+}
+
+@layer utilities {
+    .scrollbar-custom {
+      scrollbar-width: thin; /* For Firefox */
+      /* scrollbar-color: #000 #888; */
+      scrollbar-color: transparent;
+    }
+  
+    .scrollbar-custom::-webkit-scrollbar {
+      width: 10px;
+    }
+  
+    .scrollbar-custom::-webkit-scrollbar-track {
+      background: #888;
+      border-radius: 5px;
+    }
+  
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+      background: #000;
+      border-radius: 5px;
+    }
+  
+    .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .Dheight {
+      height: 100svh;
+    }
+  }
