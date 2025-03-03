@@ -19,7 +19,7 @@ Equivalent to removing 3,000+ cars from the roads each year
 🎥 Watch Zepark in Action
 
 
-(Click the image to watch the full demo!)
+[![Video Title](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/ELKtclUpURI)
 
 
 ---
@@ -49,9 +49,9 @@ Zepark enables households and businesses to earn by listing their unused parking
 ✔️ Dynamic pricing to maximize earnings
 ✔️ Live monitoring with security feed integration
 
-🔽 Parking Provider Dashboard (GIF Preview):
+🔽 Parking Provider Dashboard in Action:
 
-<img src="YOUR_DASHBOARD_GIF_URL" width="600">  
+[![Video Title](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/yj3CwTpGLrM) 
 ---
 
 
