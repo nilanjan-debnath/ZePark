@@ -64,4 +64,3 @@ Zepark is on a mission to redefine urban mobility. If you're a developer, resear
 
 ---
 
-This README ensures a professional and engaging presentation of Zepark, with a well-structured flow, visuals, and key information. Let me know if you want any modifications! 🚗
