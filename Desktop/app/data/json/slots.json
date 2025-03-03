@@ -83,11 +83,11 @@
     {
         "cctv_cam": "2",
         "slot_no": 10,
-        "status": 0,
+        "status": 2,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": ""
+        "parking_time": "2025-03-03 16:13:05"
     },
     {
         "cctv_cam": "2",

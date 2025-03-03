@@ -16,7 +16,7 @@ class Tab1Content(QWidget):
         main_layout = QVBoxLayout()
         main_layout.setSpacing(10)
 
-        main_layout.addLayout(self.create_provider_details())
+        main_layout.addWidget(ProviderDetails())
 
         # Scrollable area setup
         self.scroll_area = QScrollArea()
@@ -30,11 +30,6 @@ class Tab1Content(QWidget):
         self.setLayout(main_layout)
 
         self.create_dashboard_layout()
-
-    def create_provider_details(self):
-        """Create a layout for showing provider details."""
-        layout = ProviderDetails()
-        return layout
 
     def create_slot_layout(self):
         slot_data = get_slot_data()

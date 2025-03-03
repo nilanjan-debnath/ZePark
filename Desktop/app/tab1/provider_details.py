@@ -1,8 +1,8 @@
-from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout, QLabel
+from PySide6.QtWidgets import QHBoxLayout, QGroupBox, QVBoxLayout, QLabel
 from data.source import get_provider_details
 
 
-class ProviderDetails(QVBoxLayout):
+class ProviderDetails(QGroupBox):
     def __init__(self):
         super().__init__()
         self.init_variables()
@@ -18,6 +18,7 @@ class ProviderDetails(QVBoxLayout):
         self.parked_count = data.get("parked slots")
 
     def init_ui(self):
+        layout = QVBoxLayout()
         name_box = QHBoxLayout()
         self.park_name_label = QLabel(f"Park Name: {self.park_name}")
         self.provider_name_label = QLabel(f"Park Name: {self.provider_name}")
@@ -28,12 +29,15 @@ class ProviderDetails(QVBoxLayout):
 
         count_box = QHBoxLayout()
         self.empty_label = QLabel(f"Empty: {self.empty_count}")
-        self.booked_label = QLabel(f"Parked: {self.booked_count}")
+        self.booked_label = QLabel(f"Booked: {self.booked_count}")
         self.parked_label = QLabel(f"Parked: {self.parked_count}")
         count_box.addWidget(self.empty_label)
         count_box.addWidget(self.booked_label)
         count_box.addWidget(self.parked_label)
 
-        self.addLayout(name_box)
-        self.addWidget(self.address_label)
-        self.addLayout(count_box)
+        layout.addLayout(name_box)
+        layout.addWidget(self.address_label)
+        layout.addLayout(count_box)
+
+        self.setLayout(layout)
+        self.setObjectName("providerDetails")
