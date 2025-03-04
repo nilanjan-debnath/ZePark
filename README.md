@@ -47,7 +47,8 @@ Zepark enables households and businesses to earn by listing their **unused parki
 
 🔽 **Parking Provider Dashboard**:
 
-[![Video Title](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://youtu.be/yj3CwTpGLrM)
+[![Video Title](https://i.ibb.co/tM7yZmkQ/dashboard-image.jpg)](https://youtu.be/yj3CwTpGLrM)
+
 *(Click the image to watch the dashboard in action!)*
 
 
