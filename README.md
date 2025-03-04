@@ -14,6 +14,7 @@ Zepark is an innovative **smart parking solution** that optimizes urban spaces b
 ## 🎥 **Watch Zepark in Action**
 
 [![Zepark Video](https://i.ibb.co/Jjw0TVCz/image.png)](https://youtu.be/ELKtclUpURI)
+
 *(Click the image to watch the full pitch!)*
 
 ---
