@@ -9,6 +9,11 @@ Zepark is an innovative **smart parking solution** that optimizes urban spaces b
 - Prevents emission of **14,000 metric tons of CO₂ annually** per urban area
 - Equivalent to removing **3,000+ cars** from the roads each year
 
+### Our achivements
+  -  Winner of the Govt. of India IDE Bootcamp 2024, University Edition, as one of
+     the top 75 businesses out of over 1000+ entries.
+  -  Took part in IIT Bombay Action Plan 2025 and emerged as one of the top 30 startups from 3000+ submissions.
+    
 ---
 
 ## 🎥 **Watch Zepark in Action**
