@@ -1,7 +1,7 @@
 [project]
 name = "zepark-desktop"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.2.0"
+description = "This is the desktop application for the ZePark project"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -11,11 +11,10 @@ dependencies = [
     "numpy>=2.2.1",
     "opencv-python>=4.10.0.84",
     "pillow>=11.1.0",
-    "pyside6>=6.8.1.1",
+    "pyside6>=6.8.2.1",
 ]
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.4",
-    "ruff>=0.9.3",
+    "ruff>=0.8.3.5",
 ]

@@ -2,27 +2,38 @@ import json
 
 # Constants for background videos
 videos = [
-    "video/video69crop-1.mp4",
-    "video/video69crop-2.mp4",
-    "video/video69crop-3.mp4",
-    "video/video69crop-4.mp4",
-    # "video/video69.mp4",
-    # "video/video6.mp4",
+    "app/data/video/video69crop-1.mp4",
+    "app/data/video/video69crop-2.mp4",
+    "app/data/video/video69crop-3.mp4",
+    "app/data/video/video69crop-4.mp4",
+    # "app/data/video/video69.mp4",
+    # "app/data/video/video6.mp4",
     # " ",
 ]
-rect_data = "data/rectangles.json"
-slot_data = "data/slots.json"
+rect_data = "app/data/json/rectangles.json"
+provider_data = "app/data/json/provider.json"
+slot_data = "app/data/json/slots.json"
 
 
-def video(index):
-    if index < count():
+def get_provider_details():
+    try:
+        with open(provider_data, "r") as file:
+            provider_details = json.load(file)
+            # print(all_rectangle_data)
+        return provider_details
+    except FileNotFoundError:
+        return {}
+
+
+def get_video(index):
+    if index < source_count():
         return videos[index]
     else:
         print("Video isn't available")
         return " "
 
 
-def count():
+def source_count():
     return len(videos)
 
 

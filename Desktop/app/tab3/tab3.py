@@ -1,5 +1,5 @@
 from tab3.canvas import Canvas
-from tab2 import source
+from data.source import source_count
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton
 from PySide6.QtGui import QShortcut, QKeySequence
@@ -42,7 +42,7 @@ class Tab3Content(QWidget):
     def create_background_buttons(self):
         """Create dynamic background selection buttons"""
         layout = QHBoxLayout()
-        for i in range(source.count()):
+        for i in range(source_count()):
             button = QPushButton(f"Background {i + 1}")
             button.setObjectName("backgroundButton")
             button.clicked.connect(

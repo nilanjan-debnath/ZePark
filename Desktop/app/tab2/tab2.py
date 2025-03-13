@@ -1,5 +1,5 @@
 from tab2.cctv import CCVTPlayer
-from tab2 import source
+from data.source import source_count, get_video
 import math
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
@@ -49,7 +49,7 @@ class Tab2Content(QWidget):
         layout.addWidget(self.switch_view_button)
 
         # CCTV buttons
-        for i in range(source.count()):
+        for i in range(source_count()):
             button = QPushButton(f"CCTV {i + 1}")
             button.setObjectName("cctv_button")
             button.clicked.connect(
@@ -176,9 +176,9 @@ class Tab2Content(QWidget):
         self.cctv_windows.clear()
         self.cctv_windows = [
             CCVTPlayer(
-                index=i, video_path=source.video(i), tab1_instance=self.tab1_instance
+                index=i, video_path=get_video(i), tab1_instance=self.tab1_instance
             )
-            for i in range(source.count())
+            for i in range(source_count())
         ]
 
     def clear_layout(self, layout):

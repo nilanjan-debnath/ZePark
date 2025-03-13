@@ -1,29 +1,30 @@
-## This is Desktop App for ParKing
+## This is desktop application for ZePark project
 
-# TASK:
-- [x] Tab1: Update status details from cctv
-- [ ] Tab3: adding resize method to rectangles
-- [ ] Tab3: Arranging data properly after saving (keeping the previous data and adding the new ones)
-    - [x] added index on new area box
-    - [ ] use the index to track the changes in slots (each slots having unique id from the rectangle dat)
+# Instructions to run the project
+- Ensure the the `uv` is installed
+    ```powershell
+    uv -V
+    ```
 
+- If `uv` not found in your system then follow the instruction to install `uv` into your system
+    - For Windows
+        ```powershell
+        powershell -c "irm https://astral.sh/uv/install.ps1 | more"
+        ```
+    - For macOS and Linux
+        ```powershell
+        curl -LsSf https://astral.sh/uv/install.sh | less
+        ```
+    - Also can use `pip` to install `uv` in any system if you already have python installed
+        ```powershell
+        pip install uv
+        ```
 
-```
-Commit Message:
-    feat:     A new feature.
-    fix:      A bug fix.
-    docs:     Documentation changes.
-    style:    Code style changes (formatting, missing semicolons, etc.).
-    refactor: Code refactoring (neither fixes a bug nor adds a feature).
-    test:     Adding or updating tests.
-    chore:    Routine tasks like updating dependencies or build tools.
-    build:    Changes affecting the build system or external dependencies.
-    ci:       Changes to CI configuration files or scripts.
-    perf:     Performance improvements.
-    revert:   Reverting a previous commit.
-
-Examples:
-    feat(auth): add login functionality
-    fix(api)!: resolve timeout issue
-    docs(readme): update installation instructions
-```
+- To sync the project and install the dependency
+    ```powershell
+    uv sync --no-dev
+    ```
+- Now run the project using this line
+    ```powershell
+    uv run app/main.py
+    ```
