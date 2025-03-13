@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QHBoxLayout, QGroupBox, QVBoxLayout, QLabel
-from data.source import get_provider_details
+from data import get_provider_details
 
 
 class ProviderDetails(QGroupBox):

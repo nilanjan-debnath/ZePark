@@ -1,4 +1,4 @@
-from data.source import get_rect_data, get_slot_data, save_slot_data
+from data import get_rect_data, get_slot_data, save_slot_data
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt

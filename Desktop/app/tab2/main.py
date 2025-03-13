@@ -1,5 +1,5 @@
-from tab2.cctv import CCVTPlayer
-from data.source import source_count, get_video
+from .cctv import CCVTPlayer
+from data import source_count, get_video
 import math
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
