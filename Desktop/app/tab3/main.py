@@ -1,5 +1,5 @@
-from tab3.canvas import Canvas
-from data.source import source_count
+from .canvas import Canvas
+from data import source_count
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton
 from PySide6.QtGui import QShortcut, QKeySequence

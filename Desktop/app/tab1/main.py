@@ -1,6 +1,6 @@
-from data.source import get_slot_data
-from tab1.parking_details import ParkingDetails
-from tab1.provider_details import ProviderDetails
+from data import get_slot_data
+from .parking_details import ParkingDetails
+from .provider_details import ProviderDetails
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea
 
 

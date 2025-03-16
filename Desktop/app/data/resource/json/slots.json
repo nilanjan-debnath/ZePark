@@ -6,7 +6,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "0",
@@ -15,7 +15,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "0",
@@ -24,7 +24,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "0",
@@ -33,7 +33,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "0",
@@ -42,16 +42,16 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
-        "cctv_cam": "1",
+        "cctv_cam": "0",
         "slot_no": 6,
-        "status": 2,
+        "status": 0,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:46"
+        "parking_time": " "
     },
     {
         "cctv_cam": "1",
@@ -60,7 +60,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:46"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "1",
@@ -69,7 +69,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:46"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "1",
@@ -78,16 +78,16 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:46"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
-        "cctv_cam": "2",
+        "cctv_cam": "1",
         "slot_no": 10,
         "status": 2,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-03-03 16:13:05"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "2",
@@ -96,7 +96,7 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "2",
@@ -105,25 +105,25 @@
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:46"
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "2",
         "slot_no": 13,
-        "status": 0,
+        "status": 2,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": ""
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
-        "cctv_cam": "3",
+        "cctv_cam": "2",
         "slot_no": 14,
-        "status": 0,
+        "status": 2,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": " "
+        "parking_time": "2025-03-13 23:52:58"
     },
     {
         "cctv_cam": "3",
@@ -137,15 +137,6 @@
     {
         "cctv_cam": "3",
         "slot_no": 16,
-        "status": 2,
-        "user_name": " ",
-        "car_no": " ",
-        "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
-    },
-    {
-        "cctv_cam": "3",
-        "slot_no": 17,
         "status": 0,
         "user_name": " ",
         "car_no": " ",
@@ -154,11 +145,29 @@
     },
     {
         "cctv_cam": "3",
-        "slot_no": 18,
+        "slot_no": 17,
         "status": 2,
         "user_name": " ",
         "car_no": " ",
         "booking_time": " ",
-        "parking_time": "2025-02-28 15:30:45"
+        "parking_time": "2025-03-13 23:52:58"
+    },
+    {
+        "cctv_cam": "3",
+        "slot_no": 18,
+        "status": 0,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": " "
+    },
+    {
+        "cctv_cam": "3",
+        "slot_no": 19,
+        "status": 2,
+        "user_name": " ",
+        "car_no": " ",
+        "booking_time": " ",
+        "parking_time": "2025-03-13 23:52:58"
     }
 ]
