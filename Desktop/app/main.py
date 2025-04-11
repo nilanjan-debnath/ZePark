@@ -1,3 +1,7 @@
+from tab1 import Tab1Content
+from tab2 import Tab2Content
+from tab3 import Tab3Content
+
 from PySide6.QtWidgets import (
     QApplication,
     QMainWindow,
@@ -7,9 +11,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
-from tab1 import Tab1Content
-from tab2 import Tab2Content
-from tab3 import Tab3Content
+
+import logging
 
 
 class MainWindow(QMainWindow):
@@ -87,7 +90,22 @@ class MainWindow(QMainWindow):
         super().resizeEvent(event)
 
 
+def set_logging_config() -> None:
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s %(levelname)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+        filename="runtime.log",
+    )
+    # logging.debug("This is a debug message. ")
+    # logging.info("This is an info message." )
+    # logging.warning("This is a warning message.")
+    # logging.error ("This is an error message." )
+    # logging.critical("This is a critical message." )
+
+
 if __name__ == "__main__":
+    set_logging_config()
     app = QApplication([])
     window = MainWindow()
     window.show()
