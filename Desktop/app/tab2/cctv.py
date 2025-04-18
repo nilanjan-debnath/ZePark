@@ -1,5 +1,5 @@
-from data import get_rect_data, get_slot_data, save_slot_data
-from .classification import park_check
+from data import get_rect_data, get_slot_data
+from .thread_control import ml_queue
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt
@@ -7,7 +7,7 @@ from PySide6.QtGui import QPixmap, QImage
 import cv2
 import numpy as np
 import datetime
-import logging
+import time
 
 
 class CCVTPlayer(QWidget):
@@ -18,6 +18,7 @@ class CCVTPlayer(QWidget):
         self.debugging = False
         self.video_path = video_path
         self.init_ui()
+        self.prev_time = time.time()
 
         self.cap = cv2.VideoCapture(self.video_path)
         if self.cap.isOpened():
@@ -53,23 +54,13 @@ class CCVTPlayer(QWidget):
         return rectangle_data if rectangle_data else []
 
     def update_parking(self, index):
-        slots = get_slot_data()
-        if slots[index - 1]["status"] == 0:
-            parking_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            self.tab1_instance.slots[index - 1].add_parking_details(
-                parking_time=parking_time
-            )
-            slots[index - 1]["status"] = 2
-            slots[index - 1]["parking_time"] = parking_time
-            save_slot_data(data=slots)
+        parking_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.tab1_instance.slots[index - 1].add_parking_details(
+            parking_time=parking_time
+        )
 
     def clear_parking(self, index):
-        slots = get_slot_data()
-        if slots[index - 1]["status"] != 0:
-            self.tab1_instance.slots[index - 1].clear_parking_details()
-            slots[index - 1]["status"] = 0
-            slots[index - 1]["parking_time"] = ""
-            save_slot_data(data=slots)
+        self.tab1_instance.slots[index - 1].clear_parking_details()
 
     def process_image(self, frame):
         h, w, ch = frame.shape
@@ -89,6 +80,14 @@ class CCVTPlayer(QWidget):
             frame = imgDilate
 
         rectangles = self.get_local_data()  # Get rectangle data
+        slots = get_slot_data()
+        # if time.time() - self.prev_time > 3:
+        #     ml_cooldown = False
+        #     self.prev_time = time.time()
+        #     logging.debug(f"Cooldown: {ml_cooldown} | Prev: {self.prev_time} | Current: {time.time()}")
+        # else:
+        #     ml_cooldown = True
+        ml_cooldown = True
         for rect in rectangles:
             x = int(rect["x"] * w)
             y = int(rect["y"] * h)
@@ -133,49 +132,72 @@ class CCVTPlayer(QWidget):
                 cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
             )  # Count non-zero pixels
 
-            confidence = park_check(imgOrg_crop)
-            if (
-                count > 1500
-            ):  # Determine parking status, Blue for occupied, Green for free
-                color = (255, 0, 0)
-                self.update_parking(rect["index"])
-                logging.info(f"Park No.: {rect['index']} -> PARKED  {confidence}")
-            else:
-                color = (0, 255, 0)
-                self.clear_parking(rect["index"])
-                logging.info(f"Park No.: {rect['index']} -> EMPTY")
+            if not ml_cooldown:
+                ml_queue.put((rect["index"], count, imgOrg_crop))
 
-            cv2.polylines(
-                frame, [box_pts], isClosed=True, color=color, thickness=2
-            )  # Draw rotated rectangle
-            cv2.putText(
-                frame,
-                f"{confidence:.2f}",
-                (x + 5, y + 15),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                color,
-                2,
-            )  # added pixel count
-            cv2.putText(
-                frame,
-                f"{count}",
-                (x + 5, y + height - 5),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                color,
-                2,
-            )  # added pixel count
-            cv2.putText(
-                frame,
-                f"{rect['index']}",
-                (x + width // 2, y + height // 2),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                color,
-                2,
-            )  # added index
+            # confidence = park_check(imgOrg_crop)
+            # if (
+            #     count > 1500
+            # ):  # Determine parking status, Blue for occupied, Green for free
+            #     color = (255, 0, 0)
+            #     self.update_parking(rect["index"])
+            #     logging.info(f"Park No.: {rect['index']} -> PARKED  {confidence}")
+            # else:
+            #     color = (0, 255, 0)
+            #     self.clear_parking(rect["index"])
+            #     logging.info(f"Park No.: {rect['index']} -> EMPTY")
 
+            frame = self.ui_update(frame, box_pts, rect, slots)
+
+        return frame
+
+    def ui_update(self, frame, box_pts, rect, slots):
+        h, w, ch = frame.shape
+        x = int(rect["x"] * w)
+        y = int(rect["y"] * h)
+        width = int(rect["width"] * w)
+        height = int(rect["height"] * h)
+        index = rect["index"]
+
+        if slots[index - 1]["status"] == 0:
+            self.clear_parking(index)
+            color = (0, 255, 0)
+        elif slots[index - 1]["status"] == 1:
+            color = (0, 0, 255)
+        else:
+            self.update_parking(index)
+            color = (255, 0, 0)
+
+        cv2.polylines(
+            frame, [box_pts], isClosed=True, color=color, thickness=2
+        )  # Draw rotated rectangle
+        cv2.putText(
+            frame,
+            f"{slots[index - 1]['confidence'][:5]}",
+            (x + 5, y + 15),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.5,
+            color,
+            2,
+        )  # added pixel count
+        cv2.putText(
+            frame,
+            f"{slots[index - 1]['pixel_count']}",
+            (x + 5, y + height - 5),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.5,
+            color,
+            2,
+        )  # added pixel count
+        cv2.putText(
+            frame,
+            f"{index}",
+            (x + width // 2, y + height // 2),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.5,
+            color,
+            2,
+        )  # added index
         return frame
 
     def convert_frame_to_pixmap(self, frame, no_process=False):

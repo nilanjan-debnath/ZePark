@@ -32,3 +32,8 @@ def arrange_data(data: dict):
             value["index"] = count
             count += 1
     return data
+
+
+def restart_slot():
+    data = get_rect_data()
+    save_rect_data(data)

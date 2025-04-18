@@ -1,6 +1,5 @@
 from data import model
 
-import logging
 import cv2
 import numpy as np
 
@@ -13,5 +12,4 @@ def park_check(area_image):
     probabilities = model.predict(input_tensor, verbose=0)[0]
 
     max_prob = max(probabilities)
-    logging.info(f"Image checked: {probabilities}")
     return max_prob

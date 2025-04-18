@@ -1,5 +1,5 @@
 from tab1 import Tab1Content
-from tab2 import Tab2Content
+from tab2 import Tab2Content, threading_start
 from tab3 import Tab3Content
 
 from PySide6.QtWidgets import (
@@ -106,6 +106,7 @@ def set_logging_config() -> None:
 
 if __name__ == "__main__":
     set_logging_config()
+    threading_start()
     app = QApplication([])
     window = MainWindow()
     window.show()

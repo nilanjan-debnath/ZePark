@@ -31,6 +31,9 @@ def create_slot_data(data: dict):
                 "car_no": " ",
                 "booking_time": " ",
                 "parking_time": " ",
+                "emptied_time": " ",
+                "pixel_count": 0,
+                "confidence": "0.0",
             }
             slot_data.append(tmp)
     save_slot_data(data=slot_data)
