@@ -1,4 +1,5 @@
 from data import get_rect_data, get_slot_data, save_slot_data
+from .classification import park_check
 
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt
@@ -6,6 +7,7 @@ from PySide6.QtGui import QPixmap, QImage
 import cv2
 import numpy as np
 import datetime
+import logging
 
 
 class CCVTPlayer(QWidget):
@@ -71,6 +73,7 @@ class CCVTPlayer(QWidget):
 
     def process_image(self, frame):
         h, w, ch = frame.shape
+        imgOrg = frame
         imgGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
         imgThreshold = cv2.adaptiveThreshold(
@@ -108,6 +111,7 @@ class CCVTPlayer(QWidget):
             # Rotate image and extract region
             rotation_matrix = cv2.getRotationMatrix2D(rect_center, angle, 1.0)
             img_rotated = cv2.warpAffine(imgDilate, rotation_matrix, (w, h))
+            imgOrg_rotated = cv2.warpAffine(imgOrg, rotation_matrix, (w, h))
 
             # Crop the rotated area
             x_min, y_min = np.min(box_pts, axis=0)
@@ -120,6 +124,7 @@ class CCVTPlayer(QWidget):
             y_max = min(h, y_max)
 
             img_crop = img_rotated[y_min:y_max, x_min:x_max]
+            imgOrg_crop = imgOrg_rotated[y_min:y_max, x_min:x_max]
 
             if img_crop.size == 0:
                 continue  # Skip if the cropped region is invalid
@@ -128,18 +133,30 @@ class CCVTPlayer(QWidget):
                 cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
             )  # Count non-zero pixels
 
+            confidence = park_check(imgOrg_crop)
             if (
                 count > 1500
             ):  # Determine parking status, Blue for occupied, Green for free
                 color = (255, 0, 0)
                 self.update_parking(rect["index"])
+                logging.info(f"Park No.: {rect['index']} -> PARKED  {confidence}")
             else:
                 color = (0, 255, 0)
                 self.clear_parking(rect["index"])
+                logging.info(f"Park No.: {rect['index']} -> EMPTY")
 
             cv2.polylines(
                 frame, [box_pts], isClosed=True, color=color, thickness=2
             )  # Draw rotated rectangle
+            cv2.putText(
+                frame,
+                f"{confidence:.2f}",
+                (x + 5, y + 15),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                color,
+                2,
+            )  # added pixel count
             cv2.putText(
                 frame,
                 f"{count}",

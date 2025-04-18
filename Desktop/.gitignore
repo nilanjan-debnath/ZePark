@@ -12,3 +12,5 @@ wheels/
 # Untrack files and folders
 par-king-car-firebase-adminsdk.json
 test.ipynb
+
+runtime.log
