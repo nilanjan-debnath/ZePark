@@ -37,3 +37,6 @@ def arrange_data(data: dict):
 def restart_slot():
     data = get_rect_data()
     save_rect_data(data)
+
+
+restart_slot()

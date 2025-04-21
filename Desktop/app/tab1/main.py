@@ -1,6 +1,8 @@
 from data import get_slot_data
 from .parking_details import ParkingDetails
 from .provider_details import ProviderDetails
+from .ui_process import ui_worker
+import threading
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea
 
 
@@ -8,6 +10,7 @@ class Tab1Content(QWidget):
     def __init__(self):
         super().__init__()
         self.slots = []
+        threading.Thread(target=ui_worker, args=(self,), daemon=True).start()
 
         # Initialize the UI components
         self.load_stylesheet()

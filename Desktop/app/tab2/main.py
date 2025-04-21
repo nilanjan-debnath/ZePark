@@ -1,6 +1,10 @@
 from .cctv import CCVTPlayer
+from .ml_process import ml_worker
+from .frame_process import frame_worker
+
 from data import source_count, get_video
 import math
+import threading
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QWidget,
@@ -12,13 +16,15 @@ from PySide6.QtWidgets import (
 
 
 class Tab2Content(QWidget):
-    def __init__(self, tab1):
+    def __init__(self):
         super().__init__()
-        self.tab1_instance = tab1
         self.grid_view = True
         self.selected_window = 0  # Default to the first CCTV window
         self.cctv_windows = []
         self.selected_button = None
+
+        threading.Thread(target=ml_worker, daemon=True).start()
+        threading.Thread(target=frame_worker, daemon=True).start()
 
         # Initialize the UI components
         self.load_stylesheet()
@@ -175,10 +181,7 @@ class Tab2Content(QWidget):
         # Clear previous windows to avoid stale references
         self.cctv_windows.clear()
         self.cctv_windows = [
-            CCVTPlayer(
-                index=i, video_path=get_video(i), tab1_instance=self.tab1_instance
-            )
-            for i in range(source_count())
+            CCVTPlayer(index=i, video_path=get_video(i)) for i in range(source_count())
         ]
 
     def clear_layout(self, layout):

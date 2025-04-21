@@ -1,19 +1,15 @@
-from data import get_rect_data, get_slot_data
-from .thread_control import ml_queue
-
+from .frame_process import current_frames, processed_frames
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PySide6.QtCore import QTimer, Qt
 from PySide6.QtGui import QPixmap, QImage
+
 import cv2
-import numpy as np
-import datetime
 import time
 
 
 class CCVTPlayer(QWidget):
-    def __init__(self, index, video_path, tab1_instance):
+    def __init__(self, index: int, video_path: str):
         super().__init__()
-        self.tab1_instance = tab1_instance
         self.index = index
         self.debugging = False
         self.video_path = video_path
@@ -44,167 +40,19 @@ class CCVTPlayer(QWidget):
         """Update the video frame."""
         ret, frame = self.cap.read()
         if ret:
-            self.video_label.setPixmap(self.convert_frame_to_pixmap(frame))
+            self.video_label.setPixmap(
+                self.convert_frame_to_pixmap(frame, processed=True)
+            )
         else:
             self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Loop the video
 
-    def get_local_data(self):
-        all_rectangle_data = get_rect_data()
-        rectangle_data = all_rectangle_data.get(str(self.index))
-        return rectangle_data if rectangle_data else []
-
-    def update_parking(self, index):
-        parking_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        self.tab1_instance.slots[index - 1].add_parking_details(
-            parking_time=parking_time
-        )
-
-    def clear_parking(self, index):
-        self.tab1_instance.slots[index - 1].clear_parking_details()
-
-    def process_image(self, frame):
-        h, w, ch = frame.shape
-        imgOrg = frame
-        imgGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
-        imgThreshold = cv2.adaptiveThreshold(
-            imgBlur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 25, 16
-        )
-        imgMedian = cv2.medianBlur(imgThreshold, 5)
-        kernel = np.ones((3, 3), np.uint8)
-        imgDilate = cv2.dilate(imgMedian, kernel, iterations=1)
-        imgDilate = cv2.cvtColor(imgDilate, cv2.COLOR_GRAY2RGB)
-
-        # take the imgDilate as the frame for checking the processed image
-        if self.debugging:
-            frame = imgDilate
-
-        rectangles = self.get_local_data()  # Get rectangle data
-        slots = get_slot_data()
-        # if time.time() - self.prev_time > 3:
-        #     ml_cooldown = False
-        #     self.prev_time = time.time()
-        #     logging.debug(f"Cooldown: {ml_cooldown} | Prev: {self.prev_time} | Current: {time.time()}")
-        # else:
-        #     ml_cooldown = True
-        ml_cooldown = True
-        for rect in rectangles:
-            x = int(rect["x"] * w)
-            y = int(rect["y"] * h)
-            width = int(rect["width"] * w)
-            height = int(rect["height"] * h)
-            angle = rect["rotation"]  # Rotation angle
-
-            rect_center = (
-                x + width // 2,
-                y + height // 2,
-            )  # Define center of the rectangle
-            rect_box = (
-                (rect_center[0], rect_center[1]),
-                (width, height),
-                angle,
-            )  # Create rotated bounding box
-            box_pts = cv2.boxPoints(rect_box)  # Get corner points
-            box_pts = np.array(box_pts, np.int32)  # Convert to integer
-
-            # Rotate image and extract region
-            rotation_matrix = cv2.getRotationMatrix2D(rect_center, angle, 1.0)
-            img_rotated = cv2.warpAffine(imgDilate, rotation_matrix, (w, h))
-            imgOrg_rotated = cv2.warpAffine(imgOrg, rotation_matrix, (w, h))
-
-            # Crop the rotated area
-            x_min, y_min = np.min(box_pts, axis=0)
-            x_max, y_max = np.max(box_pts, axis=0)
-
-            # Ensure cropping remains within image boundaries
-            x_min = max(0, x_min)
-            y_min = max(0, y_min)
-            x_max = min(w, x_max)
-            y_max = min(h, y_max)
-
-            img_crop = img_rotated[y_min:y_max, x_min:x_max]
-            imgOrg_crop = imgOrg_rotated[y_min:y_max, x_min:x_max]
-
-            if img_crop.size == 0:
-                continue  # Skip if the cropped region is invalid
-
-            count = cv2.countNonZero(
-                cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
-            )  # Count non-zero pixels
-
-            if not ml_cooldown:
-                ml_queue.put((rect["index"], count, imgOrg_crop))
-
-            # confidence = park_check(imgOrg_crop)
-            # if (
-            #     count > 1500
-            # ):  # Determine parking status, Blue for occupied, Green for free
-            #     color = (255, 0, 0)
-            #     self.update_parking(rect["index"])
-            #     logging.info(f"Park No.: {rect['index']} -> PARKED  {confidence}")
-            # else:
-            #     color = (0, 255, 0)
-            #     self.clear_parking(rect["index"])
-            #     logging.info(f"Park No.: {rect['index']} -> EMPTY")
-
-            frame = self.ui_update(frame, box_pts, rect, slots)
-
-        return frame
-
-    def ui_update(self, frame, box_pts, rect, slots):
-        h, w, ch = frame.shape
-        x = int(rect["x"] * w)
-        y = int(rect["y"] * h)
-        width = int(rect["width"] * w)
-        height = int(rect["height"] * h)
-        index = rect["index"]
-
-        if slots[index - 1]["status"] == 0:
-            self.clear_parking(index)
-            color = (0, 255, 0)
-        elif slots[index - 1]["status"] == 1:
-            color = (0, 0, 255)
-        else:
-            self.update_parking(index)
-            color = (255, 0, 0)
-
-        cv2.polylines(
-            frame, [box_pts], isClosed=True, color=color, thickness=2
-        )  # Draw rotated rectangle
-        cv2.putText(
-            frame,
-            f"{slots[index - 1]['confidence'][:5]}",
-            (x + 5, y + 15),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
-            color,
-            2,
-        )  # added pixel count
-        cv2.putText(
-            frame,
-            f"{slots[index - 1]['pixel_count']}",
-            (x + 5, y + height - 5),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
-            color,
-            2,
-        )  # added pixel count
-        cv2.putText(
-            frame,
-            f"{index}",
-            (x + width // 2, y + height // 2),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
-            color,
-            2,
-        )  # added index
-        return frame
-
-    def convert_frame_to_pixmap(self, frame, no_process=False):
+    def convert_frame_to_pixmap(self, frame, processed=True):
         """Convert OpenCV frame to QPixmap with rectangles overlay."""
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        if not no_process:
-            frame = self.process_image(frame)
+        if processed:
+            current_frames[self.index] = frame
+            if self.index in processed_frames:
+                frame = processed_frames[self.index]
 
         # Convert to QPixmap
         h, w, ch = frame.shape
@@ -217,7 +65,7 @@ class CCVTPlayer(QWidget):
         if self.cap.isOpened():
             ret, frame = self.cap.read()
             if ret:
-                return self.convert_frame_to_pixmap(frame, no_process=True)
+                return self.convert_frame_to_pixmap(frame, processed=False)
         return None
 
     def set_video_size(self, width, height):
