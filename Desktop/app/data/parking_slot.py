@@ -33,6 +33,7 @@ def create_slot_data(data: dict):
                 "parking_time": " ",
                 "emptied_time": " ",
                 "confidence": "0.0",
+                "pixel_count": 0,
             }
             slot_data.append(tmp)
     save_slot_data(data=slot_data)

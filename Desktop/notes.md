@@ -26,3 +26,8 @@ Examples:
     fix(api)!: resolve timeout issue
     docs(readme): update installation instructions
 ```
+
+### Calculation of line of code
+```bash
+cloc --match-f='\.py$' --by-file --exclude -dir=.venv --not-match-d='\/__pycache__' .
+```

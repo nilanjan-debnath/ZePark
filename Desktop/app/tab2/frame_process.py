@@ -44,7 +44,7 @@ def process_image(frame, cctv_index, debugging=False):
     if debugging:
         frame = imgDilate
 
-    rectangles = get_local_data(cctv_index)  # Get rectangle data
+    rectangles = get_local_data(cctv_index)
     slots = get_slot_data()
 
     for rect in rectangles:
@@ -52,7 +52,7 @@ def process_image(frame, cctv_index, debugging=False):
         y = int(rect["y"] * h)
         width = int(rect["width"] * w)
         height = int(rect["height"] * h)
-        angle = rect["rotation"]  # Rotation angle
+        angle = rect["rotation"]
 
         rect_center = (
             x + width // 2,
@@ -126,7 +126,7 @@ def add_text(frame, box_pts, rect, slots, pixel_count):
     )  # added pixel count
     cv2.putText(
         frame,
-        f"{pixel_count}",
+        f"{slots[index - 1]['pixel_count']}",
         (x + 5, y + height - 5),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.5,
