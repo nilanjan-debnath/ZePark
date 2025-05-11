@@ -1,21 +1,44 @@
-from data import get_slot_data, save_slot_data
-from data import model
-from tab1 import ui_updates
-
 import logging
-import queue
-import datetime
+import time
 import cv2
 import numpy as np
+import threading
+
+from data import model
+
+images_dist = {}
+acc_dist = {}
+image_lock = threading.Lock()
+acc_lock = threading.Lock()
 
 
-ml_queue = queue.Queue()
-
-
-def car_check(area_image) -> bool:
-    input_image_size = (256, 256)
-
+def ml_worker():
+    logging.info("MLProcess: Started")
     interpreter = model.get()
+    while True:
+        with image_lock:
+            global images_dist
+            slots_to_process = list(images_dist.keys())
+            images_copy = {idx: images_dist[idx].copy() for idx in slots_to_process}
+
+        for slot_no in slots_to_process:
+            image = images_copy[slot_no]["image"]
+            prev_time = images_copy[slot_no]["prev_time"]
+
+            confidence = car_check(image, interpreter) * 100
+
+            with acc_lock:
+                acc_dist.update({slot_no: int(confidence)})
+            # update_queue.put((slot_no, confidence, count))
+
+            time_dif = time.time() - prev_time
+            logging.info(f"MLProcess: {slot_no=} {time_dif=:.2f}s")
+
+        time.sleep(0.01)
+
+
+def car_check(area_image, interpreter) -> float:
+    input_image_size = (256, 256)
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
 
@@ -42,53 +65,4 @@ def car_check(area_image) -> bool:
 
     output_data = interpreter.get_tensor(output_index)
     probability = output_data[0][0]
-    return True if probability > 0.5 else False
-
-
-def ml_worker():
-    logging.info("MLProcess: Started")
-    while True:
-        if ml_queue.not_empty:
-            slot_no, count, img = ml_queue.get()
-            parked = False
-            confidence = 0.0
-            if count > 1500:
-                parked = True
-                # if car_check(img):
-                #     parked = True
-            if parked:
-                update_parking(slot_no, confidence, count)
-            else:
-                clear_parking(slot_no, confidence, count)
-
-            ml_queue.task_done()
-            logging.info(f"MLProcess: {slot_no=} {count=}")
-
-
-def update_parking(index, confidence, pixel_count):
-    slots = get_slot_data()
-    if slots[index - 1]["status"] != 2:
-        time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        slots[index - 1]["status"] = 2
-        slots[index - 1]["parking_time"] = time
-        slots[index - 1]["emptied_time"] = " "
-        slots[index - 1]["confidence"] = f"{confidence}"
-        slots[index - 1]["pixel_count"] = pixel_count
-        save_slot_data(data=slots)
-
-        ui_updates.put((index, 2))
-
-
-def clear_parking(index, confidence, pixel_count):
-    slots = get_slot_data()
-    if slots[index - 1]["status"] != 0:
-        time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        slots[index - 1]["status"] = 0
-        slots[index - 1]["booking_time"] = " "
-        slots[index - 1]["parking_time"] = " "
-        slots[index - 1]["emptied_time"] = time
-        slots[index - 1]["confidence"] = f"{confidence}"
-        slots[index - 1]["pixel_count"] = pixel_count
-        save_slot_data(data=slots)
-
-        ui_updates.put((index, 0))
+    return probability

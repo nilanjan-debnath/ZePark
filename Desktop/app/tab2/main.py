@@ -1,6 +1,7 @@
 from .cctv import CCVTPlayer
 from .ml_process import ml_worker
 from .frame_process import frame_worker
+from .update_process import update_worker
 
 from data import source_count, get_video
 import math
@@ -25,6 +26,7 @@ class Tab2Content(QWidget):
 
         threading.Thread(target=ml_worker, daemon=True).start()
         threading.Thread(target=frame_worker, daemon=True).start()
+        threading.Thread(target=update_worker, daemon=True).start()
 
         # Initialize the UI components
         self.load_stylesheet()
@@ -245,6 +247,6 @@ class Tab2Content(QWidget):
     def current_window_image(self, index):
         """Retrieve the current frame from a specific CCTV window."""
         if 0 <= index < len(self.cctv_windows):
-            return self.cctv_windows[index].get_current_frame()
+            return self.cctv_windows[index].get_current_frame_pixmap()
         print(f"Error: Invalid index {index}. Returning None.")
         return None

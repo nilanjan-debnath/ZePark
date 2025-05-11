@@ -3,7 +3,7 @@ import logging
 
 def set_logging_config() -> None:
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.DEBUG,
         format="%(asctime)s.%(msecs)03d %(levelname)s %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
         filename="runtime.log",

@@ -39,4 +39,4 @@ def restart_slot():
     save_rect_data(data)
 
 
-restart_slot()
+# restart_slot()

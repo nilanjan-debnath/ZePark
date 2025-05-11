@@ -1,24 +1,36 @@
-from data import get_rect_data, get_slot_data
-from .ml_process import ml_queue
-
 import logging
+import time
 import cv2
 import numpy as np
+import threading
 
+from .update_process import update_queue
+from .ml_process import images_dist, image_lock, acc_dist, acc_lock
+from data import get_rect_data, get_slot_data
 
 current_frames = {}
 processed_frames = {}
+frame_lock = threading.Lock()
+processed_lock = threading.Lock()
 
 
 def frame_worker():
     logging.info("FrameProcess: Started")
     while True:
-        for index in list(current_frames.keys()):
-            frame = current_frames[index]
+        with frame_lock:
+            indices_to_process = list(current_frames.keys())
+            frames_copy = {
+                idx: current_frames[idx].copy() for idx in indices_to_process
+            }
+
+        for index in indices_to_process:
+            frame = frames_copy[index]  # Use the copied frame
             processed_frame = process_image(frame, cctv_index=index)
-            global processed_frames
-            processed_frames[index] = processed_frame
-            logging.info(f"FrameProcess: {index=}")
+            with processed_lock:  # Acquire lock to update processed_frames
+                processed_frames[index] = processed_frame
+            # logging.info(f"FrameProcess: {index=}") # Consider reducing frequency
+
+        time.sleep(0.01)
 
 
 def get_local_data(cctv_index):
@@ -46,7 +58,6 @@ def process_image(frame, cctv_index, debugging=False):
 
     rectangles = get_local_data(cctv_index)
     slots = get_slot_data()
-
     for rect in rectangles:
         x = int(rect["x"] * w)
         y = int(rect["y"] * h)
@@ -87,17 +98,29 @@ def process_image(frame, cctv_index, debugging=False):
         if img_crop.size == 0:
             continue  # Skip if the cropped region is invalid
 
+        # count = int(slots[rect["index"] - 1]['pixel_count'])
         count = cv2.countNonZero(
             cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
         )  # Count non-zero pixels
 
-        ml_queue.put((rect["index"], count, imgOrg_crop))
-        frame = add_text(frame, box_pts, rect, slots, count)
+        with image_lock:
+            images_dist[rect["index"]] = {
+                "image": imgOrg_crop,
+                "prev_time": time.time(),
+            }
+        with acc_lock:
+            confidence = acc_dist.get(rect["index"])
+
+        if confidence is None:
+            continue
+
+        frame = add_text(frame, box_pts, rect, count, confidence, slots)
+        update_queue.put((rect["index"], confidence, count))
 
     return frame
 
 
-def add_text(frame, box_pts, rect, slots, pixel_count):
+def add_text(frame, box_pts, rect, pixel_count, confidence, slots):
     h, w, ch = frame.shape
     x = int(rect["x"] * w)
     y = int(rect["y"] * h)
@@ -105,20 +128,22 @@ def add_text(frame, box_pts, rect, slots, pixel_count):
     height = int(rect["height"] * h)
     index = rect["index"]
 
-    if slots[index - 1]["status"] == 0:
-        color = (0, 255, 0)
+    if confidence > 50:
+        color = (255, 0, 0)
+        # update_parking(index, confidence, pixel_count)
     elif slots[index - 1]["status"] == 1:
         color = (0, 0, 255)
     else:
-        color = (255, 0, 0)
+        color = (0, 255, 0)
+        # clear_parking(index, confidence, pixel_count)
 
     cv2.polylines(
         frame, [box_pts], isClosed=True, color=color, thickness=2
     )  # Draw rotated rectangle
     cv2.putText(
         frame,
-        f"{slots[index - 1]['confidence'][:5]}",
-        (x + 5, y + 15),
+        f"{confidence}",
+        (x + width - 30, y + 15),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.5,
         color,
@@ -126,7 +151,7 @@ def add_text(frame, box_pts, rect, slots, pixel_count):
     )  # added pixel count
     cv2.putText(
         frame,
-        f"{slots[index - 1]['pixel_count']}",
+        f"{pixel_count}",
         (x + 5, y + height - 5),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.5,

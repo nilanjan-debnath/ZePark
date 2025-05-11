@@ -1,21 +1,37 @@
 import json
+import logging
 
 slot_data = "app/data/resource/json/slots.json"
+slot_dict = {"data": []}
+
+
+def local_save():
+    global slot_dict
+    with open(slot_data, "w") as file:
+        json.dump(slot_dict, file, indent=4)
+
+
+def fetch_local():
+    global slot_dict
+    try:
+        with open(slot_data, "r") as file:
+            slot_dict = json.load(file)
+            # print(all_rectangle_data)
+    except FileNotFoundError:
+        return
+    except Exception as e:
+        logging.critical(f"Error in get_slot_data DETAILS: {e}")
+
+
+fetch_local()
 
 
 def save_slot_data(data):
-    with open(slot_data, "w") as file:
-        json.dump(data, file, indent=4)
+    slot_dict.update({"data": data})
 
 
 def get_slot_data():
-    try:
-        with open(slot_data, "r") as file:
-            all_rectangle_data = json.load(file)
-            # print(all_rectangle_data)
-        return all_rectangle_data
-    except FileNotFoundError:
-        return {}
+    return slot_dict.get("data")
 
 
 def create_slot_data(data: dict):
