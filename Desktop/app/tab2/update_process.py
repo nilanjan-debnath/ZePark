@@ -11,12 +11,12 @@ update_queue = queue.Queue()
 def update_worker():
     while True:
         if update_queue.not_empty:
-            slot_no, confidence, count = update_queue.get()
+            slot_no, confidence, pixel_count = update_queue.get()
 
-            if confidence > 50:
-                update_parking(slot_no, confidence, count)
+            if pixel_count > 1500:
+                update_parking(slot_no, confidence, pixel_count)
             else:
-                clear_parking(slot_no, confidence, count)
+                clear_parking(slot_no, confidence, pixel_count)
 
             update_queue.task_done()
 

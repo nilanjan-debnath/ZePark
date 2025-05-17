@@ -5,7 +5,8 @@ import numpy as np
 import threading
 
 from .update_process import update_queue
-from .ml_process import images_dist, image_lock, acc_dist, acc_lock
+
+# from .ml_process import images_dist, image_lock, acc_dist, acc_lock
 from data import get_rect_data, get_slot_data
 
 current_frames = {}
@@ -41,7 +42,7 @@ def get_local_data(cctv_index):
 
 def process_image(frame, cctv_index, debugging=False):
     h, w, ch = frame.shape
-    imgOrg = frame
+    # imgOrg = frame
     imgGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
     imgThreshold = cv2.adaptiveThreshold(
@@ -80,7 +81,7 @@ def process_image(frame, cctv_index, debugging=False):
         # Rotate image and extract region
         rotation_matrix = cv2.getRotationMatrix2D(rect_center, angle, 1.0)
         img_rotated = cv2.warpAffine(imgDilate, rotation_matrix, (w, h))
-        imgOrg_rotated = cv2.warpAffine(imgOrg, rotation_matrix, (w, h))
+        # imgOrg_rotated = cv2.warpAffine(imgOrg, rotation_matrix, (w, h))
 
         # Crop the rotated area
         x_min, y_min = np.min(box_pts, axis=0)
@@ -93,7 +94,7 @@ def process_image(frame, cctv_index, debugging=False):
         y_max = min(h, y_max)
 
         img_crop = img_rotated[y_min:y_max, x_min:x_max]
-        imgOrg_crop = imgOrg_rotated[y_min:y_max, x_min:x_max]
+        # imgOrg_crop = imgOrg_rotated[y_min:y_max, x_min:x_max]
 
         if img_crop.size == 0:
             continue  # Skip if the cropped region is invalid
@@ -103,14 +104,15 @@ def process_image(frame, cctv_index, debugging=False):
             cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
         )  # Count non-zero pixels
 
-        with image_lock:
-            images_dist[rect["index"]] = {
-                "image": imgOrg_crop,
-                "prev_time": time.time(),
-            }
-        with acc_lock:
-            confidence = acc_dist.get(rect["index"])
+        # with image_lock:
+        #     images_dist[rect["index"]] = {
+        #         "image": imgOrg_crop,
+        #         "prev_time": time.time(),
+        #     }
+        # with acc_lock:
+        #     confidence = acc_dist.get(rect["index"])
 
+        confidence = 99
         if confidence is None:
             continue
 
@@ -128,7 +130,7 @@ def add_text(frame, box_pts, rect, pixel_count, confidence, slots):
     height = int(rect["height"] * h)
     index = rect["index"]
 
-    if confidence > 50:
+    if pixel_count > 1500:
         color = (255, 0, 0)
         # update_parking(index, confidence, pixel_count)
     elif slots[index - 1]["status"] == 1:

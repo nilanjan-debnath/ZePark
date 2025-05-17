@@ -3,10 +3,10 @@ from .parking_details import ParkingDetails
 from .provider_details import ProviderDetails
 from .ui_process import ui_worker
 import threading
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QScrollArea
+from PySide6.QtWidgets import QWidget, QGroupBox, QVBoxLayout, QScrollArea
 
 
-class Tab1Content(QWidget):
+class Tab1Content(QGroupBox):
     def __init__(self):
         super().__init__()
         self.slots = []
@@ -14,23 +14,27 @@ class Tab1Content(QWidget):
 
         # Initialize the UI components
         self.load_stylesheet()
+        self.setObjectName("tab1Main")
 
         # Main layout
-        main_layout = QVBoxLayout()
-        main_layout.setSpacing(10)
+        self.main_layout = QVBoxLayout()
+        self.main_layout.setContentsMargins(0, 0, 0, 0)
+        self.main_layout.setSpacing(10)
 
-        main_layout.addWidget(ProviderDetails())
+        self.main_layout.addWidget(ProviderDetails())
 
         # Scrollable area setup
         self.scroll_area = QScrollArea()
+        self.scroll_area.setObjectName("scrollArea")
+        self.dashboard_layout = QVBoxLayout()
         self.scroll_widget = QWidget()
-        self.dashboard_layout = QVBoxLayout(self.scroll_widget)
+        self.scroll_widget.setObjectName("scrollWidget")
         self.scroll_widget.setLayout(self.dashboard_layout)
         self.scroll_area.setWidget(self.scroll_widget)
         self.scroll_area.setWidgetResizable(True)
 
-        main_layout.addWidget(self.scroll_area)
-        self.setLayout(main_layout)
+        self.main_layout.addWidget(self.scroll_area)
+        self.setLayout(self.main_layout)
 
         self.create_dashboard_layout()
 

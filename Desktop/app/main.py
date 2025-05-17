@@ -27,6 +27,7 @@ class MainWindow(QMainWindow):
 
         # Create a QTabWidget
         self.tab_widget = QTabWidget()
+        self.tab_widget.setObjectName("mainWindow")
 
         # Set tab position to the top
         self.tab_widget.setTabPosition(QTabWidget.North)
@@ -55,8 +56,8 @@ class MainWindow(QMainWindow):
         self.tab_widget.addTab(self.tab2, "CCTV")
         self.tab_widget.addTab(self.tab3, "Area Selector")
 
-        # Set Tab 2 as the default tab
-        self.tab_widget.setCurrentIndex(1)
+        # Set Tab 1 as the default tab
+        self.tab_widget.setCurrentIndex(0)
 
         # Set the central widget
         self.setCentralWidget(self.tab_widget)
@@ -82,7 +83,7 @@ class MainWindow(QMainWindow):
         # Dynamically adjust tab width in the stylesheet
         self.tab_widget.setStyleSheet(f"""
             QTabBar::tab {{
-                width: {tab_width - 55}px; /* Dynamically adjust tab width */
+                width: {tab_width - 11}px; /* Dynamically adjust tab width */
             }}
         """)
 

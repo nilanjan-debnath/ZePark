@@ -3,9 +3,9 @@ from PySide6.QtWidgets import QHBoxLayout, QLabel, QGroupBox
 
 class ParkingDetails(QGroupBox):
     STATUS_MAP = {
-        0: ("Empty", "#28a745", "#d4edda"),  # Green for Empty
-        1: ("Booked", "#ffc107", "#fff3cd"),  # Yellow for Booked
-        2: ("Parked", "#dc3545", "#f8d7da"),  # Red for Parked
+        0: ("EMPTY", "#4CAF50", "#1C1C1C"),  # Green for Empty
+        1: ("BOOKED", "#FF9800", "#1C1C1C"),  # Yellow for Booked
+        2: ("PARKED", "#F44336", "#1C1C1C"),  # Red for Parked
     }
 
     def __init__(self, slot_no, status, user_name, car_no, booking_time, parking_time):
@@ -43,13 +43,18 @@ class ParkingDetails(QGroupBox):
     def update_status(self, new_status):
         """Update the status of the parking slot with color and text."""
         self.status = new_status
-        status_text, text_color, bg_color = self.STATUS_MAP.get(
+        status_text, bg_color, text_color = self.STATUS_MAP.get(
             new_status, ("Unknown", "#6c757d", "#e2e3e5")
         )
 
-        self.status_label.setText(f"Status: {status_text}")
+        self.status_label.setText(f"{status_text}")
         self.status_label.setStyleSheet(
-            f"color: {text_color}; background-color: {bg_color}; padding: 5px; border-radius: 5px;"
+            f"""
+            color: {text_color};
+            background-color: {bg_color};
+            padding: 8px 5px;
+            border-radius: 5px;
+            """
         )
 
     def add_booking_details(self, user_name, car_no, booking_time):
