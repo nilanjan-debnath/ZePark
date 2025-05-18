@@ -4746,3 +4746,1112 @@
 2025-05-18 02:11:01.694 INFO UIProcess: index=3 status=0
 2025-05-18 02:11:07.285 INFO FrameReader [1]: End of stream, looping...
 2025-05-18 02:11:07.308 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:05:27.987 INFO UIProcess: started
+2025-05-18 17:05:28.050 INFO FrameProcess: Started
+2025-05-18 17:05:28.050 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:05:28.050 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:05:28.050 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:05:28.050 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:05:32.629 INFO UIProcess: index=3 status=2
+2025-05-18 17:05:32.639 INFO UIProcess: index=4 status=2
+2025-05-18 17:05:37.859 INFO UIProcess: index=4 status=0
+2025-05-18 17:05:38.539 INFO UIProcess: index=4 status=2
+2025-05-18 17:05:38.704 INFO UIProcess: index=4 status=0
+2025-05-18 17:08:41.051 INFO UIProcess: started
+2025-05-18 17:08:41.098 INFO FrameProcess: Started
+2025-05-18 17:08:41.098 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:08:41.098 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:08:41.098 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:08:41.098 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:08:41.762 INFO UIProcess: index=3 status=2
+2025-05-18 17:08:41.772 INFO UIProcess: index=4 status=2
+2025-05-18 17:08:46.474 INFO UIProcess: index=4 status=0
+2025-05-18 17:08:47.314 INFO UIProcess: index=4 status=2
+2025-05-18 17:08:47.481 INFO UIProcess: index=4 status=0
+2025-05-18 17:09:05.264 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:09:05.310 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:09:08.693 INFO UIProcess: index=3 status=0
+2025-05-18 17:09:28.979 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:09:29.009 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:09:34.121 INFO UIProcess: index=2 status=0
+2025-05-18 17:09:34.292 INFO UIProcess: index=2 status=2
+2025-05-18 17:09:38.508 INFO UIProcess: index=3 status=2
+2025-05-18 17:09:38.518 INFO UIProcess: index=4 status=2
+2025-05-18 17:09:43.737 INFO UIProcess: index=4 status=0
+2025-05-18 17:09:52.711 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:09:52.741 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:10:05.747 INFO UIProcess: index=3 status=0
+2025-05-18 17:10:16.440 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:10:16.470 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:10:31.479 INFO UIProcess: index=2 status=0
+2025-05-18 17:10:31.647 INFO UIProcess: index=2 status=2
+2025-05-18 17:10:35.699 INFO UIProcess: index=3 status=2
+2025-05-18 17:10:35.710 INFO UIProcess: index=4 status=2
+2025-05-18 17:10:40.168 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:10:40.199 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:10:40.928 INFO UIProcess: index=4 status=0
+2025-05-18 17:11:02.970 INFO UIProcess: index=3 status=0
+2025-05-18 17:11:03.904 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:11:03.934 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:11:27.645 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:11:27.676 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:11:28.827 INFO UIProcess: index=2 status=0
+2025-05-18 17:11:28.995 INFO UIProcess: index=2 status=2
+2025-05-18 17:11:33.553 INFO UIProcess: index=3 status=2
+2025-05-18 17:11:33.563 INFO UIProcess: index=4 status=2
+2025-05-18 17:11:38.773 INFO UIProcess: index=4 status=0
+2025-05-18 17:11:51.361 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:11:51.393 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:12:01.481 INFO UIProcess: index=3 status=0
+2025-05-18 17:12:15.068 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:12:15.100 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:12:27.415 INFO UIProcess: index=2 status=0
+2025-05-18 17:12:27.584 INFO UIProcess: index=2 status=2
+2025-05-18 17:12:27.750 INFO UIProcess: index=2 status=0
+2025-05-18 17:12:27.918 INFO UIProcess: index=2 status=2
+2025-05-18 17:12:31.796 INFO UIProcess: index=3 status=2
+2025-05-18 17:12:31.806 INFO UIProcess: index=4 status=2
+2025-05-18 17:12:37.347 INFO UIProcess: index=4 status=0
+2025-05-18 17:12:38.022 INFO UIProcess: index=4 status=2
+2025-05-18 17:12:38.191 INFO UIProcess: index=4 status=0
+2025-05-18 17:12:38.816 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:12:38.844 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:12:59.733 INFO UIProcess: index=3 status=0
+2025-05-18 17:13:02.549 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:13:02.588 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:13:25.266 INFO UIProcess: index=2 status=0
+2025-05-18 17:13:25.434 INFO UIProcess: index=2 status=2
+2025-05-18 17:13:25.767 INFO UIProcess: index=2 status=0
+2025-05-18 17:13:25.935 INFO UIProcess: index=2 status=2
+2025-05-18 17:13:26.270 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:13:26.308 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:13:30.009 INFO UIProcess: index=3 status=2
+2025-05-18 17:13:30.020 INFO UIProcess: index=4 status=2
+2025-05-18 17:13:35.572 INFO UIProcess: index=4 status=0
+2025-05-18 17:13:49.977 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:13:50.052 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:13:58.122 INFO UIProcess: index=3 status=0
+2025-05-18 17:14:13.690 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:14:13.755 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:14:23.833 INFO UIProcess: index=2 status=0
+2025-05-18 17:14:24.001 INFO UIProcess: index=2 status=2
+2025-05-18 17:14:28.551 INFO UIProcess: index=3 status=2
+2025-05-18 17:14:28.562 INFO UIProcess: index=4 status=2
+2025-05-18 17:14:33.969 INFO UIProcess: index=4 status=0
+2025-05-18 17:14:37.397 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:14:37.461 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:14:56.856 INFO UIProcess: index=3 status=0
+2025-05-18 17:15:01.116 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:15:01.191 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:15:22.561 INFO UIProcess: index=2 status=0
+2025-05-18 17:15:22.731 INFO UIProcess: index=2 status=2
+2025-05-18 17:15:24.824 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:15:24.898 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:15:26.939 INFO UIProcess: index=3 status=2
+2025-05-18 17:15:26.950 INFO UIProcess: index=4 status=2
+2025-05-18 17:15:32.488 INFO UIProcess: index=4 status=0
+2025-05-18 17:15:33.169 INFO UIProcess: index=4 status=2
+2025-05-18 17:15:33.336 INFO UIProcess: index=4 status=0
+2025-05-18 17:15:48.544 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:15:48.622 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:15:54.872 INFO UIProcess: index=3 status=0
+2025-05-18 17:16:12.282 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:16:12.358 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:16:20.716 INFO UIProcess: index=2 status=0
+2025-05-18 17:16:20.883 INFO UIProcess: index=2 status=2
+2025-05-18 17:26:13.343 INFO UIProcess: started
+2025-05-18 17:26:13.406 INFO FrameProcess: Started
+2025-05-18 17:26:13.406 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:26:13.406 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:26:13.406 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:26:13.421 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:26:14.619 INFO UIProcess: index=3 status=2
+2025-05-18 17:26:14.629 INFO UIProcess: index=4 status=2
+2025-05-18 17:28:18.200 INFO UIProcess: started
+2025-05-18 17:28:18.231 INFO FrameProcess: Started
+2025-05-18 17:28:18.247 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:28:18.247 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:28:18.247 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:28:18.247 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:28:18.862 INFO UIProcess: index=3 status=2
+2025-05-18 17:28:18.873 INFO UIProcess: index=4 status=2
+2025-05-18 17:28:23.579 INFO UIProcess: index=4 status=0
+2025-05-18 17:28:24.255 INFO UIProcess: index=4 status=2
+2025-05-18 17:28:24.424 INFO UIProcess: index=4 status=0
+2025-05-18 17:31:30.543 INFO UIProcess: started
+2025-05-18 17:31:30.574 INFO FrameProcess: Started
+2025-05-18 17:31:30.574 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:31:30.590 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:31:30.590 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:31:30.616 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:31:31.171 INFO UIProcess: index=3 status=2
+2025-05-18 17:31:31.182 INFO UIProcess: index=4 status=2
+2025-05-18 17:31:36.072 INFO UIProcess: index=4 status=0
+2025-05-18 17:31:36.750 INFO UIProcess: index=4 status=2
+2025-05-18 17:31:36.917 INFO UIProcess: index=4 status=0
+2025-05-18 17:31:54.689 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:31:54.705 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:31:58.090 INFO UIProcess: index=3 status=0
+2025-05-18 17:32:18.451 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:32:18.473 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:32:23.064 INFO UIProcess: index=2 status=0
+2025-05-18 17:32:23.239 INFO UIProcess: index=2 status=2
+2025-05-18 17:32:23.409 INFO UIProcess: index=2 status=0
+2025-05-18 17:32:23.576 INFO UIProcess: index=2 status=2
+2025-05-18 17:32:27.478 INFO UIProcess: index=3 status=2
+2025-05-18 17:32:27.491 INFO UIProcess: index=4 status=2
+2025-05-18 17:32:32.996 INFO UIProcess: index=4 status=0
+2025-05-18 17:32:33.884 INFO UIProcess: index=4 status=2
+2025-05-18 17:32:34.070 INFO UIProcess: index=4 status=0
+2025-05-18 17:32:42.298 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:32:42.323 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:32:43.148 INFO FrameReader [0]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 17:41:34.009 INFO UIProcess: started
+2025-05-18 17:45:35.488 INFO UIProcess: started
+2025-05-18 17:45:35.535 INFO FrameProcess: Started
+2025-05-18 17:45:35.538 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:45:35.538 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:45:35.538 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:45:35.538 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:45:36.139 INFO UIProcess: index=3 status=2
+2025-05-18 17:45:36.150 INFO UIProcess: index=4 status=2
+2025-05-18 17:45:41.046 INFO UIProcess: index=4 status=0
+2025-05-18 17:45:59.705 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:45:59.746 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:46:03.277 INFO UIProcess: index=3 status=0
+2025-05-18 17:46:23.413 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:46:23.456 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:46:29.031 INFO UIProcess: index=2 status=0
+2025-05-18 17:46:29.200 INFO UIProcess: index=2 status=2
+2025-05-18 17:46:33.745 INFO UIProcess: index=3 status=2
+2025-05-18 17:46:33.756 INFO UIProcess: index=4 status=2
+2025-05-18 17:46:38.954 INFO UIProcess: index=4 status=0
+2025-05-18 17:46:47.130 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:46:47.169 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:47:31.472 INFO UIProcess: started
+2025-05-18 17:47:31.503 INFO FrameProcess: Started
+2025-05-18 17:47:31.503 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:47:31.503 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:47:31.503 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:47:31.503 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:47:32.230 INFO UIProcess: index=3 status=2
+2025-05-18 17:47:32.242 INFO UIProcess: index=4 status=2
+2025-05-18 17:47:36.975 INFO UIProcess: index=4 status=0
+2025-05-18 17:49:05.742 INFO UIProcess: started
+2025-05-18 17:49:20.362 INFO UIProcess: started
+2025-05-18 17:49:20.393 INFO FrameProcess: Started
+2025-05-18 17:49:20.393 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:49:20.393 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:49:20.393 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:49:20.409 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:49:20.995 INFO UIProcess: index=3 status=2
+2025-05-18 17:49:21.005 INFO UIProcess: index=4 status=2
+2025-05-18 17:49:25.491 INFO UIProcess: index=4 status=0
+2025-05-18 17:49:26.169 INFO UIProcess: index=4 status=2
+2025-05-18 17:49:26.340 INFO UIProcess: index=4 status=0
+2025-05-18 17:52:02.153 INFO UIProcess: started
+2025-05-18 17:52:13.602 INFO UIProcess: started
+2025-05-18 17:52:13.649 INFO FrameProcess: Started
+2025-05-18 17:52:13.665 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:52:13.665 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:52:13.665 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:52:13.665 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:52:14.990 INFO UIProcess: index=3 status=2
+2025-05-18 17:52:15.000 INFO UIProcess: index=4 status=2
+2025-05-18 17:52:20.229 INFO UIProcess: index=4 status=0
+2025-05-18 17:52:20.902 INFO UIProcess: index=4 status=2
+2025-05-18 17:52:21.068 INFO UIProcess: index=4 status=0
+2025-05-18 17:52:30.832 INFO FrameReader [1]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 17:52:46.099 INFO UIProcess: started
+2025-05-18 17:52:46.131 INFO FrameProcess: Started
+2025-05-18 17:52:46.146 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:52:46.146 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:52:46.146 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:52:46.146 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:52:46.754 INFO UIProcess: index=3 status=2
+2025-05-18 17:52:46.765 INFO UIProcess: index=4 status=2
+2025-05-18 17:52:51.312 INFO UIProcess: index=4 status=0
+2025-05-18 17:52:51.482 INFO UIProcess: index=4 status=2
+2025-05-18 17:52:51.649 INFO UIProcess: index=4 status=0
+2025-05-18 17:54:46.823 INFO UIProcess: started
+2025-05-18 17:54:46.870 INFO FrameProcess: Started
+2025-05-18 17:54:46.870 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:54:46.886 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:54:46.886 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:54:46.910 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:54:47.503 INFO UIProcess: index=3 status=2
+2025-05-18 17:54:47.516 INFO UIProcess: index=4 status=2
+2025-05-18 17:54:52.427 INFO UIProcess: index=4 status=0
+2025-05-18 17:54:58.026 INFO FrameReader [1]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 17:55:56.229 INFO UIProcess: started
+2025-05-18 17:55:56.276 INFO FrameProcess: Started
+2025-05-18 17:55:56.292 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:55:56.292 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:55:56.292 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:55:56.292 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:55:56.909 INFO UIProcess: index=3 status=2
+2025-05-18 17:55:56.921 INFO UIProcess: index=4 status=2
+2025-05-18 17:56:01.311 INFO UIProcess: index=4 status=0
+2025-05-18 17:56:14.132 INFO UIProcess: started
+2025-05-18 17:56:14.163 INFO FrameProcess: Started
+2025-05-18 17:56:14.178 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:56:14.178 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:56:14.178 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:56:14.187 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:56:14.770 INFO UIProcess: index=3 status=2
+2025-05-18 17:56:14.780 INFO UIProcess: index=4 status=2
+2025-05-18 17:56:18.645 INFO UIProcess: index=4 status=0
+2025-05-18 17:56:40.068 INFO UIProcess: started
+2025-05-18 17:56:40.115 INFO FrameProcess: Started
+2025-05-18 17:56:40.115 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:56:40.115 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:56:40.115 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:56:40.151 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:56:40.755 INFO UIProcess: index=3 status=2
+2025-05-18 17:56:40.766 INFO UIProcess: index=4 status=2
+2025-05-18 17:56:45.677 INFO UIProcess: index=4 status=0
+2025-05-18 17:57:44.002 INFO UIProcess: started
+2025-05-18 17:57:44.049 INFO FrameProcess: Started
+2025-05-18 17:57:44.049 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:57:44.049 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:57:44.049 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:57:44.064 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:57:44.640 INFO UIProcess: index=3 status=2
+2025-05-18 17:57:44.653 INFO UIProcess: index=4 status=2
+2025-05-18 17:57:49.368 INFO UIProcess: index=4 status=0
+2025-05-18 17:58:11.514 INFO UIProcess: started
+2025-05-18 17:58:11.576 INFO FrameProcess: Started
+2025-05-18 17:58:11.576 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:58:11.576 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:58:11.576 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:58:11.592 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:58:12.189 INFO UIProcess: index=3 status=2
+2025-05-18 17:58:12.200 INFO UIProcess: index=4 status=2
+2025-05-18 17:58:25.075 INFO UIProcess: started
+2025-05-18 17:58:25.138 INFO FrameProcess: Started
+2025-05-18 17:58:25.138 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:58:25.153 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:58:25.153 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:58:25.153 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:58:25.712 INFO UIProcess: index=3 status=2
+2025-05-18 17:58:25.727 INFO UIProcess: index=4 status=2
+2025-05-18 17:58:30.027 INFO UIProcess: index=4 status=0
+2025-05-18 17:58:30.872 INFO UIProcess: index=4 status=2
+2025-05-18 17:58:31.044 INFO UIProcess: index=4 status=0
+2025-05-18 17:59:19.996 INFO UIProcess: started
+2025-05-18 17:59:20.059 INFO FrameProcess: Started
+2025-05-18 17:59:20.059 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 17:59:20.059 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 17:59:20.059 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 17:59:20.059 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 17:59:20.685 INFO UIProcess: index=3 status=2
+2025-05-18 17:59:20.694 INFO UIProcess: index=4 status=2
+2025-05-18 17:59:25.460 INFO UIProcess: index=4 status=0
+2025-05-18 17:59:26.131 INFO UIProcess: index=4 status=2
+2025-05-18 17:59:26.296 INFO UIProcess: index=4 status=0
+2025-05-18 17:59:44.237 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 17:59:44.268 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 17:59:46.857 INFO UIProcess: index=3 status=0
+2025-05-18 18:00:04.995 INFO UIProcess: started
+2025-05-18 18:00:05.057 INFO FrameProcess: Started
+2025-05-18 18:00:05.057 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:00:05.057 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:00:05.057 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:00:05.057 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:00:05.648 INFO UIProcess: index=3 status=2
+2025-05-18 18:00:05.663 INFO UIProcess: index=4 status=2
+2025-05-18 18:00:09.726 INFO UIProcess: index=4 status=0
+2025-05-18 18:00:10.561 INFO UIProcess: index=4 status=2
+2025-05-18 18:00:10.731 INFO UIProcess: index=4 status=0
+2025-05-18 18:00:42.560 INFO UIProcess: started
+2025-05-18 18:00:42.623 INFO FrameProcess: Started
+2025-05-18 18:00:42.628 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:00:42.628 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:00:42.628 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:00:42.656 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:00:43.183 INFO UIProcess: index=3 status=2
+2025-05-18 18:00:43.193 INFO UIProcess: index=4 status=2
+2025-05-18 18:00:48.090 INFO UIProcess: index=4 status=0
+2025-05-18 18:01:01.995 INFO UIProcess: started
+2025-05-18 18:01:02.058 INFO FrameProcess: Started
+2025-05-18 18:01:02.073 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:01:02.073 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:01:02.073 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:01:02.073 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:01:02.745 INFO UIProcess: index=3 status=2
+2025-05-18 18:01:02.755 INFO UIProcess: index=4 status=2
+2025-05-18 18:01:18.055 INFO UIProcess: started
+2025-05-18 18:01:18.119 INFO FrameProcess: Started
+2025-05-18 18:01:18.119 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:01:18.134 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:01:18.119 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:01:18.134 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:01:18.712 INFO UIProcess: index=3 status=2
+2025-05-18 18:01:18.724 INFO UIProcess: index=4 status=2
+2025-05-18 18:01:24.108 INFO UIProcess: index=4 status=0
+2025-05-18 18:01:24.786 INFO UIProcess: index=4 status=2
+2025-05-18 18:01:24.952 INFO UIProcess: index=4 status=0
+2025-05-18 18:01:52.890 INFO UIProcess: started
+2025-05-18 18:01:52.952 INFO FrameProcess: Started
+2025-05-18 18:01:52.956 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:01:52.956 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:01:52.956 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:01:52.956 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:01:53.565 INFO UIProcess: index=3 status=2
+2025-05-18 18:01:53.576 INFO UIProcess: index=4 status=2
+2025-05-18 18:01:58.462 INFO UIProcess: index=4 status=0
+2025-05-18 18:01:59.133 INFO UIProcess: index=4 status=2
+2025-05-18 18:01:59.303 INFO UIProcess: index=4 status=0
+2025-05-18 18:02:17.096 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:02:17.103 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:02:20.518 INFO UIProcess: index=3 status=0
+2025-05-18 18:02:40.876 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:02:40.906 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:02:46.023 INFO UIProcess: index=2 status=0
+2025-05-18 18:02:46.194 INFO UIProcess: index=2 status=2
+2025-05-18 18:02:50.600 INFO UIProcess: index=3 status=2
+2025-05-18 18:02:50.610 INFO UIProcess: index=4 status=2
+2025-05-18 18:04:21.025 INFO UIProcess: started
+2025-05-18 18:04:21.065 INFO FrameProcess: Started
+2025-05-18 18:04:21.068 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:04:21.069 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:04:21.069 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:04:21.070 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:04:21.689 INFO UIProcess: index=3 status=2
+2025-05-18 18:04:21.699 INFO UIProcess: index=4 status=2
+2025-05-18 18:04:26.408 INFO UIProcess: index=4 status=0
+2025-05-18 18:04:26.926 INFO UIProcess: index=4 status=2
+2025-05-18 18:04:27.100 INFO UIProcess: index=4 status=0
+2025-05-18 18:04:44.876 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:04:44.886 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:04:47.334 INFO UIProcess: index=3 status=0
+2025-05-18 18:05:47.076 INFO UIProcess: started
+2025-05-18 18:05:47.122 INFO FrameProcess: Started
+2025-05-18 18:05:47.126 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:05:47.126 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:05:47.126 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:05:47.126 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:05:47.817 INFO UIProcess: index=3 status=2
+2025-05-18 18:05:47.828 INFO UIProcess: index=4 status=2
+2025-05-18 18:05:52.724 INFO UIProcess: index=4 status=0
+2025-05-18 18:05:53.400 INFO UIProcess: index=4 status=2
+2025-05-18 18:05:53.579 INFO UIProcess: index=4 status=0
+2025-05-18 18:06:01.143 INFO UIProcess: started
+2025-05-18 18:06:01.190 INFO FrameProcess: Started
+2025-05-18 18:06:01.190 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:06:01.190 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:06:01.190 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:06:01.206 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:06:01.783 INFO UIProcess: index=3 status=2
+2025-05-18 18:06:01.794 INFO UIProcess: index=4 status=2
+2025-05-18 18:06:06.669 INFO UIProcess: index=4 status=0
+2025-05-18 18:06:07.341 INFO UIProcess: index=4 status=2
+2025-05-18 18:06:07.509 INFO UIProcess: index=4 status=0
+2025-05-18 18:06:25.326 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:06:25.366 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:06:28.714 INFO UIProcess: index=3 status=0
+2025-05-18 18:06:49.082 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:06:49.111 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:06:54.098 INFO UIProcess: index=2 status=0
+2025-05-18 18:06:54.263 INFO UIProcess: index=2 status=2
+2025-05-18 18:06:54.430 INFO UIProcess: index=2 status=0
+2025-05-18 18:06:54.598 INFO UIProcess: index=2 status=2
+2025-05-18 18:06:58.485 INFO UIProcess: index=3 status=2
+2025-05-18 18:06:58.497 INFO UIProcess: index=4 status=2
+2025-05-18 18:07:03.901 INFO UIProcess: index=4 status=0
+2025-05-18 18:07:04.569 INFO UIProcess: index=4 status=2
+2025-05-18 18:07:04.738 INFO UIProcess: index=4 status=0
+2025-05-18 18:07:12.856 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:07:12.884 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:07:25.369 INFO UIProcess: index=3 status=0
+2025-05-18 18:07:36.614 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:07:36.643 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:07:49.634 INFO UIProcess: index=2 status=0
+2025-05-18 18:07:49.804 INFO UIProcess: index=2 status=2
+2025-05-18 18:07:54.056 INFO UIProcess: index=3 status=2
+2025-05-18 18:07:54.067 INFO UIProcess: index=4 status=2
+2025-05-18 18:07:59.317 INFO UIProcess: index=4 status=0
+2025-05-18 18:08:00.278 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:08:00.306 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:08:21.639 INFO UIProcess: index=3 status=0
+2025-05-18 18:08:24.048 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:08:24.079 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:08:47.132 INFO UIProcess: index=2 status=0
+2025-05-18 18:08:47.303 INFO UIProcess: index=2 status=2
+2025-05-18 18:08:47.765 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:08:47.791 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:08:51.705 INFO UIProcess: index=3 status=2
+2025-05-18 18:08:51.715 INFO UIProcess: index=4 status=2
+2025-05-18 18:08:57.177 INFO UIProcess: index=4 status=0
+2025-05-18 18:08:57.857 INFO UIProcess: index=4 status=2
+2025-05-18 18:08:58.024 INFO UIProcess: index=4 status=0
+2025-05-18 18:09:11.476 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:09:11.499 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:09:18.763 INFO UIProcess: index=3 status=0
+2025-05-18 18:13:13.549 INFO UIProcess: started
+2025-05-18 18:13:13.594 INFO FrameProcess: Started
+2025-05-18 18:13:13.597 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:13:13.598 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:13:13.598 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:13:13.605 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:13:14.195 INFO UIProcess: index=3 status=2
+2025-05-18 18:13:14.206 INFO UIProcess: index=4 status=2
+2025-05-18 18:13:19.002 INFO UIProcess: index=4 status=0
+2025-05-18 18:13:37.257 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:13:37.275 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:13:40.015 INFO UIProcess: index=3 status=0
+2025-05-18 18:14:10.633 INFO UIProcess: index=2 status=0
+2025-05-18 18:14:11.021 INFO UIProcess: index=2 status=2
+2025-05-18 18:14:12.306 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:14:12.461 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:14:15.090 INFO UIProcess: index=3 status=2
+2025-05-18 18:14:15.100 INFO UIProcess: index=4 status=2
+2025-05-18 18:14:19.507 INFO UIProcess: index=4 status=0
+2025-05-18 18:14:19.871 INFO UIProcess: index=4 status=2
+2025-05-18 18:14:20.054 INFO UIProcess: index=4 status=0
+2025-05-18 18:14:29.823 INFO UIProcess: index=3 status=0
+2025-05-18 18:14:36.932 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:14:37.258 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:14:45.216 INFO UIProcess: index=2 status=0
+2025-05-18 18:14:45.576 INFO UIProcess: index=2 status=2
+2025-05-18 18:14:47.727 INFO UIProcess: index=3 status=2
+2025-05-18 18:14:47.737 INFO UIProcess: index=4 status=2
+2025-05-18 18:14:50.585 INFO UIProcess: index=4 status=0
+2025-05-18 18:15:00.994 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:15:01.281 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:15:08.313 INFO UIProcess: index=3 status=0
+2025-05-18 18:15:24.255 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:15:24.552 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:15:32.079 INFO UIProcess: index=2 status=0
+2025-05-18 18:15:32.260 INFO UIProcess: index=2 status=2
+2025-05-18 18:15:34.542 INFO UIProcess: index=3 status=2
+2025-05-18 18:15:34.553 INFO UIProcess: index=4 status=2
+2025-05-18 18:15:38.452 INFO UIProcess: index=4 status=0
+2025-05-18 18:15:47.522 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:15:47.819 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:15:56.083 INFO UIProcess: index=3 status=0
+2025-05-18 18:16:10.749 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:16:11.038 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:16:14.847 INFO UIProcess: index=2 status=0
+2025-05-18 18:16:15.022 INFO UIProcess: index=2 status=2
+2025-05-18 18:16:18.567 INFO UIProcess: index=3 status=2
+2025-05-18 18:16:18.577 INFO UIProcess: index=4 status=2
+2025-05-18 18:16:22.794 INFO UIProcess: index=4 status=0
+2025-05-18 18:16:35.222 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:16:35.519 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:16:42.088 INFO UIProcess: index=3 status=0
+2025-05-18 18:17:00.644 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:17:01.014 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:17:08.800 INFO UIProcess: index=3 status=2
+2025-05-18 18:17:08.810 INFO UIProcess: index=4 status=2
+2025-05-18 18:17:13.750 INFO UIProcess: index=4 status=0
+2025-05-18 18:17:24.383 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:17:24.807 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:17:32.480 INFO UIProcess: index=3 status=0
+2025-05-18 18:17:48.184 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:17:48.508 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:17:55.701 INFO UIProcess: index=2 status=0
+2025-05-18 18:17:55.881 INFO UIProcess: index=2 status=2
+2025-05-18 18:18:00.040 INFO UIProcess: index=3 status=2
+2025-05-18 18:18:00.050 INFO UIProcess: index=4 status=2
+2025-05-18 18:18:04.735 INFO UIProcess: index=4 status=0
+2025-05-18 18:18:13.729 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:18:13.985 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:18:24.349 INFO UIProcess: index=3 status=0
+2025-05-18 18:18:37.062 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:18:37.319 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:18:49.962 INFO UIProcess: index=3 status=2
+2025-05-18 18:18:49.971 INFO UIProcess: index=4 status=2
+2025-05-18 18:18:54.558 INFO UIProcess: index=4 status=0
+2025-05-18 18:18:55.453 INFO UIProcess: index=4 status=2
+2025-05-18 18:18:55.629 INFO UIProcess: index=4 status=0
+2025-05-18 18:19:00.355 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:19:00.619 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:19:13.970 INFO UIProcess: index=3 status=0
+2025-05-18 18:19:23.861 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:19:24.086 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:19:36.694 INFO UIProcess: index=3 status=2
+2025-05-18 18:19:36.705 INFO UIProcess: index=4 status=2
+2025-05-18 18:19:39.546 INFO UIProcess: index=4 status=0
+2025-05-18 18:19:47.225 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:19:47.454 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:19:54.480 INFO UIProcess: index=3 status=0
+2025-05-18 18:20:08.621 INFO UIProcess: index=2 status=0
+2025-05-18 18:20:08.793 INFO UIProcess: index=2 status=2
+2025-05-18 18:20:10.638 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:20:10.897 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:20:11.995 INFO UIProcess: index=3 status=2
+2025-05-18 18:20:12.006 INFO UIProcess: index=4 status=2
+2025-05-18 18:20:15.902 INFO UIProcess: index=4 status=0
+2025-05-18 18:20:16.779 INFO UIProcess: index=4 status=2
+2025-05-18 18:20:16.954 INFO UIProcess: index=4 status=0
+2025-05-18 18:20:32.164 INFO UIProcess: index=3 status=0
+2025-05-18 18:20:33.953 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:20:34.200 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:20:55.814 INFO UIProcess: index=2 status=0
+2025-05-18 18:20:55.990 INFO UIProcess: index=2 status=2
+2025-05-18 18:20:57.365 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:20:57.656 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:21:00.273 INFO UIProcess: index=3 status=2
+2025-05-18 18:21:00.285 INFO UIProcess: index=4 status=2
+2025-05-18 18:21:05.088 INFO UIProcess: index=4 status=0
+2025-05-18 18:21:05.964 INFO UIProcess: index=4 status=2
+2025-05-18 18:21:06.139 INFO UIProcess: index=4 status=0
+2025-05-18 18:21:20.652 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:21:20.938 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:21:26.724 INFO UIProcess: index=3 status=0
+2025-05-18 18:21:44.870 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:21:45.089 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:21:50.887 INFO UIProcess: index=2 status=0
+2025-05-18 18:21:51.068 INFO UIProcess: index=2 status=2
+2025-05-18 18:21:54.099 INFO UIProcess: index=3 status=2
+2025-05-18 18:21:54.111 INFO UIProcess: index=4 status=2
+2025-05-18 18:21:58.186 INFO UIProcess: index=4 status=0
+2025-05-18 18:22:09.059 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:22:09.352 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:22:17.300 INFO UIProcess: index=3 status=0
+2025-05-18 18:22:35.103 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:22:35.388 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:22:37.176 INFO UIProcess: index=2 status=0
+2025-05-18 18:22:37.350 INFO UIProcess: index=2 status=2
+2025-05-18 18:22:39.921 INFO UIProcess: index=3 status=2
+2025-05-18 18:22:39.936 INFO UIProcess: index=4 status=2
+2025-05-18 18:22:44.391 INFO UIProcess: index=4 status=0
+2025-05-18 18:22:58.671 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:22:58.966 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:23:04.039 INFO UIProcess: index=3 status=0
+2025-05-18 18:27:05.610 INFO UIProcess: started
+2025-05-18 18:27:05.637 INFO FrameProcess: Started
+2025-05-18 18:27:05.662 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:27:05.662 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:27:05.662 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:27:05.680 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:27:06.455 INFO UIProcess: index=3 status=2
+2025-05-18 18:27:06.466 INFO UIProcess: index=4 status=2
+2025-05-18 18:27:11.103 INFO UIProcess: index=4 status=0
+2025-05-18 18:27:11.965 INFO UIProcess: index=4 status=2
+2025-05-18 18:27:12.134 INFO UIProcess: index=4 status=0
+2025-05-18 18:29:32.917 INFO UIProcess: started
+2025-05-18 18:29:32.938 INFO FrameProcess: Started
+2025-05-18 18:29:32.958 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:29:32.958 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:29:32.958 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:29:32.985 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:29:33.648 INFO UIProcess: index=3 status=2
+2025-05-18 18:29:33.662 INFO UIProcess: index=4 status=2
+2025-05-18 18:29:37.191 INFO UIProcess: index=4 status=0
+2025-05-18 18:29:37.873 INFO UIProcess: index=4 status=2
+2025-05-18 18:29:38.046 INFO UIProcess: index=4 status=0
+2025-05-18 18:29:51.786 INFO UIProcess: started
+2025-05-18 18:29:51.816 INFO FrameProcess: Started
+2025-05-18 18:29:51.816 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:29:51.820 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:29:51.820 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:29:51.820 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:29:52.486 INFO UIProcess: index=3 status=2
+2025-05-18 18:29:52.494 INFO UIProcess: index=4 status=2
+2025-05-18 18:29:56.939 INFO UIProcess: index=4 status=0
+2025-05-18 18:31:06.145 INFO UIProcess: started
+2025-05-18 18:31:06.188 INFO FrameProcess: Started
+2025-05-18 18:31:06.189 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:31:06.189 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:31:06.189 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:31:06.189 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:31:06.800 INFO UIProcess: index=3 status=2
+2025-05-18 18:31:06.811 INFO UIProcess: index=4 status=2
+2025-05-18 18:31:10.785 INFO UIProcess: index=4 status=0
+2025-05-18 18:31:36.177 INFO UIProcess: started
+2025-05-18 18:31:36.207 INFO FrameProcess: Started
+2025-05-18 18:31:36.207 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:31:36.207 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:31:36.207 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:31:36.246 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:31:36.818 INFO UIProcess: index=3 status=2
+2025-05-18 18:31:36.829 INFO UIProcess: index=4 status=2
+2025-05-18 18:31:41.142 INFO UIProcess: index=4 status=0
+2025-05-18 18:31:41.993 INFO UIProcess: index=4 status=2
+2025-05-18 18:31:42.161 INFO UIProcess: index=4 status=0
+2025-05-18 18:31:52.106 INFO FrameReader [0]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 18:32:02.190 INFO UIProcess: started
+2025-05-18 18:32:02.231 INFO FrameProcess: Started
+2025-05-18 18:32:02.235 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:32:02.236 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:32:02.237 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:32:02.250 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:32:02.814 INFO UIProcess: index=3 status=2
+2025-05-18 18:32:02.825 INFO UIProcess: index=4 status=2
+2025-05-18 18:32:07.320 INFO UIProcess: index=4 status=0
+2025-05-18 18:32:26.204 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:32:26.218 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:32:28.130 INFO UIProcess: index=3 status=0
+2025-05-18 18:34:51.220 INFO UIProcess: started
+2025-05-18 18:34:51.282 INFO FrameProcess: Started
+2025-05-18 18:34:51.291 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:34:51.292 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:34:51.292 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:34:51.292 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:34:52.577 INFO UIProcess: index=3 status=2
+2025-05-18 18:34:52.588 INFO UIProcess: index=4 status=2
+2025-05-18 18:34:56.705 INFO UIProcess: index=4 status=0
+2025-05-18 18:34:57.207 INFO UIProcess: index=4 status=2
+2025-05-18 18:34:57.381 INFO UIProcess: index=4 status=0
+2025-05-18 18:35:16.006 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:35:16.015 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:35:17.926 INFO UIProcess: index=3 status=0
+2025-05-18 18:35:39.689 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:35:39.692 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:35:45.763 INFO UIProcess: index=2 status=0
+2025-05-18 18:35:45.933 INFO UIProcess: index=2 status=2
+2025-05-18 18:35:51.021 INFO UIProcess: index=3 status=2
+2025-05-18 18:35:51.031 INFO UIProcess: index=4 status=2
+2025-05-18 18:35:56.784 INFO UIProcess: index=4 status=0
+2025-05-18 18:36:03.401 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:36:03.407 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:39:54.461 INFO UIProcess: started
+2025-05-18 18:39:54.496 INFO FrameProcess: Started
+2025-05-18 18:39:54.516 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:39:54.516 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:39:54.516 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:39:54.516 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:39:55.206 INFO UIProcess: index=3 status=2
+2025-05-18 18:39:55.217 INFO UIProcess: index=4 status=2
+2025-05-18 18:40:00.040 INFO UIProcess: index=4 status=0
+2025-05-18 18:40:18.495 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:40:18.508 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:40:20.324 INFO UIProcess: index=3 status=0
+2025-05-18 18:40:42.004 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:40:42.027 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:40:43.796 INFO UIProcess: index=2 status=0
+2025-05-18 18:40:43.969 INFO UIProcess: index=2 status=2
+2025-05-18 18:40:47.218 INFO UIProcess: index=3 status=2
+2025-05-18 18:40:47.228 INFO UIProcess: index=4 status=2
+2025-05-18 18:40:49.380 INFO FrameReader [1]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 18:42:59.798 INFO UIProcess: started
+2025-05-18 18:42:59.839 INFO FrameProcess: Started
+2025-05-18 18:42:59.861 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:42:59.861 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:42:59.861 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:42:59.867 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:43:00.443 INFO UIProcess: index=3 status=2
+2025-05-18 18:43:00.456 INFO UIProcess: index=4 status=2
+2025-05-18 18:43:04.783 INFO UIProcess: index=4 status=0
+2025-05-18 18:43:24.957 INFO UIProcess: started
+2025-05-18 18:43:24.997 INFO FrameProcess: Started
+2025-05-18 18:43:25.018 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:43:25.018 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:43:25.018 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:43:25.018 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:43:25.608 INFO UIProcess: index=3 status=2
+2025-05-18 18:43:25.619 INFO UIProcess: index=4 status=2
+2025-05-18 18:43:29.816 INFO UIProcess: index=4 status=0
+2025-05-18 18:43:30.492 INFO UIProcess: index=4 status=2
+2025-05-18 18:43:30.659 INFO UIProcess: index=4 status=0
+2025-05-18 18:45:20.966 INFO UIProcess: started
+2025-05-18 18:45:21.001 INFO FrameProcess: Started
+2025-05-18 18:45:21.021 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:45:21.024 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:45:21.024 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:45:21.026 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:45:21.636 INFO UIProcess: index=3 status=2
+2025-05-18 18:45:21.647 INFO UIProcess: index=4 status=2
+2025-05-18 18:45:25.932 INFO UIProcess: index=4 status=0
+2025-05-18 18:45:44.872 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:45:44.898 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:45:45.608 INFO UIProcess: index=3 status=0
+2025-05-18 18:46:08.399 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:46:08.407 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:46:09.559 INFO UIProcess: index=2 status=0
+2025-05-18 18:46:09.738 INFO UIProcess: index=2 status=2
+2025-05-18 18:46:09.913 INFO UIProcess: index=2 status=0
+2025-05-18 18:46:10.082 INFO UIProcess: index=2 status=2
+2025-05-18 18:46:13.867 INFO UIProcess: index=3 status=2
+2025-05-18 18:46:13.878 INFO UIProcess: index=4 status=2
+2025-05-18 18:46:18.664 INFO UIProcess: index=4 status=0
+2025-05-18 18:46:19.521 INFO UIProcess: index=4 status=2
+2025-05-18 18:46:19.688 INFO UIProcess: index=4 status=0
+2025-05-18 18:48:53.681 INFO UIProcess: started
+2025-05-18 18:48:53.751 INFO FrameProcess: Started
+2025-05-18 18:48:53.773 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:48:53.773 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:48:53.773 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:48:53.776 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:48:54.951 INFO UIProcess: index=3 status=2
+2025-05-18 18:48:54.962 INFO UIProcess: index=4 status=2
+2025-05-18 18:48:59.275 INFO UIProcess: index=4 status=0
+2025-05-18 18:49:06.456 INFO FrameReader [1]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 18:49:26.826 INFO UIProcess: started
+2025-05-18 18:49:26.862 INFO FrameProcess: Started
+2025-05-18 18:49:26.885 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:49:26.886 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:49:26.886 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:49:26.897 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:49:27.708 INFO UIProcess: index=3 status=2
+2025-05-18 18:49:27.718 INFO UIProcess: index=4 status=2
+2025-05-18 18:49:31.689 INFO UIProcess: index=4 status=0
+2025-05-18 18:49:32.553 INFO UIProcess: index=4 status=2
+2025-05-18 18:49:32.719 INFO UIProcess: index=4 status=0
+2025-05-18 18:50:13.659 INFO UIProcess: started
+2025-05-18 18:50:13.689 INFO FrameProcess: Started
+2025-05-18 18:50:13.718 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:50:13.719 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:50:13.720 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:50:13.739 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:50:14.381 INFO UIProcess: index=3 status=2
+2025-05-18 18:50:14.396 INFO UIProcess: index=4 status=2
+2025-05-18 18:50:18.237 INFO UIProcess: index=4 status=0
+2025-05-18 18:50:29.379 INFO FrameReader [1]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 18:50:49.988 INFO UIProcess: started
+2025-05-18 18:50:50.028 INFO FrameProcess: Started
+2025-05-18 18:50:50.050 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:50:50.050 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:50:50.050 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:50:50.050 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:50:50.680 INFO UIProcess: index=3 status=2
+2025-05-18 18:50:50.691 INFO UIProcess: index=4 status=2
+2025-05-18 18:50:55.121 INFO UIProcess: index=4 status=0
+2025-05-18 18:51:13.088 INFO UIProcess: started
+2025-05-18 18:51:13.127 INFO FrameProcess: Started
+2025-05-18 18:51:13.146 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:51:13.146 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:51:13.146 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:51:13.146 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:51:13.773 INFO UIProcess: index=3 status=2
+2025-05-18 18:51:13.784 INFO UIProcess: index=4 status=2
+2025-05-18 18:51:18.223 INFO UIProcess: index=4 status=0
+2025-05-18 18:51:18.922 INFO UIProcess: index=4 status=2
+2025-05-18 18:51:19.106 INFO UIProcess: index=4 status=0
+2025-05-18 18:51:37.106 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:51:37.132 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:51:38.005 INFO UIProcess: index=3 status=0
+2025-05-18 18:51:58.541 INFO UIProcess: index=2 status=0
+2025-05-18 18:51:58.712 INFO UIProcess: index=2 status=2
+2025-05-18 18:52:00.631 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:52:00.649 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:52:02.163 INFO UIProcess: index=3 status=2
+2025-05-18 18:52:02.176 INFO UIProcess: index=4 status=2
+2025-05-18 18:52:06.326 INFO FrameReader [0]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 18:52:36.638 INFO UIProcess: started
+2025-05-18 18:52:36.678 INFO FrameProcess: Started
+2025-05-18 18:52:36.699 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:52:36.699 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:52:36.699 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:52:36.726 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:52:37.371 INFO UIProcess: index=3 status=2
+2025-05-18 18:52:37.382 INFO UIProcess: index=4 status=2
+2025-05-18 18:52:41.860 INFO UIProcess: index=4 status=0
+2025-05-18 18:52:42.541 INFO UIProcess: index=4 status=2
+2025-05-18 18:52:42.721 INFO UIProcess: index=4 status=0
+2025-05-18 18:53:00.649 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:54:36.635 INFO UIProcess: started
+2025-05-18 18:54:36.674 INFO FrameProcess: Started
+2025-05-18 18:54:36.695 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:54:36.697 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:54:36.698 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:54:36.698 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:54:37.340 INFO UIProcess: index=3 status=2
+2025-05-18 18:54:37.351 INFO UIProcess: index=4 status=2
+2025-05-18 18:54:49.566 INFO UIProcess: started
+2025-05-18 18:54:49.587 INFO FrameProcess: Started
+2025-05-18 18:54:49.608 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:54:49.608 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:54:49.608 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:54:49.625 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:54:50.195 INFO UIProcess: index=3 status=2
+2025-05-18 18:54:50.206 INFO UIProcess: index=4 status=2
+2025-05-18 18:54:54.162 INFO UIProcess: index=4 status=0
+2025-05-18 18:55:20.076 INFO UIProcess: started
+2025-05-18 18:55:20.117 INFO FrameProcess: Started
+2025-05-18 18:55:20.117 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:55:20.117 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:55:20.117 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:55:20.117 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:55:20.797 INFO UIProcess: index=3 status=2
+2025-05-18 18:55:20.807 INFO UIProcess: index=4 status=2
+2025-05-18 18:55:24.935 INFO UIProcess: index=4 status=0
+2025-05-18 18:55:25.792 INFO UIProcess: index=4 status=2
+2025-05-18 18:55:25.967 INFO UIProcess: index=4 status=0
+2025-05-18 18:55:53.222 INFO UIProcess: started
+2025-05-18 18:55:53.263 INFO FrameProcess: Started
+2025-05-18 18:55:53.284 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:55:53.285 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:55:53.285 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:55:53.285 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:55:54.050 INFO UIProcess: index=3 status=2
+2025-05-18 18:55:54.060 INFO UIProcess: index=4 status=2
+2025-05-18 18:55:57.856 INFO UIProcess: index=4 status=0
+2025-05-18 18:55:58.540 INFO UIProcess: index=4 status=2
+2025-05-18 18:55:58.710 INFO UIProcess: index=4 status=0
+2025-05-18 18:56:17.796 INFO UIProcess: started
+2025-05-18 18:56:17.836 INFO FrameProcess: Started
+2025-05-18 18:56:17.857 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:56:17.857 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:56:17.857 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:56:17.857 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:56:18.523 INFO UIProcess: index=3 status=2
+2025-05-18 18:56:18.535 INFO UIProcess: index=4 status=2
+2025-05-18 18:56:23.008 INFO UIProcess: index=4 status=0
+2025-05-18 18:57:01.539 INFO UIProcess: started
+2025-05-18 18:57:01.575 INFO FrameProcess: Started
+2025-05-18 18:57:01.599 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:57:01.599 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:57:01.599 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:57:01.609 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:57:02.200 INFO UIProcess: index=3 status=2
+2025-05-18 18:57:02.211 INFO UIProcess: index=4 status=2
+2025-05-18 18:57:06.149 INFO UIProcess: index=4 status=0
+2025-05-18 18:57:22.780 INFO FrameReader [1]: Error during frame read/emit: Signal source has been deleted
+2025-05-18 18:57:41.576 INFO UIProcess: started
+2025-05-18 18:57:41.619 INFO FrameProcess: Started
+2025-05-18 18:57:41.623 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:57:41.625 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:57:41.625 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:57:41.627 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:57:41.627 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 18:57:41.642 INFO FrameReader [2]: Starting for
+2025-05-18 18:57:42.083 INFO FrameReader [2]: Error: Could not open video source
+2025-05-18 18:57:42.189 INFO CCVTPlayer [2]: Received error: Error: Could not open video source
+2025-05-18 18:57:42.189 INFO FrameReader [2]: Stop requested.
+2025-05-18 18:57:42.219 INFO CCVTPlayer [2]: Reader thread finished.
+2025-05-18 18:57:42.394 INFO UIProcess: index=3 status=2
+2025-05-18 18:57:42.405 INFO UIProcess: index=4 status=2
+2025-05-18 18:57:46.037 INFO UIProcess: index=4 status=0
+2025-05-18 18:59:24.530 INFO UIProcess: started
+2025-05-18 18:59:24.570 INFO FrameProcess: Started
+2025-05-18 18:59:24.590 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 18:59:24.591 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 18:59:24.591 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 18:59:24.591 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 18:59:24.591 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 18:59:24.600 INFO FrameReader [2]: Starting for
+2025-05-18 18:59:24.865 INFO FrameReader [2]: Error: Could not open video source
+2025-05-18 18:59:25.274 INFO CCVTPlayer [2]: Received error: Error: Could not open video source
+2025-05-18 18:59:25.274 INFO FrameReader [2]: Stop requested.
+2025-05-18 18:59:25.306 INFO CCVTPlayer [2]: Reader thread finished.
+2025-05-18 18:59:25.486 INFO UIProcess: index=3 status=2
+2025-05-18 18:59:25.496 INFO UIProcess: index=4 status=2
+2025-05-18 18:59:29.814 INFO UIProcess: index=4 status=0
+2025-05-18 18:59:48.556 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 18:59:48.575 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 18:59:49.911 INFO UIProcess: index=3 status=0
+2025-05-18 19:00:12.097 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 19:00:12.103 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 19:00:12.656 INFO UIProcess: index=2 status=0
+2025-05-18 19:00:12.839 INFO UIProcess: index=2 status=2
+2025-05-18 19:00:13.009 INFO UIProcess: index=2 status=0
+2025-05-18 19:00:13.183 INFO UIProcess: index=2 status=2
+2025-05-18 19:00:41.365 INFO UIProcess: started
+2025-05-18 19:00:41.388 INFO FrameProcess: Started
+2025-05-18 19:00:41.419 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:00:41.419 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:00:41.419 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:00:41.419 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:00:41.419 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:00:41.435 INFO FrameReader [2]: Starting for
+2025-05-18 19:00:41.622 INFO FrameReader [2]: Error: Could not open video source
+2025-05-18 19:00:42.009 INFO CCVTPlayer [2]: Received error: Error: Could not open video source
+2025-05-18 19:00:42.009 INFO FrameReader [2]: Stop requested.
+2025-05-18 19:00:42.040 INFO CCVTPlayer [2]: Reader thread finished.
+2025-05-18 19:00:42.050 INFO UIProcess: index=3 status=2
+2025-05-18 19:00:42.061 INFO UIProcess: index=4 status=2
+2025-05-18 19:00:46.526 INFO UIProcess: index=4 status=0
+2025-05-18 19:00:47.057 INFO UIProcess: index=4 status=2
+2025-05-18 19:00:47.231 INFO UIProcess: index=4 status=0
+2025-05-18 19:02:33.214 INFO UIProcess: started
+2025-05-18 19:02:33.251 INFO FrameProcess: Started
+2025-05-18 19:02:33.254 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:02:33.254 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:02:33.254 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:02:33.254 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:02:33.254 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:02:33.269 INFO FrameReader [2]: Starting for
+2025-05-18 19:02:33.437 INFO FrameReader [2]: Error: Could not open video source
+2025-05-18 19:02:33.772 INFO CCVTPlayer [2]: Received error: Error: Could not open video source
+2025-05-18 19:02:33.772 INFO FrameReader [2]: Stop requested.
+2025-05-18 19:02:33.800 INFO CCVTPlayer [2]: Reader thread finished.
+2025-05-18 19:02:33.900 INFO UIProcess: index=3 status=2
+2025-05-18 19:02:33.911 INFO UIProcess: index=4 status=2
+2025-05-18 19:02:38.857 INFO UIProcess: index=4 status=0
+2025-05-18 19:02:39.715 INFO UIProcess: index=4 status=2
+2025-05-18 19:02:39.885 INFO UIProcess: index=4 status=0
+2025-05-18 19:04:02.538 INFO UIProcess: started
+2025-05-18 19:04:02.563 INFO FrameProcess: Started
+2025-05-18 19:04:02.568 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:04:02.568 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:04:02.569 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:04:02.571 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:04:02.571 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:04:02.576 INFO FrameReader [2]: Starting for
+2025-05-18 19:04:02.762 INFO FrameReader [2]: Error: Could not open video source
+2025-05-18 19:04:03.134 INFO CCVTPlayer [2]: Received error: Error: Could not open video source
+2025-05-18 19:04:03.134 INFO FrameReader [2]: Stop requested.
+2025-05-18 19:04:03.164 INFO CCVTPlayer [2]: Reader thread finished.
+2025-05-18 19:04:03.180 INFO UIProcess: index=3 status=2
+2025-05-18 19:04:03.191 INFO UIProcess: index=4 status=2
+2025-05-18 19:04:16.709 INFO UIProcess: started
+2025-05-18 19:04:16.741 INFO FrameProcess: Started
+2025-05-18 19:04:16.741 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:04:16.741 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:04:16.741 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:04:16.747 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:04:16.748 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:04:16.749 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:04:16.768 INFO FrameReader [3]: Starting for
+2025-05-18 19:04:16.769 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:04:16.932 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:04:17.332 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:04:17.332 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:04:17.374 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:04:17.466 INFO UIProcess: index=3 status=2
+2025-05-18 19:04:17.475 INFO UIProcess: index=4 status=2
+2025-05-18 19:04:21.020 INFO UIProcess: index=4 status=0
+2025-05-18 19:05:01.830 INFO UIProcess: started
+2025-05-18 19:05:01.870 INFO FrameProcess: Started
+2025-05-18 19:05:01.870 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:05:01.870 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:05:01.870 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:05:01.880 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:05:01.880 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:05:01.881 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:05:01.901 INFO FrameReader [3]: Starting for
+2025-05-18 19:05:01.901 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:05:02.105 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:05:02.483 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:05:02.483 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:05:02.519 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:05:02.529 INFO UIProcess: index=3 status=2
+2025-05-18 19:05:02.540 INFO UIProcess: index=4 status=2
+2025-05-18 19:05:06.212 INFO UIProcess: index=4 status=0
+2025-05-18 19:05:34.112 INFO UIProcess: started
+2025-05-18 19:05:34.144 INFO FrameProcess: Started
+2025-05-18 19:05:34.170 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:05:34.170 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:05:34.170 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:05:34.170 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:05:34.175 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:05:34.175 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:05:34.189 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:05:34.189 INFO FrameReader [3]: Starting for
+2025-05-18 19:05:34.374 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:05:34.789 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:05:34.789 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:05:34.832 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:05:34.919 INFO UIProcess: index=3 status=2
+2025-05-18 19:05:34.929 INFO UIProcess: index=4 status=2
+2025-05-18 19:05:38.153 INFO UIProcess: index=4 status=0
+2025-05-18 19:05:53.145 INFO UIProcess: started
+2025-05-18 19:05:53.179 INFO FrameProcess: Started
+2025-05-18 19:05:53.199 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:05:53.199 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:05:53.199 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:05:53.202 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:05:53.202 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:05:53.202 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:05:53.237 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:05:53.326 INFO FrameReader [3]: Starting for
+2025-05-18 19:05:53.522 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:05:53.902 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:05:53.902 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:05:53.941 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:05:53.947 INFO UIProcess: index=3 status=2
+2025-05-18 19:05:53.959 INFO UIProcess: index=4 status=2
+2025-05-18 19:05:57.135 INFO UIProcess: index=4 status=0
+2025-05-18 19:07:21.778 INFO UIProcess: started
+2025-05-18 19:07:21.814 INFO FrameProcess: Started
+2025-05-18 19:07:21.833 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:07:21.833 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:07:21.833 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:07:21.837 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:07:21.838 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:07:21.840 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:07:21.859 INFO FrameReader [3]: Starting for
+2025-05-18 19:07:21.860 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:07:22.324 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:07:22.431 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:07:22.431 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:07:22.472 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:07:22.565 INFO UIProcess: index=3 status=2
+2025-05-18 19:07:22.576 INFO UIProcess: index=4 status=2
+2025-05-18 19:07:26.100 INFO UIProcess: index=4 status=0
+2025-05-18 19:07:49.950 INFO UIProcess: started
+2025-05-18 19:07:49.981 INFO FrameProcess: Started
+2025-05-18 19:07:50.001 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:07:50.001 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:07:50.001 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:07:50.001 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:07:50.009 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:07:50.010 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:07:50.019 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:07:50.019 INFO FrameReader [3]: Starting for
+2025-05-18 19:07:50.216 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:07:50.590 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:07:50.591 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:07:50.623 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:07:50.633 INFO UIProcess: index=3 status=2
+2025-05-18 19:07:50.642 INFO UIProcess: index=4 status=2
+2025-05-18 19:07:54.007 INFO UIProcess: index=4 status=0
+2025-05-18 19:08:07.430 INFO UIProcess: started
+2025-05-18 19:08:07.468 INFO FrameProcess: Started
+2025-05-18 19:08:07.470 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:08:07.470 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:08:07.470 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:08:07.470 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:08:07.470 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:08:07.470 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:08:07.499 INFO FrameReader [3]: Starting for
+2025-05-18 19:08:07.499 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:08:07.654 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:08:08.069 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:08:08.072 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:08:08.108 INFO UIProcess: index=3 status=2
+2025-05-18 19:08:08.109 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:08:08.119 INFO UIProcess: index=4 status=2
+2025-05-18 19:08:11.471 INFO UIProcess: index=4 status=0
+2025-05-18 19:08:11.992 INFO UIProcess: index=4 status=2
+2025-05-18 19:08:12.178 INFO UIProcess: index=4 status=0
+2025-05-18 19:08:26.862 INFO UIProcess: started
+2025-05-18 19:08:26.892 INFO FrameProcess: Started
+2025-05-18 19:08:26.915 INFO CCVTPlayer [0]: Initialized and thread started.
+2025-05-18 19:08:26.915 INFO FrameReader [0]: Starting for app/data/resource/video/video69crop-3.mp4
+2025-05-18 19:08:26.915 INFO CCVTPlayer [1]: Initialized and thread started.
+2025-05-18 19:08:26.915 INFO CCVTPlayer [2]: Initialized and thread started.
+2025-05-18 19:08:26.919 INFO FrameReader [1]: Starting for app/data/resource/video/video69crop-1.mp4
+2025-05-18 19:08:26.919 INFO CCVTPlayer [3]: Initialized and thread started.
+2025-05-18 19:08:26.930 INFO FrameReader [2]: Starting for app/data/resource/video/video69crop-2.mp4
+2025-05-18 19:08:26.930 INFO FrameReader [3]: Starting for
+2025-05-18 19:08:27.129 INFO FrameReader [3]: Error: Could not open video source
+2025-05-18 19:08:27.483 INFO CCVTPlayer [3]: Received error: Error: Could not open video source
+2025-05-18 19:08:27.483 INFO FrameReader [3]: Stop requested.
+2025-05-18 19:08:27.519 INFO CCVTPlayer [3]: Reader thread finished.
+2025-05-18 19:08:27.533 INFO UIProcess: index=3 status=2
+2025-05-18 19:08:27.543 INFO UIProcess: index=4 status=2
+2025-05-18 19:08:31.063 INFO UIProcess: index=4 status=0
+2025-05-18 19:08:31.589 INFO UIProcess: index=4 status=2
+2025-05-18 19:08:31.763 INFO UIProcess: index=4 status=0
+2025-05-18 19:08:46.752 INFO UIProcess: index=3 status=0
+2025-05-18 19:08:50.921 INFO FrameReader [2]: End of stream, looping...
+2025-05-18 19:08:50.931 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 19:08:50.939 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 19:09:05.543 INFO UIProcess: index=2 status=0
+2025-05-18 19:09:05.720 INFO UIProcess: index=2 status=2
+2025-05-18 19:09:05.891 INFO UIProcess: index=2 status=0
+2025-05-18 19:09:06.068 INFO UIProcess: index=2 status=2
+2025-05-18 19:09:09.053 INFO UIProcess: index=3 status=2
+2025-05-18 19:09:09.064 INFO UIProcess: index=4 status=2
+2025-05-18 19:09:12.919 INFO UIProcess: index=4 status=0
+2025-05-18 19:09:14.460 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 19:09:14.486 INFO FrameReader [2]: End of stream, looping...
+2025-05-18 19:09:14.504 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 19:09:27.743 INFO UIProcess: index=3 status=0
+2025-05-18 19:09:38.240 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 19:09:38.241 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 19:09:38.273 INFO FrameReader [2]: End of stream, looping...
+2025-05-18 19:09:47.867 INFO UIProcess: index=2 status=0
+2025-05-18 19:09:48.065 INFO UIProcess: index=2 status=2
+2025-05-18 19:09:48.241 INFO UIProcess: index=2 status=0
+2025-05-18 19:09:48.423 INFO UIProcess: index=2 status=2
+2025-05-18 19:09:51.362 INFO UIProcess: index=3 status=2
+2025-05-18 19:09:51.373 INFO UIProcess: index=4 status=2
+2025-05-18 19:09:55.752 INFO UIProcess: index=4 status=0
+2025-05-18 19:10:02.025 INFO FrameReader [1]: End of stream, looping...
+2025-05-18 19:10:02.040 INFO FrameReader [0]: End of stream, looping...
+2025-05-18 19:10:02.082 INFO FrameReader [2]: End of stream, looping...

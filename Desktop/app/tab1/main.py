@@ -48,6 +48,7 @@ class Tab1Content(QGroupBox):
                 car_no=slot["car_no"],
                 booking_time=slot["booking_time"],
                 parking_time=slot["parking_time"],
+                emptied_time=slot["emptied_time"],
             )
             for slot in slot_data
         ]

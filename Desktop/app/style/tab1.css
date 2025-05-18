@@ -34,7 +34,7 @@
 #parkingDetails {
     background: #28536B;
     border-radius: 10px;
-    margin: 5px;
+    margin: 2px;
     padding: 0 5px;
 }
 
@@ -44,6 +44,11 @@
     color: #E0E0E0;
     padding: 0;
     margin: 0;
+}
+
+#statusLabel {
+    padding: 5px;
+    border-radius: 5px;
 }
 
 

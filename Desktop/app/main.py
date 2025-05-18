@@ -57,7 +57,7 @@ class MainWindow(QMainWindow):
         self.tab_widget.addTab(self.tab3, "Area Selector")
 
         # Set Tab 1 as the default tab
-        self.tab_widget.setCurrentIndex(0)
+        self.tab_widget.setCurrentIndex(1)
 
         # Set the central widget
         self.setCentralWidget(self.tab_widget)

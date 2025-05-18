@@ -1,4 +1,6 @@
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QGroupBox
+from PySide6.QtCore import Qt
+import datetime
 
 
 class ParkingDetails(QGroupBox):
@@ -8,35 +10,45 @@ class ParkingDetails(QGroupBox):
         2: ("PARKED", "#F44336", "#1C1C1C"),  # Red for Parked
     }
 
-    def __init__(self, slot_no, status, user_name, car_no, booking_time, parking_time):
+    def __init__(
+        self,
+        slot_no,
+        status,
+        user_name,
+        car_no,
+        booking_time,
+        parking_time,
+        emptied_time,
+    ):
         super().__init__()
-
         self.slot_no = slot_no
-        self.status = status
-        self.user_name = user_name
-        self.car_no = car_no
-        self.booking_time = booking_time
-        self.parking_time = parking_time
 
-        # Layout for displaying details
         layout = QHBoxLayout()
-
         self.status_label = QLabel()
+        self.status_label.setAlignment(Qt.AlignCenter)
+        self.status_label.setObjectName("statusLabel")
+        self.status_label.setContentsMargins(0, 0, 0, 0)
+
         self.slot_no_label = QLabel(f"Slot No: {self.slot_no}")
-        self.user_label = QLabel(f"User: {self.user_name}")
-        self.car_label = QLabel(f"Car No: {self.car_no}")
-        self.booking_label = QLabel(f"Booking Time: {self.booking_time}")
-        self.parking_label = QLabel(f"Parking Time: {self.parking_time}")
+        self.user_label = QLabel()
+        self.car_label = QLabel()
+        self.timing_label = QLabel()
 
         layout.addWidget(self.slot_no_label)
         layout.addWidget(self.status_label)
         layout.addWidget(self.user_label)
         layout.addWidget(self.car_label)
-        layout.addWidget(self.booking_label)
-        layout.addWidget(self.parking_label)
+        layout.addWidget(self.timing_label)
 
         self.setLayout(layout)
         self.setObjectName("parkingDetails")  # For CSS Styling
+
+        if status == 2:
+            self.add_parking_details(parking_time)
+        elif status == 1:
+            self.add_booking_details(user_name, car_no, booking_time)
+        else:
+            self.clear_parking_details(emptied_time)
 
         self.update_status(self.status)  # Apply initial status styles
 
@@ -52,10 +64,19 @@ class ParkingDetails(QGroupBox):
             f"""
             color: {text_color};
             background-color: {bg_color};
-            padding: 8px 5px;
-            border-radius: 5px;
+            padding: 5px;
             """
         )
+
+    def clear_parking_details(self, emptied_time):
+        """Clear all details and reset status to 'Empty'."""
+        self.update_status(0)
+        self.user_label.setText(" ")
+        self.car_label.setText(" ")
+        if emptied_time == " ":
+            emptied_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.emptied_time = emptied_time
+        self.timing_label.setText(f"Emptied Time: {self.emptied_time}")
 
     def add_booking_details(self, user_name, car_no, booking_time):
         """Set booking details and update status to 'Booked'."""
@@ -65,18 +86,16 @@ class ParkingDetails(QGroupBox):
         self.car_no = car_no
         self.car_label.setText(f"Car No: {self.car_no}")
         self.booking_time = booking_time
-        self.booking_label.setText(f"Booking Time: {self.booking_time}")
+        self.timing_label.setText(f"Booking Time: {self.booking_time}")
 
     def add_parking_details(self, parking_time):
         """Set parking time and update status to 'Parked'."""
         self.update_status(2)
         self.parking_time = parking_time
-        self.parking_label.setText(f"Parking Time: {self.parking_time}")
+        self.timing_label.setText(f"Parking Time: {self.parking_time}")
 
-    def clear_parking_details(self):
-        """Clear all details and reset status to 'Empty'."""
-        self.update_status(0)
-        self.user_label.setText("User: ")
-        self.car_label.setText("Car No: ")
-        self.booking_label.setText("Booking Time: ")
-        self.parking_label.setText("Parking Time: ")
+        self.user_name = "User Name"
+        self.user_label.setText(f"User: {self.user_name}")
+
+        self.car_no = "WB 26DQ 0333"
+        self.car_label.setText(f"Car No: {self.car_no}")

@@ -9,7 +9,7 @@ import math
 import threading
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QWidget,
+    QGroupBox,
     QVBoxLayout,
     QHBoxLayout,
     QPushButton,
@@ -17,7 +17,7 @@ from PySide6.QtWidgets import (
 )
 
 
-class Tab2Content(QWidget):
+class Tab2Content(QGroupBox):
     def __init__(self):
         super().__init__()
         self.grid_view = True
@@ -30,13 +30,14 @@ class Tab2Content(QWidget):
         threading.Thread(target=update_worker, daemon=True).start()
 
         # Initialize the UI components
+        self.setObjectName("tab2")
         self.load_stylesheet()
         self.create_cctv_windows()
 
         # Main layout
         main_layout = QVBoxLayout()
-        # main_layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
-        main_layout.setSpacing(0)  # Remove spacing
+        main_layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
+        main_layout.setSpacing(10)  # Remove spacing
         main_layout.addLayout(self.create_control_buttons())
 
         self.cctv_layout = QVBoxLayout()
@@ -128,14 +129,14 @@ class Tab2Content(QWidget):
         """Generate a grid layout for CCTV windows."""
         layout = QVBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
-        layout.setSpacing(0)  # Remove spacing
+        layout.setSpacing(5)  # Remove spacing
         self.row_size = math.ceil(math.sqrt(len(self.cctv_windows)))
         index = 0
 
         for _ in range(self.row_size):
             row = QHBoxLayout()
             row.setContentsMargins(0, 0, 0, 0)  # Remove margins
-            row.setSpacing(0)  # Remove spacing
+            row.setSpacing(5)  # Remove spacing
             for _ in range(self.row_size):
                 if index >= len(self.cctv_windows):
                     break
@@ -150,7 +151,7 @@ class Tab2Content(QWidget):
         """Generate a layout for single-view mode."""
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(0)
+        layout.setSpacing(5)
         layout.addWidget(
             self.cctv_windows[self.selected_window], stretch=7
         )  # Add the selected window (takes 75% of the width)
@@ -165,10 +166,10 @@ class Tab2Content(QWidget):
         )  # Hide horizontal scrollbar
         scroll_area.setContentsMargins(0, 0, 0, 0)  # Remove scroll area margins
 
-        side_widget = QWidget()
+        side_widget = QGroupBox()
         side_layout = QVBoxLayout(side_widget)
         side_layout.setContentsMargins(0, 0, 0, 0)  # Remove side widget margins
-        side_layout.setSpacing(0)
+        side_layout.setSpacing(5)
         for i, cctv_window in enumerate(self.cctv_windows):
             if i != self.selected_window:
                 side_layout.addWidget(cctv_window)
