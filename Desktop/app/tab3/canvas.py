@@ -1,7 +1,3 @@
-from .point import MousePointerItem
-from .rectangle import RectangleItem
-from data import get_rect_data, save_rect_data
-
 from PySide6.QtWidgets import (
     QGraphicsView,
     QGraphicsScene,
@@ -12,6 +8,11 @@ from PySide6.QtGui import QPainter, QPen, QColor, QPixmap
 from PySide6.QtCore import Qt, QRectF, QPointF
 import random
 import string
+import threading
+
+from .point import MousePointerItem
+from .rectangle import RectangleItem
+from data import get_rect_data, save_rect_data
 
 
 class Canvas(QGraphicsView):
@@ -228,7 +229,8 @@ class Canvas(QGraphicsView):
         rectangle_data = self.rect_to_json()
         all_rectangle_data.update({str(self.index): rectangle_data})
         save_rect_data(data=all_rectangle_data)
-        self.tab1_instance.refresh_details()
+        with threading.Lock():
+            self.tab1_instance.refresh_details()
 
     def json_to_rect(self, rectangle_data):
         for rect in rectangle_data:
