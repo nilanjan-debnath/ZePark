@@ -31,7 +31,7 @@ class FrameReader(QObject):
 
         if not self.cap.isOpened():
             error_msg = f"Error: Could not open video source {self.video_path}"
-            logging.info(f"FrameReader [{self.index}]: {error_msg}")
+            logging.error(f"FrameReader [{self.index}]: {error_msg}")
             self.errorOccurred.emit(error_msg)
             self._running = False
             self.readerStopped.emit()

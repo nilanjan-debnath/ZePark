@@ -1,5 +1,6 @@
 import json
 import logging
+import threading
 
 slot_data = "app/data/resource/json/slots.json"
 slot_dict = {"data": []}
@@ -13,14 +14,15 @@ def local_save():
 
 def fetch_local():
     global slot_dict
-    try:
-        with open(slot_data, "r") as file:
-            slot_dict = json.load(file)
-            # print(all_rectangle_data)
-    except FileNotFoundError:
-        return
-    except Exception as e:
-        logging.critical(f"Error in get_slot_data DETAILS: {e}")
+    with threading.Lock():
+        try:
+            with open(slot_data, "r") as file:
+                slot_dict = json.load(file)
+                # print(all_rectangle_data)
+        except FileNotFoundError:
+            return
+        except Exception as e:
+            logging.critical(f"Error in get_slot_data DETAILS: {e}")
 
 
 fetch_local()
@@ -28,6 +30,7 @@ fetch_local()
 
 def save_slot_data(data):
     slot_dict.update({"data": data})
+    local_save()
 
 
 def get_slot_data():
