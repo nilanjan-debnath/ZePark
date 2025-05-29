@@ -3,8 +3,7 @@
 - [ ] Tab3: Arranging data properly after saving (keeping the previous data and adding the new ones)
     - [x] added index on new area box
     - [ ] use the index to track the changes in slots (each slots having unique id from the rectangle dat)
-- [x] Tab1: Update status details from cctv
-- [x] Tab1: Add Provider details
+
 
 
 ```

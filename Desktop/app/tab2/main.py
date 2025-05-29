@@ -1,9 +1,3 @@
-from .cctv import CCVTPlayer
-
-from .ml_process import ml_worker
-from .frame_process import frame_worker
-from .update_process import update_worker
-
 from data import source_count, get_video
 import math
 import threading
@@ -15,6 +9,11 @@ from PySide6.QtWidgets import (
     QPushButton,
     QScrollArea,
 )
+
+from .cctv import CCVTPlayer
+from .ml_process import ml_worker
+from .frame_process import frame_worker
+from .update_process import update_worker
 
 
 class Tab2Content(QGroupBox):

@@ -10,7 +10,7 @@
             "parking_time": " ",
             "emptied_time": " ",
             "confidence": "0",
-            "pixel_count": 818
+            "pixel_count": 838
         },
         {
             "cctv_cam": "0",
@@ -19,10 +19,10 @@
             "user_name": " ",
             "car_no": " ",
             "booking_time": " ",
-            "parking_time": "2025-05-29 17:13:59",
+            "parking_time": "2025-05-29 23:24:57",
             "emptied_time": " ",
-            "confidence": "99",
-            "pixel_count": 1604
+            "confidence": "98",
+            "pixel_count": 1562
         },
         {
             "cctv_cam": "0",
@@ -31,10 +31,10 @@
             "user_name": " ",
             "car_no": " ",
             "booking_time": " ",
-            "parking_time": "2025-05-29 17:14:01",
+            "parking_time": "2025-05-29 23:24:59",
             "emptied_time": " ",
-            "confidence": "0",
-            "pixel_count": 2638
+            "confidence": "99",
+            "pixel_count": 2365
         },
         {
             "cctv_cam": "0",
@@ -43,10 +43,10 @@
             "user_name": " ",
             "car_no": " ",
             "booking_time": " ",
-            "parking_time": "2025-05-29 17:14:01",
+            "parking_time": "2025-05-29 23:24:59",
             "emptied_time": " ",
-            "confidence": "0",
-            "pixel_count": 2022
+            "confidence": "74",
+            "pixel_count": 1801
         },
         {
             "cctv_cam": "0",
@@ -58,7 +58,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 2400
+            "pixel_count": 2415
         },
         {
             "cctv_cam": "0",
@@ -70,7 +70,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 2209
+            "pixel_count": 2004
         },
         {
             "cctv_cam": "0",
@@ -82,7 +82,7 @@
             "parking_time": " ",
             "emptied_time": " ",
             "confidence": "0",
-            "pixel_count": 444
+            "pixel_count": 729
         },
         {
             "cctv_cam": "0",
@@ -94,7 +94,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 1977
+            "pixel_count": 2258
         },
         {
             "cctv_cam": "1",
@@ -105,8 +105,8 @@
             "booking_time": " ",
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
-            "confidence": "99",
-            "pixel_count": 1637
+            "confidence": "94",
+            "pixel_count": 1589
         },
         {
             "cctv_cam": "1",
@@ -118,7 +118,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 1679
+            "pixel_count": 1717
         },
         {
             "cctv_cam": "1",
@@ -130,7 +130,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 2581
+            "pixel_count": 2566
         },
         {
             "cctv_cam": "1",
@@ -142,7 +142,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 2345
+            "pixel_count": 2356
         },
         {
             "cctv_cam": "1",
@@ -153,8 +153,8 @@
             "booking_time": " ",
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
-            "confidence": "99",
-            "pixel_count": 2124
+            "confidence": "97",
+            "pixel_count": 2034
         },
         {
             "cctv_cam": "1",
@@ -166,7 +166,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 1821
+            "pixel_count": 1683
         },
         {
             "cctv_cam": "1",
@@ -178,7 +178,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 2279
+            "pixel_count": 2480
         },
         {
             "cctv_cam": "1",
@@ -189,8 +189,8 @@
             "booking_time": " ",
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
-            "confidence": "3",
-            "pixel_count": 1608
+            "confidence": "99",
+            "pixel_count": 2327
         },
         {
             "cctv_cam": "1",
@@ -201,8 +201,8 @@
             "booking_time": " ",
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
-            "confidence": "98",
-            "pixel_count": 2063
+            "confidence": "99",
+            "pixel_count": 1932
         },
         {
             "cctv_cam": "2",
@@ -214,7 +214,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 1649
+            "pixel_count": 1669
         },
         {
             "cctv_cam": "2",
@@ -224,9 +224,9 @@
             "car_no": " ",
             "booking_time": " ",
             "parking_time": " ",
-            "emptied_time": "2025-05-29 17:14:01",
+            "emptied_time": "2025-05-29 23:24:59",
             "confidence": "99",
-            "pixel_count": 1399
+            "pixel_count": 1419
         },
         {
             "cctv_cam": "2",
@@ -238,7 +238,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 2061
+            "pixel_count": 1966
         },
         {
             "cctv_cam": "2",
@@ -250,7 +250,7 @@
             "parking_time": "2025-05-29 17:13:55",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 1672
+            "pixel_count": 1704
         },
         {
             "cctv_cam": "2",
@@ -262,7 +262,7 @@
             "parking_time": " ",
             "emptied_time": " ",
             "confidence": "0",
-            "pixel_count": 262
+            "pixel_count": 70
         },
         {
             "cctv_cam": "2",
@@ -271,10 +271,10 @@
             "user_name": " ",
             "car_no": " ",
             "booking_time": " ",
-            "parking_time": "2025-05-29 17:13:55",
+            "parking_time": "2025-05-29 23:25:01",
             "emptied_time": " ",
             "confidence": "99",
-            "pixel_count": 1693
+            "pixel_count": 1533
         }
     ]
 }

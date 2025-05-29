@@ -1,11 +1,11 @@
+from PySide6.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton
+from PySide6.QtGui import QShortcut, QKeySequence
+
 from .canvas import Canvas
 from data import source_count
 
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QPushButton
-from PySide6.QtGui import QShortcut, QKeySequence
 
-
-class Tab3Content(QWidget):
+class Tab3Content(QGroupBox):
     def __init__(self, tab1, tab2):
         super().__init__()
         self.tab1_instance = tab1
@@ -13,6 +13,7 @@ class Tab3Content(QWidget):
         self.canvas = Canvas(self.tab1_instance, self.tab2_instance)
         self.current_background_button = None
 
+        self.setObjectName("tab3")
         self.load_stylesheet()
         self.setup_ui()
         self.add_shortcuts()

@@ -8,7 +8,7 @@
     background-color: #FF9800;
     border-radius: 5px;
     padding: 5px 10px;
-    color: white;
+    color: #1C1C1C;
     font-weight: bold;
 }
 
@@ -18,7 +18,7 @@
     border: 2px solid #1C1C1C;
     border-radius: 7.5px;
     padding: 5px 10px;
-    color: white;
+    color: #E0E0E0;
 }
 
 #cctv_button[active="true"] {

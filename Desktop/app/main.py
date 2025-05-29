@@ -1,5 +1,3 @@
-from set_logging import set_logging_config
-
 from tab1 import Tab1Content
 from tab2 import Tab2Content
 from tab3 import Tab3Content
@@ -13,6 +11,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
+
+from set_logging import set_logging_config
 
 
 class MainWindow(QMainWindow):
@@ -57,7 +57,7 @@ class MainWindow(QMainWindow):
         self.tab_widget.addTab(self.tab3, "Area Selector")
 
         # Set Tab 1 as the default tab
-        self.tab_widget.setCurrentIndex(1)
+        self.tab_widget.setCurrentIndex(2)
 
         # Set the central widget
         self.setCentralWidget(self.tab_widget)
@@ -78,7 +78,7 @@ class MainWindow(QMainWindow):
         """Dynamically adjust tab widths when the window is resized."""
         total_width = self.width()
         tab_count = self.tab_widget.count()
-        tab_width = total_width // tab_count
+        tab_width = total_width / tab_count
 
         # Dynamically adjust tab width in the stylesheet
         self.tab_widget.setStyleSheet(f"""
