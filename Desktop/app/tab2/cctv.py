@@ -1,196 +1,260 @@
-from data import get_rect_data, get_slot_data, save_slot_data
-
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
-from PySide6.QtCore import QTimer, Qt
-from PySide6.QtGui import QPixmap, QImage
+import time
 import cv2
 import numpy as np
-import datetime
+import logging
+
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
+from PySide6.QtCore import Qt, QObject, Signal, Slot, QThread, QSize
+from PySide6.QtGui import QPixmap, QImage
+
+from .frame_process import current_frames, processed_frames, frame_lock, processed_lock
+
+
+class FrameReader(QObject):
+    frameReady = Signal(np.ndarray)
+    errorOccurred = Signal(str)
+    readerStopped = Signal()
+
+    def __init__(self, index: int, video_path: str, target_fps: int = 30):
+        super().__init__()
+        self.index = index
+        self.video_path = video_path
+        self._running = False
+        self.cap = None
+        self.target_delay = 1.0 / target_fps if target_fps > 0 else 0
+
+    @Slot()
+    def run(self):
+        self._running = True
+        logging.info(f"FrameReader [{self.index}]: Starting for {self.video_path}")
+        self.cap = cv2.VideoCapture(self.video_path)
+
+        if not self.cap.isOpened():
+            error_msg = f"Error: Could not open video source {self.video_path}"
+            logging.error(f"FrameReader [{self.index}]: {error_msg}")
+            self.errorOccurred.emit(error_msg)
+            self._running = False
+            self.readerStopped.emit()
+            return
+
+        while self._running:
+            start_time = time.time()
+            try:
+                ret, frame = self.cap.read()
+                if ret:
+                    self.frameReady.emit(frame)
+                elif self.cap.isOpened():
+                    logging.info(
+                        f"FrameReader [{self.index}]: End of stream, looping..."
+                    )
+                    self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                    continue
+                else:
+                    logging.info(
+                        f"FrameReader [{self.index}]: Read error or stream closed."
+                    )
+                    self._running = False
+                    break
+
+                elapsed_time = time.time() - start_time
+                sleep_time = self.target_delay - elapsed_time
+                if sleep_time > 0:
+                    time.sleep(sleep_time)
+
+            except Exception as e:
+                error_msg = f"Error during frame read/emit: {e}"
+                logging.info(f"FrameReader [{self.index}]: {error_msg}")
+                self.errorOccurred.emit(error_msg)
+                time.sleep(1)
+
+        if self.cap and self.cap.isOpened():
+            self.cap.release()
+        logging.info(f"FrameReader [{self.index}]: Releasing capture and stopping.")
+        self.readerStopped.emit()
+
+    @Slot()
+    def stop(self):
+        """Signals the reading loop to stop."""
+        logging.info(f"FrameReader [{self.index}]: Stop requested.")
+        self._running = False
 
 
 class CCVTPlayer(QWidget):
-    def __init__(self, index, video_path, tab1_instance):
+    def __init__(self, index: int, video_path: str):
         super().__init__()
-        self.tab1_instance = tab1_instance
         self.index = index
-        self.debugging = False
         self.video_path = video_path
+        self.last_processed_pixmap = None  # Cache the last pixmap to reduce conversions
+
         self.init_ui()
 
-        self.cap = cv2.VideoCapture(self.video_path)
-        if self.cap.isOpened():
-            self.timer = QTimer(self)
-            self.timer.timeout.connect(self.update_frame)
-            self.timer.start(33)  # Approx. 30 FPS
-        else:
-            self.video_label.setText(f"Error: Could not open {self.video_path}")
+        self.thread = QThread(self)
+        self.reader = FrameReader(self.index, self.video_path)
+        self.reader.moveToThread(self.thread)
+
+        self.thread.started.connect(self.reader.run)
+        self.reader.frameReady.connect(self.handleFrame)
+        self.reader.errorOccurred.connect(self.handleError)
+
+        self.reader.readerStopped.connect(self.thread.quit)
+        self.reader.destroyed.connect(self.thread.quit)
+        # Optional: Wait for thread to finish gracefully if needed
+        self.thread.finished.connect(self.onThreadFinished)
+
+        self.thread.start()
+
+        logging.info(f"CCVTPlayer [{self.index}]: Initialized and thread started.")
 
     def init_ui(self):
-        """Initialize the UI for the video player."""
-        self.video_label = QLabel("Loading...")
+        self.video_label = QLabel("Initializing Stream...")
         self.video_label.setAlignment(Qt.AlignCenter)
-        self.video_label.setScaledContents(True)
 
         layout = QVBoxLayout()
-        layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
-        layout.setSpacing(0)  # Remove spacing
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(0)
         layout.addWidget(self.video_label)
         self.setLayout(layout)
+        self.setMinimumSize(160, 90)
 
-    def update_frame(self):
-        """Update the video frame."""
-        ret, frame = self.cap.read()
-        if ret:
-            self.video_label.setPixmap(self.convert_frame_to_pixmap(frame))
-        else:
-            self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Loop the video
+    @Slot(np.ndarray)
+    def handleFrame(self, frame_bgr):
+        if frame_bgr is None or not hasattr(self, "index"):
+            return
 
-    def get_local_data(self):
-        all_rectangle_data = get_rect_data()
-        rectangle_data = all_rectangle_data.get(str(self.index))
-        return rectangle_data if rectangle_data else []
+        frame_rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
 
-    def update_parking(self, index):
-        slots = get_slot_data()
-        if slots[index - 1]["status"] == 0:
-            parking_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            self.tab1_instance.slots[index - 1].add_parking_details(
-                parking_time=parking_time
-            )
-            slots[index - 1]["status"] = 2
-            slots[index - 1]["parking_time"] = parking_time
-            save_slot_data(data=slots)
+        with frame_lock:
+            current_frames[self.index] = frame_rgb
 
-    def clear_parking(self, index):
-        slots = get_slot_data()
-        if slots[index - 1]["status"] != 0:
-            self.tab1_instance.slots[index - 1].clear_parking_details()
-            slots[index - 1]["status"] = 0
-            slots[index - 1]["parking_time"] = ""
-            save_slot_data(data=slots)
+        processed_frame_rgb = None
+        with processed_lock:
+            processed_frame_rgb = processed_frames.get(self.index, None)
 
-    def process_image(self, frame):
-        h, w, ch = frame.shape
-        imgGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
-        imgThreshold = cv2.adaptiveThreshold(
-            imgBlur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 25, 16
-        )
-        imgMedian = cv2.medianBlur(imgThreshold, 5)
-        kernel = np.ones((3, 3), np.uint8)
-        imgDilate = cv2.dilate(imgMedian, kernel, iterations=1)
-        imgDilate = cv2.cvtColor(imgDilate, cv2.COLOR_GRAY2RGB)
+        if processed_frame_rgb is not None:
+            try:
+                h, w, ch = processed_frame_rgb.shape
+                if h > 0 and w > 0:
+                    bytes_per_line = ch * w
+                    q_image = QImage(
+                        processed_frame_rgb.data,
+                        w,
+                        h,
+                        bytes_per_line,
+                        QImage.Format_RGB888,
+                    )
+                    # Create a persistent copy for the pixmap to avoid issues with underlying buffer changes
+                    q_image_copy = q_image.copy()
+                    self.last_processed_pixmap = QPixmap.fromImage(q_image_copy)
 
-        # take the imgDilate as the frame for checking the processed image
-        if self.debugging:
-            frame = imgDilate
+                    # Display the pixmap, scaled to the label's size
+                    current_size = self.video_label.size()
+                    if not current_size.isEmpty():
+                        scaled_pixmap = self.last_processed_pixmap.scaled(
+                            current_size, Qt.KeepAspectRatio, Qt.SmoothTransformation
+                        )
+                        self.video_label.setPixmap(scaled_pixmap)
+                    else:  # Fallback if size is somehow zero
+                        self.video_label.setPixmap(self.last_processed_pixmap)
 
-        rectangles = self.get_local_data()  # Get rectangle data
-        for rect in rectangles:
-            x = int(rect["x"] * w)
-            y = int(rect["y"] * h)
-            width = int(rect["width"] * w)
-            height = int(rect["height"] * h)
-            angle = rect["rotation"]  # Rotation angle
+            except Exception as e:
+                logging.info(
+                    f"CCVTPlayer [{self.index}]: Error converting processed frame to QPixmap: {e}"
+                )
+                self.video_label.clear()
+                self.video_label.setText("Display Error")
 
-            rect_center = (
-                x + width // 2,
-                y + height // 2,
-            )  # Define center of the rectangle
-            rect_box = (
-                (rect_center[0], rect_center[1]),
-                (width, height),
-                angle,
-            )  # Create rotated bounding box
-            box_pts = cv2.boxPoints(rect_box)  # Get corner points
-            box_pts = np.array(box_pts, np.int32)  # Convert to integer
+    @Slot(str)
+    def handleError(self, error_message):
+        """Displays an error message on the video label."""
+        logging.info(f"CCVTPlayer [{self.index}]: Received error: {error_message}")
+        self.video_label.setText(error_message)
+        # Consider stopping the reader/thread on critical errors
+        self.reader.stop()
 
-            # Rotate image and extract region
-            rotation_matrix = cv2.getRotationMatrix2D(rect_center, angle, 1.0)
-            img_rotated = cv2.warpAffine(imgDilate, rotation_matrix, (w, h))
-
-            # Crop the rotated area
-            x_min, y_min = np.min(box_pts, axis=0)
-            x_max, y_max = np.max(box_pts, axis=0)
-
-            # Ensure cropping remains within image boundaries
-            x_min = max(0, x_min)
-            y_min = max(0, y_min)
-            x_max = min(w, x_max)
-            y_max = min(h, y_max)
-
-            img_crop = img_rotated[y_min:y_max, x_min:x_max]
-
-            if img_crop.size == 0:
-                continue  # Skip if the cropped region is invalid
-
-            count = cv2.countNonZero(
-                cv2.cvtColor(img_crop, cv2.COLOR_RGB2GRAY)
-            )  # Count non-zero pixels
-
-            if (
-                count > 1500
-            ):  # Determine parking status, Blue for occupied, Green for free
-                color = (255, 0, 0)
-                self.update_parking(rect["index"])
+    def get_current_frame_pixmap(self, processed: bool = True) -> QPixmap | None:
+        frame_rgb = None
+        if processed:
+            if self.last_processed_pixmap and not self.last_processed_pixmap.isNull():
+                return self.last_processed_pixmap.copy()
             else:
-                color = (0, 255, 0)
-                self.clear_parking(rect["index"])
+                with processed_lock:
+                    frame_rgb = processed_frames.get(self.index, None)
+        else:
+            with frame_lock:
+                frame_rgb = current_frames.get(self.index, None)
 
-            cv2.polylines(
-                frame, [box_pts], isClosed=True, color=color, thickness=2
-            )  # Draw rotated rectangle
-            cv2.putText(
-                frame,
-                f"{count}",
-                (x + 5, y + height - 5),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                color,
-                2,
-            )  # added pixel count
-            cv2.putText(
-                frame,
-                f"{rect['index']}",
-                (x + width // 2, y + height // 2),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.5,
-                color,
-                2,
-            )  # added index
+        if frame_rgb is not None:
+            try:
+                h, w, ch = frame_rgb.shape
+                if h > 0 and w > 0:
+                    bytes_per_line = ch * w
+                    q_image = QImage(
+                        frame_rgb.data, w, h, bytes_per_line, QImage.Format_RGB888
+                    )
+                    return QPixmap.fromImage(q_image.copy())
+            except Exception as e:
+                logging.info(
+                    f"CCVTPlayer [{self.index}]: Error converting frame_rgb to QPixmap in get_current_frame: {e}"
+                )
 
-        return frame
-
-    def convert_frame_to_pixmap(self, frame, no_process=False):
-        """Convert OpenCV frame to QPixmap with rectangles overlay."""
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        if not no_process:
-            frame = self.process_image(frame)
-
-        # Convert to QPixmap
-        h, w, ch = frame.shape
-        bytes_per_line = ch * w
-        image = QImage(frame.data, w, h, bytes_per_line, QImage.Format_RGB888)
-        return QPixmap.fromImage(image)
-
-    def get_current_frame(self):
-        """Capture the current frame from the video and return it as a QPixmap."""
-        if self.cap.isOpened():
-            ret, frame = self.cap.read()
-            if ret:
-                return self.convert_frame_to_pixmap(frame, no_process=True)
         return None
 
     def set_video_size(self, width, height):
-        """Resize the video display area while maintaining a 16:9 aspect ratio."""
-        aspect_height = width * 9 // 16
-        if aspect_height > height:  # Adjust if height exceeds the allowed limit
-            aspect_height = height
-            width = aspect_height * 16 // 9
-        self.video_label.setFixedSize(width, aspect_height)
+        if width <= 0 or height <= 0:
+            return
+
+        aspect_ratio = 16.0 / 9.0
+        target_height = height
+        target_width = int(target_height * aspect_ratio)
+
+        # If calculated width exceeds available width, recalculate based on width
+        if target_width > width:
+            target_width = width
+            target_height = int(target_width / aspect_ratio)
+
+        # Ensure calculated dimensions are not zero
+        target_width = max(1, target_width)
+        target_height = max(1, target_height)
+
+        new_size = QSize(target_width, target_height)
+        if self.video_label.size() != new_size:
+            self.video_label.setFixedSize(new_size)
+            # Update pixmap scaling if needed (optional, handleFrame might cover it)
+            if self.last_processed_pixmap and not self.last_processed_pixmap.isNull():
+                scaled_pixmap = self.last_processed_pixmap.scaled(
+                    new_size, Qt.KeepAspectRatio, Qt.SmoothTransformation
+                )
+                self.video_label.setPixmap(scaled_pixmap)
+
+    @Slot()
+    def onThreadFinished(self):
+        logging.info(f"CCVTPlayer [{self.index}]: Reader thread finished.")
+
+    def stop_reading(self):
+        logging.info(f"CCVTPlayer [{self.index}]: Requesting reader stop...")
+        if hasattr(self, "reader") and self.reader is not None:
+            self.reader.stop()
 
     def closeEvent(self, event):
-        """Release resources on close."""
-        if self.cap.isOpened():
-            self.cap.release()
+        logging.info(f"CCVTPlayer [{self.index}]: Close event triggered.")
+        self.stop_reading()
+
+        if hasattr(self, "thread") and self.thread is not None:
+            logging.info(
+                f"CCVTPlayer [{self.index}]: Quitting and waiting for thread..."
+            )
+            self.thread.quit()
+            # Wait for thread to finish. Adjust timeout as needed.
+            if not self.thread.wait(3000):  # Wait max 3 seconds
+                logging.info(
+                    f"CCVTPlayer [{self.index}]: Warning: Thread did not finish gracefully. Terminating."
+                )
+                self.thread.terminate()  # Force termination if necessary
+            else:
+                logging.info(f"CCVTPlayer [{self.index}]: Thread finished.")
+
+        # Clean up references
+        self.reader = None
+        self.thread = None
+        logging.info(f"CCVTPlayer [{self.index}]: Cleanup complete.")
         super().closeEvent(event)

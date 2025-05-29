@@ -1,3 +1,7 @@
+from tab1 import Tab1Content
+from tab2 import Tab2Content
+from tab3 import Tab3Content
+
 from PySide6.QtWidgets import (
     QApplication,
     QMainWindow,
@@ -7,9 +11,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
-from tab1 import Tab1Content
-from tab2 import Tab2Content
-from tab3 import Tab3Content
+
+from set_logging import set_logging_config
 
 
 class MainWindow(QMainWindow):
@@ -24,13 +27,14 @@ class MainWindow(QMainWindow):
 
         # Create a QTabWidget
         self.tab_widget = QTabWidget()
+        self.tab_widget.setObjectName("mainWindow")
 
         # Set tab position to the top
         self.tab_widget.setTabPosition(QTabWidget.North)
 
         # Create tabs
         self.tab1 = Tab1Content()
-        self.tab2 = Tab2Content(self.tab1)
+        self.tab2 = Tab2Content()
         self.tab3 = Tab3Content(self.tab1, self.tab2)
 
         # Set up tab1 content
@@ -52,8 +56,8 @@ class MainWindow(QMainWindow):
         self.tab_widget.addTab(self.tab2, "CCTV")
         self.tab_widget.addTab(self.tab3, "Area Selector")
 
-        # Set Tab 3 as the default tab
-        self.tab_widget.setCurrentIndex(0)
+        # Set Tab 1 as the default tab
+        self.tab_widget.setCurrentIndex(2)
 
         # Set the central widget
         self.setCentralWidget(self.tab_widget)
@@ -74,12 +78,12 @@ class MainWindow(QMainWindow):
         """Dynamically adjust tab widths when the window is resized."""
         total_width = self.width()
         tab_count = self.tab_widget.count()
-        tab_width = total_width // tab_count
+        tab_width = total_width / tab_count
 
         # Dynamically adjust tab width in the stylesheet
         self.tab_widget.setStyleSheet(f"""
             QTabBar::tab {{
-                width: {tab_width - 55}px; /* Dynamically adjust tab width */
+                width: {tab_width - 11}px; /* Dynamically adjust tab width */
             }}
         """)
 
@@ -88,6 +92,7 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    set_logging_config()
     app = QApplication([])
     window = MainWindow()
     window.show()

@@ -1,25 +1,77 @@
+#tab1Main {
+    background: #333333;
+    border: none;
+}
+
 #providerDetails {
-    background-color: #cbd5e0;
+    background: #1C1C1C;
     border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
 }
 
 #providerDetails>QLabel {
     font-weight: bold;
     font-size: 16px;
+    color: #E0E0E0;
+}
+
+#scrollArea {
+    background: #333333;
+    border: none;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+#scrollWidget {
+    background: #1C1C1C;
+    border-radius: 10px;
+}
+#detailsBoxLayout{
+    border-radius: 10px;
 }
 
 #parkingDetails {
+    background: #28536B;
     border-radius: 10px;
-    background: #cbd5e0;
-    margin-top: 5px;
+    margin: 2px;
+    padding: 0 5px;
 }
 
 #parkingDetails>QLabel {
-    font-size: 14px;
-    color: #333;
+    font-weight: bold;
+    font-size: 12px;
+    color: #E0E0E0;
+    padding: 0;
+    margin: 0;
 }
 
-QScrollArea {
-    border: none;
-    border-radius: 10px;
+#statusLabel {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+QScrollBar:vertical {
+    background-color: #1C1C1C;
+    width: 25px;
+    margin: 0 5px;
+    border-radius: 7px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #333333;
+    color: #1C1C1C;
+    min-height: 5px;
+    border-radius: 4px;
+    margin: 3px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
+    border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
 }

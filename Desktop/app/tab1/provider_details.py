@@ -19,6 +19,7 @@ class ProviderDetails(QGroupBox):
 
     def init_ui(self):
         layout = QVBoxLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
         name_box = QHBoxLayout()
         self.park_name_label = QLabel(f"Park Name: {self.park_name}")
         self.provider_name_label = QLabel(f"Park Name: {self.provider_name}")

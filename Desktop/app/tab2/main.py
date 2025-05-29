@@ -1,33 +1,42 @@
-from .cctv import CCVTPlayer
 from data import source_count, get_video
 import math
+import threading
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QWidget,
+    QGroupBox,
     QVBoxLayout,
     QHBoxLayout,
     QPushButton,
     QScrollArea,
 )
 
+from .cctv import CCVTPlayer
+from .ml_process import ml_worker
+from .frame_process import frame_worker
+from .update_process import update_worker
 
-class Tab2Content(QWidget):
-    def __init__(self, tab1):
+
+class Tab2Content(QGroupBox):
+    def __init__(self):
         super().__init__()
-        self.tab1_instance = tab1
         self.grid_view = True
         self.selected_window = 0  # Default to the first CCTV window
         self.cctv_windows = []
         self.selected_button = None
 
+        threading.Thread(target=ml_worker, daemon=True).start()
+        threading.Thread(target=frame_worker, daemon=True).start()
+        threading.Thread(target=update_worker, daemon=True).start()
+
         # Initialize the UI components
+        self.setObjectName("tab2")
         self.load_stylesheet()
         self.create_cctv_windows()
 
         # Main layout
         main_layout = QVBoxLayout()
-        # main_layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
-        main_layout.setSpacing(0)  # Remove spacing
+        main_layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
+        main_layout.setSpacing(10)  # Remove spacing
         main_layout.addLayout(self.create_control_buttons())
 
         self.cctv_layout = QVBoxLayout()
@@ -119,14 +128,14 @@ class Tab2Content(QWidget):
         """Generate a grid layout for CCTV windows."""
         layout = QVBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
-        layout.setSpacing(0)  # Remove spacing
+        layout.setSpacing(5)  # Remove spacing
         self.row_size = math.ceil(math.sqrt(len(self.cctv_windows)))
         index = 0
 
         for _ in range(self.row_size):
             row = QHBoxLayout()
             row.setContentsMargins(0, 0, 0, 0)  # Remove margins
-            row.setSpacing(0)  # Remove spacing
+            row.setSpacing(5)  # Remove spacing
             for _ in range(self.row_size):
                 if index >= len(self.cctv_windows):
                     break
@@ -141,7 +150,7 @@ class Tab2Content(QWidget):
         """Generate a layout for single-view mode."""
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(0)
+        layout.setSpacing(5)
         layout.addWidget(
             self.cctv_windows[self.selected_window], stretch=7
         )  # Add the selected window (takes 75% of the width)
@@ -156,10 +165,10 @@ class Tab2Content(QWidget):
         )  # Hide horizontal scrollbar
         scroll_area.setContentsMargins(0, 0, 0, 0)  # Remove scroll area margins
 
-        side_widget = QWidget()
+        side_widget = QGroupBox()
         side_layout = QVBoxLayout(side_widget)
         side_layout.setContentsMargins(0, 0, 0, 0)  # Remove side widget margins
-        side_layout.setSpacing(0)
+        side_layout.setSpacing(5)
         for i, cctv_window in enumerate(self.cctv_windows):
             if i != self.selected_window:
                 side_layout.addWidget(cctv_window)
@@ -175,10 +184,7 @@ class Tab2Content(QWidget):
         # Clear previous windows to avoid stale references
         self.cctv_windows.clear()
         self.cctv_windows = [
-            CCVTPlayer(
-                index=i, video_path=get_video(i), tab1_instance=self.tab1_instance
-            )
-            for i in range(source_count())
+            CCVTPlayer(index=i, video_path=get_video(i)) for i in range(source_count())
         ]
 
     def clear_layout(self, layout):
@@ -242,6 +248,6 @@ class Tab2Content(QWidget):
     def current_window_image(self, index):
         """Retrieve the current frame from a specific CCTV window."""
         if 0 <= index < len(self.cctv_windows):
-            return self.cctv_windows[index].get_current_frame()
+            return self.cctv_windows[index].get_current_frame_pixmap(processed=False)
         print(f"Error: Invalid index {index}. Returning None.")
         return None

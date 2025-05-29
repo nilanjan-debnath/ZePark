@@ -1,17 +1,19 @@
 from .parking_slot import create_slot_data
 import json
+import threading
 
 rect_data = "app/data/resource/json/rectangles.json"
 
 
 def get_rect_data():
-    try:
-        with open(rect_data, "r") as file:
-            all_rectangle_data = json.load(file)
-            # print(all_rectangle_data)
-        return all_rectangle_data
-    except FileNotFoundError:
-        return {}
+    with threading.Lock():
+        try:
+            with open(rect_data, "r") as file:
+                all_rectangle_data = json.load(file)
+                # print(all_rectangle_data)
+            return all_rectangle_data
+        except FileNotFoundError:
+            return {}
 
 
 def save_rect_data(data):
@@ -32,3 +34,11 @@ def arrange_data(data: dict):
             value["index"] = count
             count += 1
     return data
+
+
+def restart_slot():
+    data = get_rect_data()
+    save_rect_data(data)
+
+
+# restart_slot()
