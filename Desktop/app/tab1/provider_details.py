@@ -28,17 +28,8 @@ class ProviderDetails(QGroupBox):
 
         self.address_label = QLabel(f"Address: {self.address}")
 
-        count_box = QHBoxLayout()
-        self.empty_label = QLabel(f"Empty: {self.empty_count}")
-        self.booked_label = QLabel(f"Booked: {self.booked_count}")
-        self.parked_label = QLabel(f"Parked: {self.parked_count}")
-        count_box.addWidget(self.empty_label)
-        count_box.addWidget(self.booked_label)
-        count_box.addWidget(self.parked_label)
-
         layout.addLayout(name_box)
         layout.addWidget(self.address_label)
-        layout.addLayout(count_box)
 
         self.setLayout(layout)
         self.setObjectName("providerDetails")

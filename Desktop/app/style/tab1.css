@@ -6,7 +6,7 @@
 #providerDetails {
     background: #1C1C1C;
     border-radius: 10px;
-    margin: 10px;
+    margin: 0 10px;
     padding: 15px;
 }
 
@@ -35,19 +35,18 @@
     background: #28536B;
     border-radius: 10px;
     margin: 2px;
-    padding: 0 5px;
+    padding: 0;
 }
 
 #parkingDetails>QLabel {
     font-weight: bold;
     font-size: 12px;
     color: #E0E0E0;
-    padding: 0;
+    padding: 5px;
     margin: 0;
 }
 
 #statusLabel {
-    padding: 5px;
     border-radius: 5px;
 }
 
@@ -74,4 +73,37 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical{
 
 QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     background: none;
+}
+
+#countBox {
+    background: #1C1C1C;
+    border-radius: 10px;
+    border: none;
+    margin: 0 10px;
+    padding: 5px;
+}
+
+#countBox>QLabel {
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#parkedLabel {
+    background: #F44336;
+    color: #1C1C1C;
+}
+#bookedLabel {
+    background: #FF9800;
+    color: #1C1C1C;
+}
+#emptyLabel {
+    background: #4CAF50;
+    color: #E0E0E0;
+}
+#totalLabel {
+    background: #28536B;
+    color: #E0E0E0;
 }

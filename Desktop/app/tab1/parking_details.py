@@ -5,7 +5,7 @@ import datetime
 
 class ParkingDetails(QGroupBox):
     STATUS_MAP = {
-        0: ("EMPTY", "#4CAF50", "#1C1C1C"),  # Green for Empty
+        0: ("EMPTY", "#4CAF50", "#E0E0E0"),  # Green for Empty
         1: ("BOOKED", "#FF9800", "#1C1C1C"),  # Yellow for Booked
         2: ("PARKED", "#F44336", "#1C1C1C"),  # Red for Parked
     }
@@ -27,7 +27,6 @@ class ParkingDetails(QGroupBox):
         self.status_label = QLabel()
         self.status_label.setAlignment(Qt.AlignCenter)
         self.status_label.setObjectName("statusLabel")
-        self.status_label.setContentsMargins(0, 0, 0, 0)
 
         self.slot_no_label = QLabel(f"Slot No: {self.slot_no}")
         self.user_label = QLabel()
@@ -64,7 +63,6 @@ class ParkingDetails(QGroupBox):
             f"""
             color: {text_color};
             background-color: {bg_color};
-            padding: 5px;
             """
         )
 
