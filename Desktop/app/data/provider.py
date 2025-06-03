@@ -28,6 +28,9 @@ def get_provider_details():
     return provider_details
 
 
-def update_count(category, count):
-    provider_details.update({category: count})
+def update_count(parked_count, booked_count, empty_count):
+    provider_details.update({"parked slots": parked_count})
+    provider_details.update({"booked slots": booked_count})
+    provider_details.update({"empty slots": empty_count})
+    provider_details.update({"total slots": parked_count + booked_count + empty_count})
     save_provider_details()

@@ -1,12 +1,11 @@
 {
-  "area name": "Demo Area",
-  "provider name": "Demo Name",
-  "mail": "",
-  "total_slots": "",
-  "phone": "",
-  "address": "",
-  "name": "Demo parking area of 69 slots",
-  "empty slots": 69,
-  "booked slots":16,
-  "parked slots": 45
+    "area name": "Demo Area",
+    "provider name": "Demo Name",
+    "mail": "",
+    "total slots": 23,
+    "phone": "",
+    "address": "",
+    "empty slots": 5,
+    "booked slots": 0,
+    "parked slots": 18
 }
